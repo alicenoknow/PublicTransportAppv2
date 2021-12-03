@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import { connect } from 'react-redux';
+import { Container } from "react-bootstrap";
+import Routes from "./routes/Routes"
+
 import './App.css';
+import Header from './components/Header';
+import { pointLayerConfig } from './keplerConfig/pointLayerConfig';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Container className={"App"} fluid>
+        <Header />
+        <Routes layerConfigs={[pointLayerConfig]} />
+      </Container>
+    </React.Fragment>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({});
+
+export default connect(mapStateToProps)(App);
