@@ -17,6 +17,7 @@ class Header extends Component {
             show: show
         });
     }
+    
     render() {
         return (
             <Navbar bg="dark" variant="dark" sticky="top" expand="lg">

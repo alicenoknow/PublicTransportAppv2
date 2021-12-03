@@ -1,6 +1,6 @@
 export const interactionConfig = {
     "tooltip": {
-        "covid_19_data": {
+        "public_transport_data": {
             "earthquakes": [
                 "confirmed",
                 "deceased",

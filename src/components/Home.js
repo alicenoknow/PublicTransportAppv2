@@ -3,6 +3,7 @@ import { Component } from "react";
 import { connect } from 'react-redux';
 import { addDataToMap } from 'kepler.gl/actions';
 import { Container } from "react-bootstrap";
+import { updateMap } from 'kepler.gl/actions';
 import KeplerMap from "./KeplerMap";
 import { pointLayerConfig } from "../keplerConfig/pointLayerConfig";
 import { mapStyleConfig } from "../keplerConfig/mapStyleConfig";
@@ -23,11 +24,11 @@ class Home extends Component {
             displayDownButton: false,
             displayUpButton: false,
             scrollPosition: 0,
-            data: 0,
+            data: [],
             layerConfigList: layerConfigList,
             mapStyle: mapStyle,
             interactionConf: interactionConf,
-            isLoading: true
+            isLoading: false
         }
 
     }
@@ -36,10 +37,13 @@ class Home extends Component {
         const config = {
             datasets: {
                 info: {
-                    label: 'Covid 19',
-                    id: 'covid_19_data'
+                    label: 'Rybnik',
+                    id: 'public_transport_data'
                 },
-                data: data
+                data: {
+                    fields: [{"name": "lat", "format": "", "type": "real"}, {"name": "lon", "format": "", "type": "real"}],
+                    rows: [[50.09449956708421, 18.543864899683406]]
+                }
             },
             option: {
                 centerMap: true,
@@ -60,18 +64,21 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        fetch('/covid_data.json')
-            .then(response => response.json())
-            .then((jsonData) => {
-                this.setState({
-                    data: jsonData,
-                    isLoading: false
-                });
-                this.loadDataOnMap(jsonData);
-            })
-            .catch((error) => {
-                console.error("Unabled to fetch json")
-            })
+        this.props.dispatch(
+            updateMap({latitude: 50.0944995670842, longitude: 18.543864899683406, zoom: 13})
+        );
+        // fetch('/covid_data.json')
+        //     .then(response => response.json())
+        //     .then((jsonData) => {
+        //         this.setState({
+        //             data: jsonData,
+        //             isLoading: false
+        //         });
+                // this.loadDataOnMap(jsonData);
+        //     })
+        //     .catch((error) => {
+        //         console.error("Unabled to fetch json")
+        //     })
     }
 
     render() {

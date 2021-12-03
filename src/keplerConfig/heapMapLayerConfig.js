@@ -2,7 +2,7 @@ export const heatMapLayerConfig = {
     "id": "78jbw4c",
     "type": "heatmap",
     "config": {
-        "dataId": "covid_19_data",
+        "dataId": "public_transport_data",
         "label": "new layer",
         "color": [
             218,

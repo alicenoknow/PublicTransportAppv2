@@ -1,7 +1,7 @@
 export const mapStyleConfig = {
-    styleType: "dark",
+    styleType: "light",
     visibleLayerGroups: {
-        border: false,
+        border: true,
         building: true,
         label: true,
         land: true,

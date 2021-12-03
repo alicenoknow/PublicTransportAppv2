@@ -2,8 +2,8 @@ export const clusterLayerConfig = {
     "id": "l2vlgiq",
     "type": "cluster",
     "config": {
-        "dataId": "covid_19_data",
-        "label": "Covid19",
+        "dataId": "public_transport_data",
+        "label": "Rybnik",
         "color": [
             23,
             184,

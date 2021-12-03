@@ -2,8 +2,8 @@ export const pointLayerConfig2 = {
     id: "cqvvbpn",
     type: "point",
     config: {
-        dataId: "covid_19_data",
-        label: "Covid19 Stats",
+        dataId: "public_transport_data",
+        label: "Public Transport Stats",
         color: [
             159,
             0,
