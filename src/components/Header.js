@@ -17,19 +17,19 @@ class Header extends Component {
             show: show
         });
     }
-    
+
     render() {
         return (
             <Navbar bg="dark" variant="dark" sticky="top" expand="lg">
                 <Navbar.Brand href="#home" className={"text-center"}>
                     Kox wizualizator
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className={"justify-content-end"}>
                     <Nav>
                         <div>Eloeleoeleo</div>
                     </Nav>
-                </Navbar.Collapse>
+                </Navbar.Collapse> */}
             </Navbar>
         );
     }

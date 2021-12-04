@@ -4,10 +4,22 @@ export const pointLayerConfig = {
     config: {
         dataId: "public_transport_data",
         label: " Rybnik",
-        color: [
-            201,
-            23,
-            23
+        // colorField: {
+        //     name: "buses",
+        //     type: "integer"
+        // },
+        // colorDomain: [1,2,3],
+        // colorScale: 'linear',
+        sizeDomain: [10, 50],
+        sizeScale: 'linear',
+        sizeField: {
+            name: "buses",
+            type: "integer"
+        },
+        highlightColor: [
+            235,
+            255,
+            155
         ],
         columns: {
             lat: "lat",
@@ -17,8 +29,8 @@ export const pointLayerConfig = {
         isVisible: true,
         visConfig: {
             radius: 50,
-            // radiusBasedOn: "confirmed",
-            // radiusField: 'confirmed',
+            radiusBasedOn: 'buses',
+            radiusField: 'buses',
             fixedRadius: false,
             opacity: 0.5,
             outline: false,
@@ -47,12 +59,12 @@ export const pointLayerConfig = {
 
     visualChannels: {
         colorField: {
-            name: "confirmed",
+            name: "buses",
             type: "integer"
         },
-        colorScale: "quantize",
+        colorScale: "linear",
         sizeField: {
-            name: "confirmed",
+            name: "buses",
             type: "integer"
         },
         sizeScale: "sqrt"

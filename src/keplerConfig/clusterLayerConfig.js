@@ -4,19 +4,31 @@ export const clusterLayerConfig = {
     "config": {
         "dataId": "public_transport_data",
         "label": "Rybnik",
-        "color": [
-            23,
-            184,
-            190
-        ],
         "columns": {
             "lat": "lat",
             "lng": "lon"
         },
-        "isVisible": false,
+        colorField: {
+            name: "buses",
+            type: "integer"
+        },
+        colorDomain: [1,2,3],
+        colorScale: 'linear',
+        sizeDomain: [10, 50],
+        sizeScale: 'linear',
+        sizeField: {
+            name: "buses",
+            type: "integer"
+        },
+        highlightColor: [
+            235,
+            255,
+            155
+        ],
+        "isVisible": true,
         "visConfig": {
             "opacity": 0.39,
-            "clusterRadius": 30.2,
+            "clusterRadius": 200.2,
             "colorRange": {
                 "name": "Global Warming",
                 "type": "sequential",
@@ -32,10 +44,10 @@ export const clusterLayerConfig = {
                 "reversed": true
             },
             "radiusRange": [
-                4.2,
-                49.4
+                10.2,
+                20.4
             ],
-            "colorAggregation": "sum"
+            "colorAggregation": "aggregation"
         },
         "hidden": false,
         "textLabel": [
@@ -58,9 +70,14 @@ export const clusterLayerConfig = {
     },
     "visualChannels": {
         "colorField": {
-            "name": "confirmed",
+            "name": "buses",
             "type": "integer"
         },
-        "colorScale": "quantile"
+        "colorScale": "linear",
+        sizeField: {
+            name: "buses",
+            type: "integer"
+        },
+        sizeScale: "sqrt"
     }
 }

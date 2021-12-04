@@ -9,9 +9,10 @@ class KeplerMap extends Component {
             <Container fluid className="p-0 bg-light">
                 {this.props.isLoading ? 
                 <Loading /> : 
+                // add padding top
                 <KeplerGl
                     id="map"
-                    width={window.innerWidth * 0.75}
+                    width={window.innerWidth * 0.99}
                     height={window.innerHeight}
                     mapboxApiAccessToken={"pk.eyJ1IjoiYWxpY2Vub2tub3ciLCJhIjoiY2txNDI3OXBnMGE2MDJwbXBvNXNic2N5eCJ9.JBfBgMVAkOOpQF7FMrpKSw"}
                 />}

@@ -20,4 +20,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+document.body.style.overflow = "hidden"
 serviceWorker.unregister();

@@ -11,7 +11,7 @@ import { pointLayerConfig } from './keplerConfig/pointLayerConfig';
 function App() {
   return (
     <React.Fragment>
-      <Container className={"App"} fluid>
+      <Container fluid className={"p-0"}>
         <Header />
         <Routes layerConfigs={[pointLayerConfig]} />
       </Container>
