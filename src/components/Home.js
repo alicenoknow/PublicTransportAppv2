@@ -13,9 +13,8 @@ class Home extends Component {
         super(props);
 
         this.state = {
-            citiesData: [],
             busStopsData: [],
-            districtsData: [],
+            renderBaseMap: false,
             isLoading: true,
         }
     }
@@ -23,7 +22,9 @@ class Home extends Component {
     finishLoading = () => this.setState({ isLoading: false });
 
     successHandler = (newData) => {
-        this.setState({ busStopsData: newData, isLoading: false }, () => {});
+        this.setState({ busStopsData: newData, isLoading: false }, 
+            () => this.setState({ renderBaseMap: true }));
+        console.warn(newData)
     }
 
     componentDidMount() {
@@ -31,11 +32,16 @@ class Home extends Component {
     }
 
     render() {
+        const { renderBaseMap, busStopsData, isLoading } = this.state;
         return (
             <Container fluid className="p-0 bg-dark" >
                 <NavPadding />
                     <SidePanel />
-                    <CustomMap isLoading={this.state.isLoading} />
+                    <CustomMap 
+                        isLoading={isLoading}
+                        renderBaseMap={renderBaseMap}
+                        data={busStopsData}
+                    />
             </Container >
         );
     }

@@ -4,7 +4,7 @@ const DISTRICTS_URL = 'https://boiling-woodland-40919.herokuapp.com/districts';
 const CITIES_URL = 'https://boiling-woodland-40919.herokuapp.com/cities';
 
 
-const fetchData = (url, successHandler) => {
+const fetchData = async (url, successHandler) => {
     fetch(url).then((response) => {
         if (response.ok) {
             return response.json();
@@ -22,8 +22,9 @@ const fetchData = (url, successHandler) => {
 }
 
 
-export const fetchBusStops = (successHandler) => {
-    return fetchData(BUS_STOPS_URL, successHandler)
+export const fetchBusStops = async (successHandler) => {
+    const result = await fetchData(BUS_STOPS_URL, successHandler);
+    return result; 
 }
 
 export const fetchDistricts = (successHandler) => {
