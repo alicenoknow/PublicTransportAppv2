@@ -11,9 +11,9 @@ import store from './redux/store';
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <link rel="stylesheet" href="https://d1a3f4spazzrp4.cloudfront.net/kepler.gl/uber-fonts/4.0.0/superfine.css"></link>
+      {/* <link rel="stylesheet" href="https://d1a3f4spazzrp4.cloudfront.net/kepler.gl/uber-fonts/4.0.0/superfine.css"></link> */}
       <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css" rel="stylesheet"></link>
-      <script src="https://unpkg.com/kepler.gl/umd/keplergl.min.js"></script>
+      {/* <script src="https://unpkg.com/kepler.gl/umd/keplergl.min.js"></script> */}
       <App />
     </Router>
   </Provider>,

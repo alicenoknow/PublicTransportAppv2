@@ -12,14 +12,12 @@ const fetchData = (url, successHandler) => {
             throw new Error('Something went wrong');
         }})
         .then((responseJson) => {
-            console.log('Success ' + responseJson);
-            successHandler && successHandler();
-            return responseJson;
+            successHandler && successHandler(responseJson);
+            return;
         })
         .catch((error) => {
             console.log('Error ' + error);
-            alert("Cannot fetch data from server. Error: " + error);
-            return null;
+            return;
     });
 }
 
@@ -33,5 +31,6 @@ export const fetchDistricts = (successHandler) => {
 }
 
 export const fetchCities = (successHandler) => {
-    return fetchData(CITIES_URL, successHandler)
+    const result = fetchData(CITIES_URL, successHandler);
+    return result;
 }

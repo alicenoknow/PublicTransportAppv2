@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Container } from "react-bootstrap";
-import Routes from "./routes/Routes"
+import Home from "./components/Home";
+
 
 import './App.css';
 import Header from './components/Header';
@@ -13,7 +14,7 @@ function App() {
     <React.Fragment>
       <Container fluid className={"p-0"}>
         <Header />
-        <Routes layerConfigs={[pointLayerConfig]} />
+        <Home layerConfigs={[pointLayerConfig]} />
       </Container>
     </React.Fragment>
   );

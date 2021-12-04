@@ -9,3 +9,9 @@ export const selectedInterval = [
     getSampleHour(12),
     getSampleHour(14)
 ];
+
+export function mapValueToHour(value) {
+  const hours = Math.floor(value).toString();
+  const minutes = value % 1 ? "30" : "00";
+  return hours + ':' + minutes;
+}

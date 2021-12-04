@@ -1,42 +1,30 @@
 import React, { Component } from "react";
-import TimeRange from "react-timeline-range-slider";
-import { format } from "date-fns";
-import { selectedInterval } from './utils/dateFormatUtils'
+import TimeSlider from './TimeSlider';
 
 class TimelineRange extends Component {
     state = {
-        error: false,
-        selectedInterval: selectedInterval,
+        selectedInterval: ["10:00", "12:00"],
     };
 
     componentDidMount() {
-        this.onChangeCallback(selectedInterval);
+        this.onChangeCallback(["10:00", "12:00"]);
     }
    
     onChangeCallback = (selectedInterval) => {
         const { onStartTimeChange, onEndTimeChange } = this.props;
-        onStartTimeChange(format(selectedInterval[0], "HH:mm"));
-        onEndTimeChange(format(selectedInterval[1], "HH:mm"));
+        onStartTimeChange(selectedInterval[0]);
+        onEndTimeChange(selectedInterval[1]);
         this.setState({ selectedInterval });
     };
 
-    errorHandler = ({ error }) => this.setState({ error });
 
     render() {
-        const { error, selectedInterval } = this.state;
+        const {selectedInterval } = this.state;
         return (
             <div>
                 <div className="timeRangeContainer">
-                <p className="selectedHours">{format(selectedInterval[0], "HH:mm")} - {format(selectedInterval[1], "HH:mm")}</p>
-                <TimeRange
-                    error={error}
-                    ticksNumber={13}
-                    selectedInterval={selectedInterval}
-                    onUpdateCallback={this.errorHandler}
-                    onChangeCallback={this.onChangeCallback}
-                    containerClassName={"timeRangeContainer"}
-                    mode={1}
-                />
+                <p className="selectedHours">{selectedInterval[0]} - {selectedInterval[1]}</p>
+                <TimeSlider onChangeCallback={this.onChangeCallback} />
                 </div>
             </div>
         );

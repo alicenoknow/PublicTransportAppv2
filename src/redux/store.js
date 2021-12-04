@@ -1,6 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import keplerGlReducer from 'kepler.gl/reducers';
-import { taskMiddleware } from "react-palm/tasks";
+// import keplerGlReducer from 'kepler.gl/reducers';
 import { UPDATE_FILTERS } from "./actionTypes";
 
 
@@ -33,24 +32,21 @@ const initialState = {
     }
 };
 
-const keplerReducer = keplerGlReducer.initialState({
-    uiState: {
-        activeSidePanel: null,
-        currentModal: null,
-        readOnly: true,
-    }
-});
+// const keplerReducer = keplerGlReducer.initialState({
+//     uiState: {
+//         activeSidePanel: null,
+//         currentModal: null,
+//         readOnly: true,
+//     }
+// });
 
 const reducers = combineReducers({
-    keplerGl: keplerReducer,
+    // keplerGl: keplerReducer,
     app: appReducer
 });
 
 
 export default createStore(
     reducers,
-    initialState,
-    applyMiddleware(
-        taskMiddleware
-    )
+    initialState
 )

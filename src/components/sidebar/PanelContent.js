@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Collapsible from 'react-collapsible';
 import { connect } from 'react-redux';
 import { updateFilters } from '../../redux/actions';
-import { getFilters } from "../../redux/selectors";
 import DateRange from './DateRange';
 import TimeRange from './TimeRange';
 import WeekDayPicker from './WeekDayPicker';
@@ -26,23 +25,39 @@ class PanelContent extends Component {
     this.props.updateFilters({ startDate, endDate, startTime, endTime, weekDays });
   }
 
+  processData = () => {
+
+  }
+
+  getFiltersSelection = () => {
+    return (
+    <Collapsible trigger="Filtruj">
+      <Collapsible className={"NestedCollapsible"} trigger="Wybierz godziny">
+        <TimeRange onStartTimeChange={this.onStartTimeChange} onEndTimeChange={this.onEndTimeChange} />
+      </Collapsible>
+      <Collapsible className={"NestedCollapsible"} trigger="Wybierz zakres dat">
+        <DateRange onStartDateChange={this.onStartDateChange} onEndDateChange={this.onEndDateChange}/>
+      </Collapsible>
+      <Collapsible className={"NestedCollapsible"} trigger="Wybierz dzień tygodnia">
+        <WeekDayPicker onWeekDaysChange={this.onWeekDaysChange} />
+      </Collapsible>
+    </Collapsible>);
+  }
+
+  getVisualizationSelection = () => {
+    return (
+      <Collapsible trigger="Wizualizuj">
+        <p>Tu będzie mozna wybrać co pokazujemy np. bubble map </p>
+      </Collapsible>
+    );
+  } 
+
   render() {
     return (
         <React.Fragment>
-            <Collapsible trigger="Filtruj">
-              <Collapsible className={"NestedCollapsible"} trigger="Wybierz godziny">
-                <TimeRange onStartTimeChange={this.onStartTimeChange} onEndTimeChange={this.onEndTimeChange} />
-              </Collapsible>
-              <Collapsible className={"NestedCollapsible"} trigger="Wybierz zakres dat">
-                <DateRange onStartDateChange={this.onStartDateChange} onEndDateChange={this.onEndDateChange}/>
-              </Collapsible>
-              <Collapsible className={"NestedCollapsible"} trigger="Wybierz dzień tygodnia">
-                <WeekDayPicker onWeekDaysChange={this.onWeekDaysChange} />
-              </Collapsible>
-            </Collapsible>
-            <Collapsible trigger="Wizualizuj">
-            <p>Tu będzie mozna wybrać co pokazujemy np. bubble map </p>
-            </Collapsible>
+            {this.getFiltersSelection()}
+            {this.getVisualizationSelection()}
+            <button onClick={this.processData} className="confirmButton">Przetwarzaj dane</button>
         </React.Fragment>
     );
   }
