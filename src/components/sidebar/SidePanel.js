@@ -14,7 +14,7 @@ class SidePanel extends Component {
     return (
       <div className={sidebarClass}>
         <button onClick={this.handleViewChange} className="sidebar-toggle">
-            {isOpen ? '>' : '<'}
+            {isOpen ? '<' : '>'}
         </button>
       </div>
     );

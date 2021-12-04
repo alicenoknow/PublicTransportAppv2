@@ -10,7 +10,8 @@ const initialState = {};
 const keplerReducer = keplerGlReducer.initialState({
     uiState: {
         activeSidePanel: null,
-        currentModal: null
+        currentModal: null,
+        readOnly: true,
     }
 });
 

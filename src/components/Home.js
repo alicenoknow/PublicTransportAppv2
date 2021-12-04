@@ -57,7 +57,7 @@ class Home extends Component {
             },
             option: {
                 centerMap: true,
-                readOnly: false
+                readOnly: true,
             },
             config: {
                 interactionConfig: this.state.interactionConfig,
