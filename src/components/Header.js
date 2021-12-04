@@ -22,7 +22,7 @@ class Header extends Component {
         return (
             <Navbar bg="dark" variant="dark" sticky="top" expand="lg">
                 <Navbar.Brand href="#home" className={"text-center"}>
-                    Kox wizualizator
+                     Wizualizator
                 </Navbar.Brand>
                 {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className={"justify-content-end"}>

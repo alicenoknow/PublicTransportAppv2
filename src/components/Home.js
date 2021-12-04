@@ -65,7 +65,7 @@ class Home extends Component {
                 visState: {
                     filters: [],
                     layerBlending: "normal",
-                    layers: [clusterLayerConfig]
+                    layers: [pointLayerConfig]
                 }
             }
         }
@@ -85,6 +85,21 @@ class Home extends Component {
         //             isLoading: false
         //         });
                 this.loadDataOnMap([]);
+            
+                fetch('https://boiling-woodland-40919.herokuapp.com/districts').then((response) => {
+                    if (response.ok) {
+                      return response.json();
+                    } else {
+                      throw new Error('Something went wrong');
+                    }
+                  })
+                  .then((responseJson) => {
+                    console.log(responseJson)
+                  })
+                  .catch((error) => {
+                    console.log(error)
+                  });
+
         //     })
         //     .catch((error) => {
         //         console.error("Unabled to fetch json")

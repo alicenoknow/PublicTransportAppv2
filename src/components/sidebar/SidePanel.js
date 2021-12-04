@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PanelContent from './PanelContent';
+import { ScrollView } from "@cantonjs/react-scroll-view";
 
 class SidePanel extends Component {
   state = {
@@ -10,12 +12,17 @@ class SidePanel extends Component {
 
   render() {
     const { isOpen } = this.state;
-    const sidebarClass = isOpen ? "sidebar-open" : "sidebar-closed";
+    const styleStatus = isOpen ? "-open" : "-closed";
     return (
-      <div className={sidebarClass}>
-        <button onClick={this.handleViewChange} className="sidebar-toggle">
+      <div className={"sidePanel" + styleStatus}>
+        <button onClick={this.handleViewChange} className="sidePanel-toggle">
             {isOpen ? '<' : '>'}
         </button>
+        <ScrollView style={{ height: '100vh' }}>
+          <div className={"panelContent" + styleStatus}>
+            <PanelContent  />
+          </div>
+        </ScrollView>
       </div>
     );
   }
