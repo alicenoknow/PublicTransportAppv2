@@ -13,6 +13,7 @@ import { clusterLayerConfig } from "../keplerConfig/clusterLayerConfig";
 import { heatMapLayerConfig } from "../keplerConfig/heatMapLayerConfig";
 import SidePanel from "./sidebar/SidePanel";
 import NavPadding from "../styled/NavPadding";
+import { fetchBusStops, fetchCities } from '../api/apiService';
 
 
 
@@ -44,16 +45,7 @@ class Home extends Component {
                     label: 'Rybnik',
                     id: 'public_transport_data'
                 },
-                data: { fields: [{"name": "buses", "format": "", "type": "integer"}, 
-                {"name": "lat", "format": "", "type": "real"}, 
-                {"name": "lon", "format": "", "type": "real"}], 
-                "rows": [
-                    [12, 50.055499567084, 18.5638648996832456], 
-                    [4, 50.053599567084, 18.5538648996838036], 
-                    [60, 50.054199567084, 18.54386489968386],
-                    [20, 50.056499567084, 18.52386489968388], 
-                    [11, 50.052499567084, 18.5138648996834], 
-                    [60, 50.054499567084, 18.503864899683]]}
+                data: data,
             },
             option: {
                 centerMap: true,
@@ -73,6 +65,8 @@ class Home extends Component {
         this.props.dispatch(addDataToMap(config));
     }
 
+    finishLoading = () => this.setState({ isLoading: false });
+
     componentDidMount() {
         // this.props.dispatch(
         //     updateMap({latitude: 50.0944995670842, longitude: 18.543864899683406, zoom: 13})
@@ -84,21 +78,9 @@ class Home extends Component {
         //             data: jsonData,
         //             isLoading: false
         //         });
-                this.loadDataOnMap([]);
-            
-                fetch('https://boiling-woodland-40919.herokuapp.com/districts').then((response) => {
-                    if (response.ok) {
-                      return response.json();
-                    } else {
-                      throw new Error('Something went wrong');
-                    }
-                  })
-                  .then((responseJson) => {
-                    console.log(responseJson)
-                  })
-                  .catch((error) => {
-                    console.log(error)
-                  });
+                const busStopData = fetchCities(this.finishLoading);
+                this.loadDataOnMap(busStopData);
+
 
         //     })
         //     .catch((error) => {

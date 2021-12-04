@@ -4,15 +4,15 @@ import { format } from "date-fns";
 import { selectedInterval } from './utils/dateFormatUtils'
 
 class TimelineRange extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            error: false,
-            selectedInterval: selectedInterval,
-        };
-        this.onChangeCallback(selectedInterval);
-    }    
+    state = {
+        error: false,
+        selectedInterval: selectedInterval,
+    };
 
+    componentDidMount() {
+        this.onChangeCallback(selectedInterval);
+    }
+   
     onChangeCallback = (selectedInterval) => {
         const { onStartTimeChange, onEndTimeChange } = this.props;
         onStartTimeChange(format(selectedInterval[0], "HH:mm"));

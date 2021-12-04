@@ -7,8 +7,8 @@ class Loading extends Component {
         this.state = {}
     }
     render() {
-        return (<Container fluid className="p-0 bg-dark text-center" style={{ height: "100%", position: "fixed" }}>
-            <Spinner className={"mt-5"} animation="grow" variant="light" />
+        return (<Container fluid className="p-0 bg-light text-center" style={{ height: "100%", position: "fixed" }}>
+            <Spinner className={"mt-5"} animation="grow" variant="dark" />
         </Container>);
     }
 }

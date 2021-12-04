@@ -22,12 +22,14 @@ function appReducer(state=initialState, action) {
       }
 }
 const initialState = {
-    filters: {
-        startDate: undefined,
-        endDate: undefined,
-        startTime: undefined,
-        endTime: undefined,
-        weekDays: [],
+    app: {
+            filters: {
+            startDate: undefined,
+            endDate: undefined,
+            startTime: undefined,
+            endTime: undefined,
+            weekDays: [],
+        }
     }
 };
 
