@@ -23,7 +23,7 @@ class Home extends Component {
     finishLoading = () => this.setState({ isLoading: false });
 
     successHandler = (newData) => {
-        this.setState({ busStopsData: newData, isLoading: false }, () => this.loadDataOnMap([newData]));
+        this.setState({ busStopsData: newData, isLoading: false }, () => {});
     }
 
     componentDidMount() {

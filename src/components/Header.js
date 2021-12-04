@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 
 
 class Header extends Component {
@@ -24,12 +24,6 @@ class Header extends Component {
                 <Navbar.Brand href="#home" className={"text-center"}>
                      Wizualizator
                 </Navbar.Brand>
-                {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse className={"justify-content-end"}>
-                    <Nav>
-                        <div>Eloeleoeleo</div>
-                    </Nav>
-                </Navbar.Collapse> */}
             </Navbar>
         );
     }
