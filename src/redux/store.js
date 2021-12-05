@@ -1,20 +1,41 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-// import keplerGlReducer from 'kepler.gl/reducers';
-import { UPDATE_FILTERS } from "./actionTypes";
+import { createStore, combineReducers } from 'redux';
+import { UPDATE_FILTERS, UPDATE_DIR, UPDATE_STOPS_TYPE, UPDATE_COORDS, DirectionType, StopsType } from "./actionTypes";
 
 
 function appReducer(state=initialState, action) {
     switch (action.type) {
         case UPDATE_FILTERS: {
             const { content } = action.payload;
-            return { filters: {
+            return { 
+                ...state,
+                filters: {
                     startDate: content.startDate,
                     endDate: content.endDate,
                     startTime: content.startTime,
                     endTime: content.endTime,
                     weekDays: content.weekDays,
-                }
-            };
+            }};
+        }
+        case UPDATE_DIR: {
+            const { content } = action.payload;
+            return {
+                ...state, 
+                direction: content,
+            }
+        }
+        case UPDATE_STOPS_TYPE: {
+            const { content } = action.payload;
+            return { 
+                ...state,
+                stopsType: content,
+            }
+        }
+        case UPDATE_COORDS: {
+            const { content } = action.payload;
+            return { 
+                ...state,
+                chosenBusStops: content,
+            }
         }
         default:
           return state;
@@ -23,25 +44,20 @@ function appReducer(state=initialState, action) {
 const initialState = {
     app: {
             filters: {
-            startDate: undefined,
-            endDate: undefined,
-            startTime: undefined,
-            endTime: undefined,
-            weekDays: [],
-        }
+                startDate: undefined,
+                endDate: undefined,
+                startTime: undefined,
+                endTime: undefined,
+                weekDays: [],
+            },
+            direction: DirectionType.from,
+            stopsType: StopsType.all, 
+            chosenBusStops: [],
     }
 };
 
-// const keplerReducer = keplerGlReducer.initialState({
-//     uiState: {
-//         activeSidePanel: null,
-//         currentModal: null,
-//         readOnly: true,
-//     }
-// });
 
 const reducers = combineReducers({
-    // keplerGl: keplerReducer,
     app: appReducer
 });
 

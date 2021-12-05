@@ -13,8 +13,8 @@ class PointLayer extends Component {
                 circleLayout={{ visibility: 'visible' }}
                 circlePaint={{
                     'circle-color': '#00dbaf',
-                    'circle-opacity': 0.7,
-                    'circle-radius': 10,
+                    'circle-opacity': 0.6,
+                    'circle-radius': 8,
                     'circle-stroke-color': '#b0ffef'
                 }}
                 circleOnClick={(evt) => console.warn(evt)}

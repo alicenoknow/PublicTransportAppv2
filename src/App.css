@@ -105,8 +105,8 @@
   display: flex;
   padding: 10px;
   border-radius: 10px;
-  background-color: rgba(211, 160, 20, 0.658);
-  color:rgba(12, 4, 17, 0.829);
+  background-color: rgb(42, 35, 146, 0.8);
+  color:rgba(237, 246, 252, 0.829);
   font-size: 130%;
 }
 

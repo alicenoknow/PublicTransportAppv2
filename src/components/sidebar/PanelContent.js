@@ -5,6 +5,9 @@ import { updateFilters } from '../../redux/actions';
 import DateRange from './DateRange';
 import TimeRange from './TimeRange';
 import WeekDayPicker from './WeekDayPicker';
+import BusStopsCheckBoxes from './BusStopsCheckBoxes';
+import DirectionTypeCheckBoxes from './DirectionTypeCheckBoxes';
+
 
 class PanelContent extends Component {
   state = {
@@ -47,7 +50,12 @@ class PanelContent extends Component {
   getVisualizationSelection = () => {
     return (
       <Collapsible trigger="Wizualizuj">
-        <p>Tu będzie mozna wybrać co pokazujemy np. bubble map </p>
+        <Collapsible className={"NestedCollapsible"} trigger="Wybierz przystanki:">
+          <BusStopsCheckBoxes/>
+        </Collapsible>
+      <Collapsible className={"NestedCollapsible"} trigger="Wybierz rodzaj wizualizacji:">
+          <DirectionTypeCheckBoxes/>
+      </Collapsible>
       </Collapsible>
     );
   } 
