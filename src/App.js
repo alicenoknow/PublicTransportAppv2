@@ -6,7 +6,6 @@ import Home from "./components/Home";
 
 import './App.css';
 import Header from './components/Header';
-import { pointLayerConfig } from './keplerConfig/pointLayerConfig';
 
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
     <React.Fragment>
       <Container fluid className={"p-0"}>
         <Header />
-        <Home layerConfigs={[pointLayerConfig]} />
+        <Home />
       </Container>
     </React.Fragment>
   );
