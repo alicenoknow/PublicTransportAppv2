@@ -11,9 +11,9 @@ class PointLayer extends Component {
                 data={data}
                 circleLayout={{ visibility: 'visible' }}
                 circlePaint={{
-                    'circle-color': '#00dbaf',
-                    'circle-opacity': 0.6,
-                    'circle-radius': 8,
+                    'circle-color': '#2647ff',
+                    'circle-opacity': 0.8,
+                    'circle-radius': 4,
                 }}
                 circleOnClick={onClickUpdate}
             />

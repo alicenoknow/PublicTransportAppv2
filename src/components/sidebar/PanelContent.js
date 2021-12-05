@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import Collapsible from 'react-collapsible';
 import { connect } from 'react-redux';
 import { updateFilters } from '../../redux/actions';
-import { fetchFrom } from '../../api/apiService';
+import { fetchFromArea, fetchFromList, fetchToList, fetchToArea } from '../../api/apiService';
 import DateRange from './DateRange';
 import TimeRange from './TimeRange';
 import WeekDayPicker from './WeekDayPicker';
 import BusStopsCheckBoxes from './BusStopsCheckBoxes';
 import DirectionTypeCheckBoxes from './DirectionTypeCheckBoxes';
-import { DirectionType } from "../../redux/actionTypes";
+import { DirectionType, StopsType } from "../../redux/actionTypes";
 
 
 
@@ -33,27 +33,32 @@ class PanelContent extends Component {
 
   processData = () => {
     const { app, setData, setServerWait } = this.props;
-    console.warn(app)
     setServerWait();
 
     if (app.direction === DirectionType.from) {
-        fetchFrom(data => setData(data), { filters: {
-          startDate: app.startDate,
-          endDate: app.endDate,
-          startTime: app.startTime,
-          endTime: app.endTime,
-          weekDays: app.weekDays,
-        }});
+      if (app.stopsType === StopsType.one || app.stopsType === StopsType.all) {
+        fetchFromList(data => setData(data), { 
+          filters: {
+            startDate: app.filters.startDate,
+            endDate: app.filters.endDate,
+            startTime: app.filters.startTime,
+            endTime: app.filters.endTime,
+            weekDays: app.filters.weekDays,
+          },
+          busStops: [app.chosenBusStops]
+        });
       } else {
-        // if (app.state.stopsType === StopsType.one) {
-        //   fetchTo()
-        // } else if (app.state.stopsType === StopsType.area) {
-        //   fetchTo()
-        // } else {
-        //   fetchTo()
-        // }
+        fetchFromArea(data => setData(data), { filters: {
+          startDate: app.filters.startDate,
+          endDate: app.filters.endDate,
+          startTime: app.filters.startTime,
+          endTime: app.filters.endTime,
+          weekDays: app.filters.weekDays,
+        },
+        corners: app.chosenBusStops[0]
+      });
     }
-    
+  }
   }
 
   getFiltersSelection = () => {
@@ -74,10 +79,10 @@ class PanelContent extends Component {
   getVisualizationSelection = () => {
     return (
       <Collapsible trigger="Wizualizuj">
-        <Collapsible className={"NestedCollapsible"} trigger="Wybierz przystanki:">
+        <Collapsible className={"NestedCollapsible"} trigger="Wybierz przystanki">
           <BusStopsCheckBoxes/>
         </Collapsible>
-      <Collapsible className={"NestedCollapsible"} trigger="Wybierz rodzaj wizualizacji:">
+      <Collapsible className={"NestedCollapsible"} trigger="Wybierz rodzaj wizualizacji">
           <DirectionTypeCheckBoxes/>
       </Collapsible>
       </Collapsible>
@@ -99,3 +104,6 @@ const mapStateToProps = state => state;
 const dispatchToProps = { updateFilters };
 
 export default connect(mapStateToProps, dispatchToProps)(PanelContent);
+
+
+

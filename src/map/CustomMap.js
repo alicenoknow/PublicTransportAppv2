@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PointLayer from './PointLayer';
 import LineLayer from './LineLayer';
 import HeatmapLayer from './HeatmapLayer';
+import { parseLinesToPoints } from './utils/parseGeoJSON';
 import ReactMapboxGl, { Popup } from 'react-mapbox-gl';
 import { StopsType } from '../redux/actionTypes';
 import { updateCoordinates } from '../redux/actions';
@@ -36,9 +37,8 @@ class CustomMap extends Component {
         const filtered = cut.filter(item => item[0] === coords[0] && item[1] === coords[1]);
         
         if(!filtered || !filtered[0]) return;
-
         if (app.stopsType === StopsType.one) {
-            updateCoordinates(filtered[0][2]);
+            updateCoordinates(filtered[0][2] + 1);
         }
         if (filtered[0].length < 4) {
             return;
@@ -66,17 +66,18 @@ class CustomMap extends Component {
             <Container fluid className="p-0 bg-light">
                 <Map
                     style="mapbox://styles/mapbox/streets-v9"
-                    // zoom={[12]}
-                    // center={[18.5462847, 50.1021742,]}
+                    zoom={[13]}
+                    center={[18.5462847, 50.1021742,]}
                     containerStyle={{
                         height: window.innerHeight,
                         width: window.innerWidth,
                     }}>
-                    {renderBaseMap && <LineLayer data={lineData} />}
+                    {/* {renderBaseMap && lineData && <LineLayer data={lineData} />} */}
+                    {renderHeatMapFrom && data && <LineLayer data={data} />}
                     {renderBaseMap && <PointLayer data={pointData} onClickUpdate={this.onClickUpdate} />}
-                    {renderHeatMapForAll && <HeatmapLayer data={data} />}
-                    {renderHeatMapFrom && <HeatmapLayer data={data} />}
-                    {renderHeatMapTo && <HeatmapLayer data={data} />}
+                    {/* {renderBaseMap && lineData && <HeatmapLayer data={parseLinesToPoints(lineData)} />} */}
+                    {/* {renderHeatMapFrom && <HeatmapLayer data={data} />}
+                    {renderHeatMapTo && <HeatmapLayer data={data} />} */}
                     {app.stopsType === StopsType.area && <DrawControl 
                             ref={(drawControl) => { this.drawControl = drawControl; }}
                             defaultMode='draw_polygon'
@@ -85,6 +86,7 @@ class CustomMap extends Component {
                             />}
                     {showPopUp && <Popup coordinates={{lat: popUpCoordinates.lat, lon: popUpCoordinates.lon}}
                                     onClick={() => this.setState({ showPopUp: false })}
+                                    style={{fontSize: 12}}
                                     >
                                     <h1>{popUpText}</h1>
                     </Popup>}

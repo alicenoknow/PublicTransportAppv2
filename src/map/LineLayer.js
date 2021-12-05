@@ -12,22 +12,10 @@ class LineLayer extends Component {
                 lineLayout={{ visibility: 'visible' }}
                 linePaint={{
                     'line-color': '#e60058',
-                    // [ 
-                    //     'match',
-                    // ['get', 'commuters'],
-                    // 1,
-                    // '#fbb03b',
-                    // 2,
-                    // '#223b53',
-                    // 3,
-                    // '#e55e5e',
-                    // 4,
-                    // '#3bb2d0',
-                    // /* other */ '#e60058'],
                     'line-opacity': 0.6,
                     'line-width': ["interpolate", ["linear"], ['get', 'commuters'],
                                     1, 1,
-                                    10, 15, 
+                                    10, 50, 
                                 ]
                 }}
                 lineOnClick={onClickUpdate}

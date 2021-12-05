@@ -6,7 +6,7 @@ import CustomMap from "../map/CustomMap";
 
 import SidePanel from "./sidebar/SidePanel";
 import NavPadding from "../styled/NavPadding";
-import { fetchBusStops, fetchFrom } from '../api/apiService';
+import { fetchBusStops, fetchFromList } from '../api/apiService';
 
 class Home extends Component {
     constructor(props) {
@@ -42,7 +42,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        fetchFrom(data => this.setState({ linesData: data}), { filters: {}});
+        fetchFromList(data => this.setState({ linesData: data}), { filters: {} });
         fetchBusStops(this.successHandler);
     }
 

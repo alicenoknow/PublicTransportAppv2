@@ -11,15 +11,20 @@ class DateRange extends Component {
     setStartDate = (date) => { 
         this.setState({ startDate: date });
         const d = new Date(date);
-        const outDate = d.getUTCFullYear() + "-" + d.getUTCMonth() + "-" + d.getUTCDate();
-        this.props.onStartDateChange(outDate);
+        const yourDate = d.toISOString().split('T')[0];
+        // const month = (d.getUTCMonth() === 10 || d.getUTCMonth() === 11) ? (d.getUTCMonth() + 1) : "0" + (d.getUTCMonth() + 1);
+        // const outDate = d.getUTCFullYear() + "-" + month + "-" + d.getUTCDate() + 1;
+        this.props.onStartDateChange(yourDate);
     }
 
     setEndDate = (date) => { 
         this.setState({ endDate: date });
         const d = new Date(date);
-        const outDate = d.getUTCFullYear() + "-" + d.getUTCMonth() + "-" + d.getUTCDate();
-        this.props.onEndDateChange(outDate);
+        const yourDate = d.toISOString().split('T')[0];
+
+        // const month = (d.getUTCMonth() === 10 || d.getUTCMonth() === 11) ? (d.getUTCMonth() + 1) : "0" + (d.getUTCMonth() + 1);
+        // const outDate = d.getUTCFullYear() + "-" + month + "-" + d.getUTCDate() + 1;
+        this.props.onEndDateChange(yourDate);
     }
 
     renderDatePicker = (value, handler, title) => {
