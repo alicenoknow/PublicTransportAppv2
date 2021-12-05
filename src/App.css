@@ -58,6 +58,7 @@
   background-color: rgba(101, 97, 158, 0.945);
   border-radius: 10px;
   color:rgba(237, 246, 252, 0.829);
+  transition: background-color 0.7s ease-in-out;
 }
 
 .Collapsible__trigger {
@@ -73,6 +74,8 @@
   background-color: rgba(77, 72, 156, 0.945);
   color:rgba(237, 246, 252, 0.829);
   font-size: 80%;
+  transition: background-color 0.7s ease-in-out;
+
 }
 
 .datePicker {

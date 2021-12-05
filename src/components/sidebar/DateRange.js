@@ -10,12 +10,16 @@ class DateRange extends Component {
 
     setStartDate = (date) => { 
         this.setState({ startDate: date });
-        this.props.onStartDateChange(date);
+        const d = new Date(date);
+        const outDate = d.getUTCFullYear() + "-" + d.getUTCMonth() + "-" + d.getUTCDate();
+        this.props.onStartDateChange(outDate);
     }
 
     setEndDate = (date) => { 
         this.setState({ endDate: date });
-        this.props.onEndDateChange(date);
+        const d = new Date(date);
+        const outDate = d.getUTCFullYear() + "-" + d.getUTCMonth() + "-" + d.getUTCDate();
+        this.props.onEndDateChange(outDate);
     }
 
     renderDatePicker = (value, handler, title) => {

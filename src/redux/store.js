@@ -48,7 +48,7 @@ const initialState = {
                 endDate: undefined,
                 startTime: undefined,
                 endTime: undefined,
-                weekDays: [],
+                weekDays: [0, 1, 2, 3, 4, 5, 6],
             },
             direction: DirectionType.from,
             stopsType: StopsType.all, 

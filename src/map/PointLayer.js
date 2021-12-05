@@ -4,9 +4,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 
 class PointLayer extends Component {   
-
     render() {
-        const { data }= this.props;
+        const { data, onClickUpdate }= this.props;
         return (
             <GeoJSONLayer
                 data={data}
@@ -15,9 +14,8 @@ class PointLayer extends Component {
                     'circle-color': '#00dbaf',
                     'circle-opacity': 0.6,
                     'circle-radius': 8,
-                    'circle-stroke-color': '#b0ffef'
                 }}
-                circleOnClick={(evt) => console.warn(evt)}
+                circleOnClick={onClickUpdate}
             />
         );
     }

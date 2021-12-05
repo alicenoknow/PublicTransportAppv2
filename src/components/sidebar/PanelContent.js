@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import Collapsible from 'react-collapsible';
 import { connect } from 'react-redux';
 import { updateFilters } from '../../redux/actions';
+import { fetchFrom } from '../../api/apiService';
 import DateRange from './DateRange';
 import TimeRange from './TimeRange';
 import WeekDayPicker from './WeekDayPicker';
 import BusStopsCheckBoxes from './BusStopsCheckBoxes';
 import DirectionTypeCheckBoxes from './DirectionTypeCheckBoxes';
+import { DirectionType } from "../../redux/actionTypes";
+
 
 
 class PanelContent extends Component {
@@ -29,7 +32,28 @@ class PanelContent extends Component {
   }
 
   processData = () => {
+    const { app, setData, setServerWait } = this.props;
+    console.warn(app)
+    setServerWait();
 
+    if (app.direction === DirectionType.from) {
+        fetchFrom(data => setData(data), { filters: {
+          startDate: app.startDate,
+          endDate: app.endDate,
+          startTime: app.startTime,
+          endTime: app.endTime,
+          weekDays: app.weekDays,
+        }});
+      } else {
+        // if (app.state.stopsType === StopsType.one) {
+        //   fetchTo()
+        // } else if (app.state.stopsType === StopsType.area) {
+        //   fetchTo()
+        // } else {
+        //   fetchTo()
+        // }
+    }
+    
   }
 
   getFiltersSelection = () => {
@@ -71,7 +95,7 @@ class PanelContent extends Component {
   }
 }
 
-const mapStateToProps = state => ({ filters: state.app.filters })
+const mapStateToProps = state => state;
 const dispatchToProps = { updateFilters };
 
 export default connect(mapStateToProps, dispatchToProps)(PanelContent);
