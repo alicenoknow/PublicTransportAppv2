@@ -36,8 +36,31 @@ class PanelContent extends Component {
     setServerWait();
 
     if (app.direction === DirectionType.from) {
+        if (app.stopsType === StopsType.one || app.stopsType === StopsType.all) {
+          fetchFromList(data => setData(data), { 
+            filters: {
+              startDate: app.filters.startDate,
+              endDate: app.filters.endDate,
+              startTime: app.filters.startTime,
+              endTime: app.filters.endTime,
+              weekDays: app.filters.weekDays,
+            },
+            busStops: [app.chosenBusStops]
+          });
+        } else {
+          fetchFromArea(data => setData(data), { filters: {
+            startDate: app.filters.startDate,
+            endDate: app.filters.endDate,
+            startTime: app.filters.startTime,
+            endTime: app.filters.endTime,
+            weekDays: app.filters.weekDays,
+          },
+          corners: app.chosenBusStops[0]
+        });
+      }
+    } else {
       if (app.stopsType === StopsType.one || app.stopsType === StopsType.all) {
-        fetchFromList(data => setData(data), { 
+        fetchToList(data => setData(data), { 
           filters: {
             startDate: app.filters.startDate,
             endDate: app.filters.endDate,
@@ -48,7 +71,7 @@ class PanelContent extends Component {
           busStops: [app.chosenBusStops]
         });
       } else {
-        fetchFromArea(data => setData(data), { filters: {
+        fetchToArea(data => setData(data), { filters: {
           startDate: app.filters.startDate,
           endDate: app.filters.endDate,
           startTime: app.filters.startTime,
@@ -58,7 +81,7 @@ class PanelContent extends Component {
         corners: app.chosenBusStops[0]
       });
     }
-  }
+    }
   }
 
   getFiltersSelection = () => {

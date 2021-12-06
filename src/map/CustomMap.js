@@ -33,7 +33,7 @@ class CustomMap extends Component {
     onClickUpdate = (clickEvent) => {
         const { app, updateCoordinates, pointData } = this.props;
         const coords = [parseFloat(Number(clickEvent.lngLat.lng).toFixed(3)), parseFloat(Number(clickEvent.lngLat.lat).toFixed(3))]
-        const cut = pointData.features?.map((item, i) => [parseFloat(Number(item.geometry.coordinates[0]).toFixed(3)), parseFloat(Number(item.geometry.coordinates[1]).toFixed(3)), i, item.properties.name])
+        const cut = pointData.features?.map(item => [parseFloat(Number(item.geometry.coordinates[0]).toFixed(3)), parseFloat(Number(item.geometry.coordinates[1]).toFixed(3)), item.properties.id, item.properties.name])
         const filtered = cut.filter(item => item[0] === coords[0] && item[1] === coords[1]);
         
         if(!filtered || !filtered[0]) return;
@@ -75,7 +75,7 @@ class CustomMap extends Component {
                     {/* {renderBaseMap && lineData && <LineLayer data={lineData} />} */}
                     {renderHeatMapFrom && data && <LineLayer data={data} />}
                     {renderBaseMap && <PointLayer data={pointData} onClickUpdate={this.onClickUpdate} />}
-                    {/* {renderBaseMap && lineData && <HeatmapLayer data={parseLinesToPoints(lineData)} />} */}
+                    {renderBaseMap && lineData && <HeatmapLayer data={parseLinesToPoints(lineData)} />}
                     {/* {renderHeatMapFrom && <HeatmapLayer data={data} />}
                     {renderHeatMapTo && <HeatmapLayer data={data} />} */}
                     {app.stopsType === StopsType.area && <DrawControl 

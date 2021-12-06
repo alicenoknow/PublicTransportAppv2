@@ -1,13 +1,14 @@
 
-const BUS_STOPS_URL = 'https://boiling-woodland-40919.herokuapp.com/bus_stops';
-const LIST_FROM_URL = 'https://boiling-woodland-40919.herokuapp.com/going_from_list';
-const AREA_FROM_URL = 'https://boiling-woodland-40919.herokuapp.com/going_from_area';
-const AREA_TO_URL = 'https://boiling-woodland-40919.herokuapp.com/going_to_list';
-const LIST_TO_URL = 'https://boiling-woodland-40919.herokuapp.com/going_to_area';
+const BUS_STOPS_URL = 'https://0855-149-156-124-16.ngrok.io/bus_stops';
+const LIST_FROM_URL = 'https://0855-149-156-124-16.ngrok.io/going_from_list';
+const AREA_FROM_URL = 'https://0855-149-156-124-16.ngrok.io/going_from_area';
+const AREA_TO_URL = 'https://0855-149-156-124-16.ngrok.io/going_to_list';
+const LIST_TO_URL = 'https://0855-149-156-124-16.ngrok.io/going_to_area';
 
 
 
 const fetchData = async (url, options, successHandler) => {
+    console.warn(options)
     fetch(url, options).then((response) => {
         if (response.ok) {
             return response.json();
@@ -16,6 +17,7 @@ const fetchData = async (url, options, successHandler) => {
         }})
         .then((responseJson) => {
             successHandler && successHandler(responseJson);
+            console.warn(responseJson)
             return;
         })
         .catch((error) => {
