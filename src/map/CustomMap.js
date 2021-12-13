@@ -35,10 +35,9 @@ class CustomMap extends Component {
         const coords = [parseFloat(Number(clickEvent.lngLat.lng).toFixed(3)), parseFloat(Number(clickEvent.lngLat.lat).toFixed(3))]
         const cut = pointData.features?.map(item => [parseFloat(Number(item.geometry.coordinates[0]).toFixed(3)), parseFloat(Number(item.geometry.coordinates[1]).toFixed(3)), item.properties.id, item.properties.name])
         const filtered = cut.filter(item => item[0] === coords[0] && item[1] === coords[1]);
-        
         if(!filtered || !filtered[0]) return;
         if (app.stopsType === StopsType.one) {
-            updateCoordinates(filtered[0][2] + 1);
+            updateCoordinates(filtered[0][2]);
         }
         if (filtered[0].length < 4) {
             return;
@@ -52,12 +51,10 @@ class CustomMap extends Component {
 
     render() {
         const { 
-            renderHeatMapForAll, 
-            renderHeatMapFrom, 
-            renderHeatMapTo, 
+            renderHeatMapFrom,  
             renderBaseMap,
             pointData,
-            lineData,
+            linesData,
             data,
             app,
         } = this.props;
@@ -72,12 +69,9 @@ class CustomMap extends Component {
                         height: window.innerHeight,
                         width: window.innerWidth,
                     }}>
-                    {/* {renderBaseMap && lineData && <LineLayer data={lineData} />} */}
                     {renderHeatMapFrom && data && <LineLayer data={data} />}
                     {renderBaseMap && <PointLayer data={pointData} onClickUpdate={this.onClickUpdate} />}
-                    {renderBaseMap && lineData && <HeatmapLayer data={parseLinesToPoints(lineData)} />}
-                    {/* {renderHeatMapFrom && <HeatmapLayer data={data} />}
-                    {renderHeatMapTo && <HeatmapLayer data={data} />} */}
+                    {renderBaseMap && linesData.length !== 0 && <HeatmapLayer data={parseLinesToPoints(linesData)} />}
                     {app.stopsType === StopsType.area && <DrawControl 
                             ref={(drawControl) => { this.drawControl = drawControl; }}
                             defaultMode='draw_polygon'

@@ -15,7 +15,7 @@ class LineLayer extends Component {
                     'line-opacity': 0.6,
                     'line-width': ["interpolate", ["linear"], ['get', 'commuters'],
                                     1, 1,
-                                    10, 50, 
+                                    10, 20, 
                                 ]
                 }}
                 lineOnClick={onClickUpdate}

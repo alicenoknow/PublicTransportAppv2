@@ -45,7 +45,7 @@ class PanelContent extends Component {
               endTime: app.filters.endTime,
               weekDays: app.filters.weekDays,
             },
-            busStops: [app.chosenBusStops]
+            busStops: app.chosenBusStops.length === 0 ? undefined : [app.chosenBusStops]
           });
         } else {
           fetchFromArea(data => setData(data), { filters: {
@@ -68,7 +68,7 @@ class PanelContent extends Component {
             endTime: app.filters.endTime,
             weekDays: app.filters.weekDays,
           },
-          busStops: [app.chosenBusStops]
+          busStops: app.chosenBusStops.length === 0 ? undefined : [app.chosenBusStops]
         });
       } else {
         fetchToArea(data => setData(data), { filters: {

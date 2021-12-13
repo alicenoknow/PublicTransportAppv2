@@ -24,7 +24,7 @@ class Home extends Component {
 
     setServerData = (data) => {
         this.setState({ serverData: data }, 
-            () => this.setState({ renderServerMap: true }));
+            () => { this.setState({ renderServerMap: true }) });
     }
 
     setServerWait = () => {
@@ -42,8 +42,8 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        fetchFromList(data => this.setState({ linesData: data}), { filters: {} });
         fetchBusStops(this.successHandler);
+        fetchFromList(data => this.setState({ linesData: data}), { filters: {} });
     }
 
     render() {
@@ -57,7 +57,7 @@ class Home extends Component {
                         renderBaseMap={renderBaseMap}
                         data={serverData}
                         pointData={busStopsData}
-                        lineData={linesData}
+                        linesData={linesData}
                         renderHeatMapFrom={renderServerMap}
                     />
             </Container >
