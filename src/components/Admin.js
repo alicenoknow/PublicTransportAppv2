@@ -12,13 +12,13 @@ class Admin extends Component {
   };
 
   validateEmail = () => {
-    const { email, password } = this.state;
-    return email.length > 0 && password.length > 0;
+    const { email } = this.state;
+    return email.length > 0 && email.includes("@");
   };
 
   validateForm = () => {
-    const { email, password } = this.state;
-    return email.length > 0 && password.length > 0;
+    const { password } = this.state;
+    return this.validateEmail() && password.length > 0;
   };
 
   handleSubmit = (event) => {
