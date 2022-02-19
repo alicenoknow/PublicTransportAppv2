@@ -9,6 +9,7 @@
     "deck.gl": "^8.6.8",
     "mapbox-gl": "^2.7.0",
     "moment": "^2.29.1",
+    "nebula.gl": "^1.0.2-alpha.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.2",
     "react-collapsible": "^2.8.4",
