@@ -1,14 +1,17 @@
 import React from "react";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Home from "../components/Home";
+import Admin from "../components/Admin";
 
-
-const AppliedRoute = ({ component: C, props: cProps, ...rest }) =>
-	<Route {...rest} render={props => <C {...props} {...cProps} />} />;
-
-const HomeRoute = ({ childProps }) =>
-    (<Router>
-        <AppliedRoute path="/" component={Home} props={childProps} />
-    </Router>);
+const HomeRoute = () => (
+  <Switch>
+    <Route path="/">
+      <Home />
+    </Route>
+    <Route path="/admin">
+      <Admin />
+    </Route>
+  </Switch>
+);
 
 export default HomeRoute;

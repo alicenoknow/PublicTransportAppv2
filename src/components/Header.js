@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Navbar } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 
 class Header extends Component {
   constructor(props) {
@@ -19,9 +19,15 @@ class Header extends Component {
   render() {
     return (
       <Navbar bg="dark" variant="dark" sticky="top" expand="lg">
-        <Navbar.Brand href="#home" className={"text-center"}>
+        <Navbar.Brand href="/" className={"text-center"}>
           Analiza transportu publicznego w Rybniku
         </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/admin">Admin</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
       </Navbar>
     );
   }
