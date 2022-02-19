@@ -41,14 +41,14 @@
   z-index: 1;
   border-radius: 10px;
   background-color: rgb(42, 35, 146);
-  color:rgba(237, 246, 252, 0.829);
+  color: rgba(237, 246, 252, 0.829);
   font-size: 130%;
   font-weight: bold;
 }
 
 .nav-padding {
   margin-top: 50;
-  width: '100%';
+  width: "100%";
   flex: 1;
 }
 
@@ -57,8 +57,10 @@
   margin-bottom: 30px;
   background-color: rgba(101, 97, 158, 0.945);
   border-radius: 10px;
-  color:rgba(237, 246, 252, 0.829);
-  transition: background-color 0.7s ease-in-out;
+  color: rgba(237, 246, 252, 0.829);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .Collapsible__trigger {
@@ -72,10 +74,11 @@
   border-radius: 10px;
   padding: 10px;
   background-color: rgba(77, 72, 156, 0.945);
-  color:rgba(237, 246, 252, 0.829);
+  color: rgba(237, 246, 252, 0.829);
   font-size: 80%;
-  transition: background-color 0.7s ease-in-out;
-
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .datePicker {
@@ -88,16 +91,6 @@
   font-size: 80%;
 }
 
-.timeRangeContainer{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-}
-
-
 .mapContainer {
   flex: 1;
   height: 100vh;
@@ -109,10 +102,20 @@
   padding: 10px;
   border-radius: 10px;
   background-color: rgb(42, 35, 146, 0.8);
-  color:rgba(237, 246, 252, 0.829);
+  color: rgba(237, 246, 252, 0.829);
   font-size: 130%;
 }
 
 .weekdaysPickerContainer {
   margin-top: 10px;
+}
+
+.timeRow {
+  padding-bottom: 10px;
+  align-content: center;
+}
+
+.timers {
+  overflow: visible;
+  align-content: left;
 }

@@ -15,9 +15,9 @@ class HeatmapLayer extends Component {
                 0,
                 'rgba(255, 236, 143,0)',
                 5,
-                'rgb(222, 96, 7)',
+                'rgba(222, 96, 7, 0.6)',
                 20,
-                'rgb(222, 7, 7)' ],
+                'rgba(222, 7, 7, 0.6)' ],
                 'circle-opacity': 0.7,
                 'circle-radius': ["interpolate", ["linear"], ['get', 'commuters'], 1, 5, 10, 25, ],
             }}

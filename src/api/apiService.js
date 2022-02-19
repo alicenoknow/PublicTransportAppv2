@@ -1,9 +1,9 @@
 
-const BUS_STOPS_URL = 'https://d47c-149-156-124-16.ngrok.io/bus_stops';
-const LIST_FROM_URL = 'https://d47c-149-156-124-16.ngrok.io/going_from_list';
-const AREA_FROM_URL = 'https://d47c-149-156-124-16.ngrok.io/going_from_area';
-const LIST_TO_URL = 'https://d47c-149-156-124-16.ngrok.io/going_to_list';
-const AREA_TO_URL = 'https://d47c-149-156-124-16.ngrok.io/going_to_area';
+const BUS_STOPS_URL = 'https://4dd3-149-156-124-16.ngrok.io/bus_stops';
+const LIST_FROM_URL = 'https://4dd3-149-156-124-16.ngrok.io/going_from_list';
+const AREA_FROM_URL = 'https://4dd3-149-156-124-16.ngrok.io/going_from_area';
+const LIST_TO_URL = 'https://4dd3-149-156-124-16.ngrok.io/going_to_list';
+const AREA_TO_URL = 'https://4dd3-149-156-124-16.ngrok.io/going_to_area';
 
 
 

@@ -1,67 +1,110 @@
-import React, { Component } from 'react';
-import { Container } from 'react-bootstrap';
-import DrawControl from 'react-mapbox-gl-draw';
-import { connect } from 'react-redux';
-import PointLayer from './PointLayer';
-import LineLayer from './LineLayer';
-import HeatmapLayer from './HeatmapLayer';
-import { parseLinesToPoints } from './utils/parseGeoJSON';
-import ReactMapboxGl, { Popup } from 'react-mapbox-gl';
-import { StopsType } from '../redux/actionTypes';
-import { updateCoordinates } from '../redux/actions';
-import 'mapbox-gl/dist/mapbox-gl.css';
+import React, { Component } from "react";
+import { Container } from "react-bootstrap";
+import { connect } from "react-redux";
+import ReactMapGL from "react-map-gl";
+import { StopsType } from "../redux/actionTypes";
+import { updateCoordinates } from "../redux/actions";
+import "mapbox-gl/dist/mapbox-gl.css";
+import DeckGL from "@deck.gl/react";
+import { ScatterplotLayer, ArcLayer } from "@deck.gl/layers";
 
-const MAPBOX_TOKEN = 'pk.eyJ1IjoiYWxpY2Vub2tub3ciLCJhIjoiY2txNDI3OXBnMGE2MDJwbXBvNXNic2N5eCJ9.JBfBgMVAkOOpQF7FMrpKSw';
+const MAPBOX_TOKEN =
+  "pk.eyJ1IjoiYWxpY2Vub2tub3ciLCJhIjoiY2txNDI3OXBnMGE2MDJwbXBvNXNic2N5eCJ9.JBfBgMVAkOOpQF7FMrpKSw";
 
+class CustomMap extends Component {
+  state = {
+    viewport: {
+      latitude: 50.1021742,
+      longitude: 18.5462847,
+      zoom: 13,
+    },
+    popUpCoordinates: [0.0, 0.0],
+    showPopUp: false,
+    popUpText: "",
+  };
+  onDrawUpdate = ({ features }) => {
+    this.props.updateCoordinates(features[0].geometry.coordinates);
+  };
 
-const Map = ReactMapboxGl({
-    accessToken:
-    MAPBOX_TOKEN
-  });
-
-class CustomMap extends Component {   
-    state = {
-        popUpCoordinates: [0.0, 0.0],
-        showPopUp: false,
-        popUpText: '',
-
+  onClickUpdate = (clickEvent) => {
+    const { app, updateCoordinates, pointData } = this.props;
+    const coords = [
+      parseFloat(Number(clickEvent.lngLat.lng).toFixed(3)),
+      parseFloat(Number(clickEvent.lngLat.lat).toFixed(3)),
+    ];
+    const cut = pointData.features?.map((item) => [
+      parseFloat(Number(item.geometry.coordinates[0]).toFixed(3)),
+      parseFloat(Number(item.geometry.coordinates[1]).toFixed(3)),
+      item.properties.id,
+      item.properties.name,
+    ]);
+    const filtered = cut.filter(
+      (item) => item[0] === coords[0] && item[1] === coords[1]
+    );
+    if (!filtered || !filtered[0]) return;
+    if (app.stopsType === StopsType.one) {
+      updateCoordinates(filtered[0][2]);
     }
-    onDrawUpdate = ({ features }) => {
-        this.props.updateCoordinates(features[0].geometry.coordinates);
-    };
-
-    onClickUpdate = (clickEvent) => {
-        const { app, updateCoordinates, pointData } = this.props;
-        const coords = [parseFloat(Number(clickEvent.lngLat.lng).toFixed(3)), parseFloat(Number(clickEvent.lngLat.lat).toFixed(3))]
-        const cut = pointData.features?.map(item => [parseFloat(Number(item.geometry.coordinates[0]).toFixed(3)), parseFloat(Number(item.geometry.coordinates[1]).toFixed(3)), item.properties.id, item.properties.name])
-        const filtered = cut.filter(item => item[0] === coords[0] && item[1] === coords[1]);
-        if(!filtered || !filtered[0]) return;
-        if (app.stopsType === StopsType.one) {
-            updateCoordinates(filtered[0][2]);
-        }
-        if (filtered[0].length < 4) {
-            return;
-        }
-        this.setState({ 
-            popUpCoordinates: { lon: clickEvent.lngLat.lng, lat: clickEvent.lngLat.lat},
-            showPopUp: true,
-            popUpText: filtered[0][3],
-        });
+    if (filtered[0].length < 4) {
+      return;
     }
+    this.setState({
+      popUpCoordinates: {
+        lon: clickEvent.lngLat.lng,
+        lat: clickEvent.lngLat.lat,
+      },
+      showPopUp: true,
+      popUpText: filtered[0][3],
+    });
+  };
 
-    render() {
-        const { 
-            renderHeatMapFrom,  
-            renderBaseMap,
-            pointData,
-            linesData,
-            data,
-            app,
-        } = this.props;
-        const { popUpCoordinates, showPopUp, popUpText } = this.state;
-        return (
-            <Container fluid className="p-0 bg-light">
-                <Map
+  render() {
+    const busStopsLayer = new ScatterplotLayer({
+      id: "scatterplot-layer",
+      data: [],
+      pickable: true,
+      opacity: 0.7,
+      stroked: true,
+      filled: true,
+      radiusScale: 6,
+      radiusMinPixels: 1,
+      radiusMaxPixels: 100,
+      lineWidthMinPixels: 1,
+      getPosition: (d) => d.coordinates,
+      getRadius: (d) => Math.sqrt(d.exits),
+      getFillColor: (d) => [255, 140, 0],
+      getLineColor: (d) => [0, 0, 0],
+    });
+    const connectionsLayer = null;
+    const layers = [busStopsLayer, connectionsLayer];
+
+    return (
+      <Container fluid className="p-0 bg-light">
+        <DeckGL
+          initialViewState={this.state.viewport}
+          controller={true}
+          layers={layers}
+          getTooltip={({ object }) => object && `${object.name}`}
+        >
+          <ReactMapGL
+            mapboxApiAccessToken={MAPBOX_TOKEN}
+            mapStyle="mapbox://styles/mapbox/streets-v9"
+            width={window.innerWidth}
+            height={window.innerHeight}
+            onViewportChange={(viewport) => this.setState({ viewport })}
+          />
+        </DeckGL>
+      </Container>
+    );
+  }
+}
+
+const mapStateToProps = (state) => state;
+const dispatchToProps = { updateCoordinates };
+
+export default connect(mapStateToProps, dispatchToProps)(CustomMap);
+
+/* <Map
                     style="mapbox://styles/mapbox/streets-v9"
                     zoom={[13]}
                     center={[18.5462847, 50.1021742,]}
@@ -84,13 +127,4 @@ class CustomMap extends Component {
                                     >
                                     <h1>{popUpText}</h1>
                     </Popup>}
-                </Map>;
-            </Container>
-        );
-    }
-}
-
-const mapStateToProps = state => state;
-const dispatchToProps = { updateCoordinates }
-
-export default connect(mapStateToProps, dispatchToProps)(CustomMap);
+                </Map>; */
