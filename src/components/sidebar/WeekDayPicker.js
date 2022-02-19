@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 const CheckBox = (props) => {
   return (
-    <p className="weekdayCheckbox">
+    <p>
       <input
         key={props.id}
         onChange={props.handleCheckElement}
@@ -50,7 +50,7 @@ class WeekDayPicker extends Component {
 
   render() {
     return (
-      <div className="weekdaysPickerContainer">
+      <div className="pickerContainer">
         {this.state.weekdays.map((day) => {
           return (
             <CheckBox

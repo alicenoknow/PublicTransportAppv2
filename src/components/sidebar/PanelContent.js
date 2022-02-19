@@ -11,7 +11,8 @@ import {
 import DateRange from "./DateRange";
 import TimeRange from "./TimeRange";
 import WeekDayPicker from "./WeekDayPicker";
-import BusStopsCheckBoxes from "./BusStopsCheckBoxes";
+import TicketPicker from "./TicketPicker";
+import BusStopsPicker from "./BusStopsPicker";
 import { StopsType } from "../../redux/actionTypes";
 
 class PanelContent extends Component {
@@ -23,6 +24,7 @@ class PanelContent extends Component {
     intervalStartTime: undefined,
     intervalEndTime: undefined,
     weekDays: [],
+    ticketType: [],
   };
 
   onStartTimeChange = (time) =>
@@ -39,14 +41,18 @@ class PanelContent extends Component {
     this.setState({ endDate: date }, this.updateFilters);
   onWeekDaysChange = (weekDays) =>
     this.setState({ weekDays: weekDays }, this.updateFilters);
+  onTicketTypeChange = (ticketType) =>
+    this.setState({ ticketType: ticketType }, this.updateFilters);
   updateFilters = () => {
-    const { startDate, endDate, startTime, endTime, weekDays } = this.state;
+    const { startDate, endDate, startTime, endTime, weekDays, ticketType } =
+      this.state;
     this.props.updateFilters({
       startDate,
       endDate,
       startTime,
       endTime,
       weekDays,
+      ticketType,
     });
   };
 
@@ -131,6 +137,12 @@ class PanelContent extends Component {
         >
           <WeekDayPicker onWeekDaysChange={this.onWeekDaysChange} />
         </Collapsible>
+        <Collapsible
+          className={"NestedCollapsible"}
+          trigger="Wybierz rodzaj biletów"
+        >
+          <TicketPicker onTicketTypeChange={this.onTicketTypeChange} />
+        </Collapsible>
       </Collapsible>
     );
   };
@@ -142,13 +154,13 @@ class PanelContent extends Component {
           className={"NestedCollapsible"}
           trigger="Wybierz początek trasy"
         >
-          <BusStopsCheckBoxes isStart={false} />
+          <BusStopsPicker isStart={false} />
         </Collapsible>
         <Collapsible
           className={"NestedCollapsible"}
           trigger="Wybierz koniec trasy"
         >
-          <BusStopsCheckBoxes />
+          <BusStopsPicker />
         </Collapsible>
       </Collapsible>
     );

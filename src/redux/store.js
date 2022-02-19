@@ -8,6 +8,7 @@ import {
   UPDATE_START_COORDS,
   UPDATE_END_COORDS,
   StopsType,
+  TicketsType,
 } from "./actionTypes";
 
 function appReducer(state = initialState, action) {
@@ -75,6 +76,7 @@ const initialState = {
       intervalStartTime: undefined,
       intervalEndTime: undefined,
       weekDays: [0, 1, 2, 3, 4, 5, 6],
+      ticketType: TicketsType.all,
     },
     startStopsType: StopsType.all,
     endStopsType: StopsType.all,

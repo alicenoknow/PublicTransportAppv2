@@ -11,3 +11,9 @@ export const StopsType = {
   one: 1,
   area: 2,
 };
+
+export const TicketsType = {
+  all: 0,
+  normal: 1,
+  reduced: 2,
+};
