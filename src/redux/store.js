@@ -1,68 +1,92 @@
-import { createStore, combineReducers } from 'redux';
-import { UPDATE_FILTERS, UPDATE_DIR, UPDATE_STOPS_TYPE, UPDATE_COORDS, DirectionType, StopsType } from "./actionTypes";
+import { createStore, combineReducers } from "redux";
+import {
+  UPDATE_FILTERS,
+  UPDATE_START_BUS_STOP,
+  UPDATE_END_BUS_STOP,
+  UPDATE_START_STOPS_TYPE,
+  UPDATE_END_STOPS_TYPE,
+  UPDATE_START_COORDS,
+  UPDATE_END_COORDS,
+  StopsType,
+} from "./actionTypes";
 
-
-function appReducer(state=initialState, action) {
-    switch (action.type) {
-        case UPDATE_FILTERS: {
-            const { content } = action.payload;
-            return { 
-                ...state,
-                filters: {
-                    startDate: content.startDate,
-                    endDate: content.endDate,
-                    startTime: content.startTime,
-                    endTime: content.endTime,
-                    weekDays: content.weekDays,
-            }};
-        }
-        case UPDATE_DIR: {
-            const { content } = action.payload;
-            return {
-                ...state, 
-                direction: content,
-            }
-        }
-        case UPDATE_STOPS_TYPE: {
-            const { content } = action.payload;
-            return { 
-                ...state,
-                stopsType: content,
-            }
-        }
-        case UPDATE_COORDS: {
-            const { content } = action.payload;
-            return { 
-                ...state,
-                chosenBusStops: content,
-            }
-        }
-        default:
-          return state;
-      }
+function appReducer(state = initialState, action) {
+  switch (action.type) {
+    case UPDATE_FILTERS: {
+      const { content } = action.payload;
+      return {
+        ...state,
+        filters: content,
+      };
+    }
+    case UPDATE_START_STOPS_TYPE: {
+      const { content } = action.payload;
+      return {
+        ...state,
+        startStopsType: content,
+      };
+    }
+    case UPDATE_END_STOPS_TYPE: {
+      const { content } = action.payload;
+      return {
+        ...state,
+        endStopsType: content,
+      };
+    }
+    case UPDATE_START_COORDS: {
+      const { content } = action.payload;
+      return {
+        ...state,
+        startAreaCoordinates: content,
+      };
+    }
+    case UPDATE_END_COORDS: {
+      const { content } = action.payload;
+      return {
+        ...state,
+        endAreaCoordinates: content,
+      };
+    }
+    case UPDATE_START_BUS_STOP: {
+      const { content } = action.payload;
+      return {
+        ...state,
+        startSingleBusStop: content,
+      };
+    }
+    case UPDATE_END_BUS_STOP: {
+      const { content } = action.payload;
+      return {
+        ...state,
+        endSingleBusStop: content,
+      };
+    }
+    default:
+      return state;
+  }
 }
 const initialState = {
-    app: {
-            filters: {
-                startDate: undefined,
-                endDate: undefined,
-                startTime: undefined,
-                endTime: undefined,
-                weekDays: [0, 1, 2, 3, 4, 5, 6],
-            },
-            direction: DirectionType.from,
-            stopsType: StopsType.all, 
-            chosenBusStops: [],
-    }
+  app: {
+    filters: {
+      startDate: undefined,
+      endDate: undefined,
+      startTime: undefined,
+      endTime: undefined,
+      intervalStartTime: undefined,
+      intervalEndTime: undefined,
+      weekDays: [0, 1, 2, 3, 4, 5, 6],
+    },
+    startStopsType: StopsType.all,
+    endStopsType: StopsType.all,
+    startAreaCoordinates: [],
+    endAreaCoordinates: [],
+    startSingleBusStop: [],
+    endSingleBusStop: [],
+  },
 };
 
-
 const reducers = combineReducers({
-    app: appReducer
+  app: appReducer,
 });
 
-
-export default createStore(
-    reducers,
-    initialState
-)
+export default createStore(reducers, initialState);

@@ -1,30 +1,58 @@
-import { UPDATE_FILTERS, UPDATE_DIR, UPDATE_STOPS_TYPE, UPDATE_COORDS } from "./actionTypes";
+import {
+  UPDATE_FILTERS,
+  UPDATE_START_BUS_STOP,
+  UPDATE_END_BUS_STOP,
+  UPDATE_START_STOPS_TYPE,
+  UPDATE_END_STOPS_TYPE,
+  UPDATE_START_COORDS,
+  UPDATE_END_COORDS,
+} from "./actionTypes";
 
-export const updateFilters = content => ({
+export const updateFilters = (content) => ({
   type: UPDATE_FILTERS,
   payload: {
-    content
-  }
+    content,
+  },
 });
 
-export const updateDirectionType = content => ({
-  type: UPDATE_DIR,
+export const updateStartAreaCoordinates = (content) => ({
+  type: UPDATE_START_COORDS,
   payload: {
-    content
-  }
+    content,
+  },
 });
 
-export const updateStopsType = content => ({
-  type: UPDATE_STOPS_TYPE,
+export const updateEndAreaCoordinates = (content) => ({
+  type: UPDATE_END_COORDS,
   payload: {
-    content
-  }
+    content,
+  },
 });
 
-export const updateCoordinates = content => ({
-  type: UPDATE_COORDS,
+export const updateStartStopsType = (content) => ({
+  type: UPDATE_START_STOPS_TYPE,
   payload: {
-    content
-  }
+    content,
+  },
 });
 
+export const updateEndStopsType = (content) => ({
+  type: UPDATE_END_STOPS_TYPE,
+  payload: {
+    content,
+  },
+});
+
+export const updateStartBusStop = (content) => ({
+  type: UPDATE_START_BUS_STOP,
+  payload: {
+    content,
+  },
+});
+
+export const updateEndBusStop = (content) => ({
+  type: UPDATE_END_BUS_STOP,
+  payload: {
+    content,
+  },
+});

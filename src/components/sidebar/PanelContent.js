@@ -12,8 +12,7 @@ import DateRange from "./DateRange";
 import TimeRange from "./TimeRange";
 import WeekDayPicker from "./WeekDayPicker";
 import BusStopsCheckBoxes from "./BusStopsCheckBoxes";
-import DirectionTypeCheckBoxes from "./DirectionTypeCheckBoxes";
-import { DirectionType, StopsType } from "../../redux/actionTypes";
+import { StopsType } from "../../redux/actionTypes";
 
 class PanelContent extends Component {
   state = {
@@ -55,62 +54,60 @@ class PanelContent extends Component {
     const { app, setData, setServerWait } = this.props;
     setServerWait();
 
-    if (app.direction === DirectionType.from) {
-      if (app.stopsType === StopsType.one || app.stopsType === StopsType.all) {
-        fetchFromList((data) => setData(data), {
-          filters: {
-            startDate: app.filters.startDate,
-            endDate: app.filters.endDate,
-            startTime: app.filters.startTime,
-            endTime: app.filters.endTime,
-            weekDays: app.filters.weekDays,
-          },
-          busStops:
-            app.chosenBusStops.length === 0 ? undefined : [app.chosenBusStops],
-        });
-      } else {
-        fetchFromArea((data) => setData(data), {
-          filters: {
-            startDate: app.filters.startDate,
-            endDate: app.filters.endDate,
-            startTime: app.filters.startTime,
-            endTime: app.filters.endTime,
-            weekDays: app.filters.weekDays,
-          },
-          corners: app.chosenBusStops[0],
-        });
-      }
+    if (app.stopsType === StopsType.one || app.stopsType === StopsType.all) {
+      fetchFromList((data) => setData(data), {
+        filters: {
+          startDate: app.filters.startDate,
+          endDate: app.filters.endDate,
+          startTime: app.filters.startTime,
+          endTime: app.filters.endTime,
+          weekDays: app.filters.weekDays,
+        },
+        busStops:
+          app.chosenBusStops.length === 0 ? undefined : [app.chosenBusStops],
+      });
     } else {
-      if (app.stopsType === StopsType.one || app.stopsType === StopsType.all) {
-        fetchToList((data) => setData(data), {
-          filters: {
-            startDate: app.filters.startDate,
-            endDate: app.filters.endDate,
-            startTime: app.filters.startTime,
-            endTime: app.filters.endTime,
-            weekDays: app.filters.weekDays,
-          },
-          busStops:
-            app.chosenBusStops.length === 0 ? undefined : [app.chosenBusStops],
-        });
-      } else {
-        fetchToArea((data) => setData(data), {
-          filters: {
-            startDate: app.filters.startDate,
-            endDate: app.filters.endDate,
-            startTime: app.filters.startTime,
-            endTime: app.filters.endTime,
-            weekDays: app.filters.weekDays,
-          },
-          corners: app.chosenBusStops[0],
-        });
-      }
+      fetchFromArea((data) => setData(data), {
+        filters: {
+          startDate: app.filters.startDate,
+          endDate: app.filters.endDate,
+          startTime: app.filters.startTime,
+          endTime: app.filters.endTime,
+          weekDays: app.filters.weekDays,
+        },
+        corners: app.chosenBusStops[0],
+      });
+    }
+
+    if (app.stopsType === StopsType.one || app.stopsType === StopsType.all) {
+      fetchToList((data) => setData(data), {
+        filters: {
+          startDate: app.filters.startDate,
+          endDate: app.filters.endDate,
+          startTime: app.filters.startTime,
+          endTime: app.filters.endTime,
+          weekDays: app.filters.weekDays,
+        },
+        busStops:
+          app.chosenBusStops.length === 0 ? undefined : [app.chosenBusStops],
+      });
+    } else {
+      fetchToArea((data) => setData(data), {
+        filters: {
+          startDate: app.filters.startDate,
+          endDate: app.filters.endDate,
+          startTime: app.filters.startTime,
+          endTime: app.filters.endTime,
+          weekDays: app.filters.weekDays,
+        },
+        corners: app.chosenBusStops[0],
+      });
     }
   };
 
   getFiltersSelection = () => {
     return (
-      <Collapsible trigger="Filtruj">
+      <Collapsible trigger="Filtry">
         <Collapsible className={"NestedCollapsible"} trigger="Wybierz godziny">
           <TimeRange
             onStartTimeChange={this.onStartTimeChange}
@@ -140,18 +137,18 @@ class PanelContent extends Component {
 
   getVisualizationSelection = () => {
     return (
-      <Collapsible trigger="Wizualizuj">
+      <Collapsible trigger="Rodzaje wizualizacji">
         <Collapsible
           className={"NestedCollapsible"}
-          trigger="Wybierz przystanki"
+          trigger="Wybierz początek trasy"
         >
-          <BusStopsCheckBoxes />
+          <BusStopsCheckBoxes isStart={false} />
         </Collapsible>
         <Collapsible
           className={"NestedCollapsible"}
-          trigger="Wybierz rodzaj wizualizacji"
+          trigger="Wybierz koniec trasy"
         >
-          <DirectionTypeCheckBoxes />
+          <BusStopsCheckBoxes />
         </Collapsible>
       </Collapsible>
     );
