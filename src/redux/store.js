@@ -7,6 +7,7 @@ import {
   UPDATE_END_STOPS_TYPE,
   UPDATE_START_COORDS,
   UPDATE_END_COORDS,
+  SET_ACTIVE_POINT,
   StopsType,
   TicketsType,
 } from "./actionTypes";
@@ -22,7 +23,6 @@ function appReducer(state = initialState, action) {
     }
     case UPDATE_START_STOPS_TYPE: {
       const { content } = action.payload;
-      console.warn(content);
       return {
         ...state,
         startStopsType: content,
@@ -63,6 +63,13 @@ function appReducer(state = initialState, action) {
         endSingleBusStop: content,
       };
     }
+    case SET_ACTIVE_POINT: {
+      const { content } = action.payload;
+      return {
+        ...state,
+        isStartPointActive: content,
+      };
+    }
     default:
       return state;
   }
@@ -85,6 +92,7 @@ const initialState = {
     endAreaCoordinates: [],
     startSingleBusStop: [],
     endSingleBusStop: [],
+    isStartPointActive: true,
   },
 };
 

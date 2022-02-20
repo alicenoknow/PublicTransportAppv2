@@ -6,6 +6,7 @@ import {
   UPDATE_END_STOPS_TYPE,
   UPDATE_START_COORDS,
   UPDATE_END_COORDS,
+  SET_ACTIVE_POINT,
 } from "./actionTypes";
 
 export const updateFilters = (content) => ({
@@ -52,6 +53,13 @@ export const updateStartBusStop = (content) => ({
 
 export const updateEndBusStop = (content) => ({
   type: UPDATE_END_BUS_STOP,
+  payload: {
+    content,
+  },
+});
+
+export const setStartPoint = (content) => ({
+  type: SET_ACTIVE_POINT,
   payload: {
     content,
   },

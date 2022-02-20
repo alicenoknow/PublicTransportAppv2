@@ -10,7 +10,7 @@ import ReactMapGL from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import DeckGL from "@deck.gl/react";
 import { ScatterplotLayer, GeoJsonLayer } from "@deck.gl/layers";
-import { EditableGeoJsonLayer, DrawPolygonMode } from "nebula.gl";
+import { getDrawLayer, drawAreas } from "./layers/DrawLayer";
 
 const MAPBOX_TOKEN =
   "pk.eyJ1IjoiYWxpY2Vub2tub3ciLCJhIjoiY2txNDI3OXBnMGE2MDJwbXBvNXNic2N5eCJ9.JBfBgMVAkOOpQF7FMrpKSw";
@@ -144,13 +144,10 @@ class CustomMap extends Component {
       longitude: 18.5462847,
       zoom: 13,
     },
-    popUpCoordinates: [0.0, 0.0],
-    showPopUp: false,
-    popUpText: "",
-    drawData: {
-      type: "FeatureCollection",
-      features: [],
-    },
+    startArea: { type: "FeatureCollection", features: [] },
+    endArea: { type: "FeatureCollection", features: [] },
+    startPoint: undefined,
+    endPoint: undefined,
   };
 
   renderBusStopsLayer = () => {
@@ -176,71 +173,39 @@ class CustomMap extends Component {
 
   renderServerDrivenLayer = () => {};
 
-  renderDrawStartPointLayer = () => {
-    const { startStopsType } = this.props.app;
-    if (startStopsType !== StopsType.area) {
+  renderDrawStartAreaLayer = () => {
+    const {
+      updateStartAreaCoordinates,
+      app: { startStopsType, isStartPointActive },
+    } = this.props;
+    if (startStopsType !== StopsType.area || !isStartPointActive) {
       return null;
     }
-    const layer = new EditableGeoJsonLayer({
-      id: "draw-layer",
-      data: this.state.drawData,
-      mode: DrawPolygonMode,
-      selectedFeatureIndexes: [],
-      getFillColor: [123, 145, 122, 180],
-      getLineColor: [123, 145, 122, 255],
-      onEdit: ({ updatedData }) => {
-        if (updatedData.features.length > 0) {
-          this.props.updateStartAreaCoordinates(
-            updatedData.features[0].geometry.coordinates
-          );
-
-          if (updatedData.features.length > 1) {
-            this.setState({
-              drawData: {
-                type: updatedData.type,
-                features: [updatedData.features[1]],
-              },
-            });
-            return;
-          }
-        }
-        this.setState({ drawData: updatedData });
-      },
-    });
+    const setStateData = (data) => this.setState({ startArea: data });
+    const layer = getDrawLayer(
+      this.state.startArea,
+      setStateData,
+      updateStartAreaCoordinates,
+      true
+    );
     return layer;
   };
 
-  renderDrawEndPointLayer = () => {
-    const { endStopsType } = this.props.app;
-    if (endStopsType !== StopsType.area) {
+  renderDrawEndAreaLayer = () => {
+    const {
+      updateEndAreaCoordinates,
+      app: { endStopsType, isStartPointActive },
+    } = this.props;
+    if (endStopsType !== StopsType.area || isStartPointActive) {
       return null;
     }
-    const layer = new EditableGeoJsonLayer({
-      id: "draw-layer",
-      data: this.state.drawData,
-      mode: DrawPolygonMode,
-      selectedFeatureIndexes: [],
-      getFillColor: [123, 145, 122, 180],
-      getLineColor: [123, 145, 122, 255],
-      onEdit: ({ updatedData }) => {
-        if (updatedData.features.length > 0) {
-          this.props.updateEndAreaCoordinates(
-            updatedData.features[0].geometry.coordinates
-          );
-
-          if (updatedData.features.length > 1) {
-            this.setState({
-              drawData: {
-                type: updatedData.type,
-                features: [updatedData.features[1]],
-              },
-            });
-            return;
-          }
-        }
-        this.setState({ drawData: updatedData });
-      },
-    });
+    const setStateData = (data) => this.setState({ endArea: data });
+    const layer = getDrawLayer(
+      this.state.endArea,
+      setStateData,
+      updateEndAreaCoordinates,
+      false
+    );
     return layer;
   };
 
@@ -277,6 +242,13 @@ class CustomMap extends Component {
   };
 
   render() {
+    const { startArea, endArea } = this.state;
+    const {
+      app: { startStopsType, endStopsType },
+    } = this.props;
+    const showStartArea = startStopsType === StopsType.area;
+    const showEndArea = endStopsType === StopsType.area;
+
     const layer = new GeoJsonLayer({
       id: "geojson",
       data: districts,
@@ -295,7 +267,9 @@ class CustomMap extends Component {
       // this.renderBusStopsLayer(),
       // this.renderTotalFlowLayer(),
       // this.renderServerDrivenLayer(),
-      this.renderDrawStartPointLayer(),
+      this.renderDrawStartAreaLayer(),
+      this.renderDrawEndAreaLayer(),
+      drawAreas(showStartArea ? startArea : null, showEndArea ? endArea : null),
     ];
 
     return (
@@ -326,28 +300,3 @@ const dispatchToProps = {
 };
 
 export default connect(mapStateToProps, dispatchToProps)(CustomMap);
-
-/* <Map
-                    style="mapbox://styles/mapbox/streets-v9"
-                    zoom={[13]}
-                    center={[18.5462847, 50.1021742,]}
-                    containerStyle={{
-                        height: window.innerHeight,
-                        width: window.innerWidth,
-                    }}>
-                    {renderHeatMapFrom && data && <LineLayer data={data} />}
-                    {renderBaseMap && <PointLayer data={pointData} onClickUpdate={this.onClickUpdate} />}
-                    {renderBaseMap && linesData.length !== 0 && <HeatmapLayer data={parseLinesToPoints(linesData)} />}
-                    {app.stopsType === StopsType.area && <DrawControl 
-                            ref={(drawControl) => { this.drawControl = drawControl; }}
-                            defaultMode='draw_polygon'
-                            displayControlsDefault={false}
-                            onDrawCreate={this.onDrawUpdate} onDrawUpdate={this.onDrawUpdate}
-                            />}
-                    {showPopUp && <Popup coordinates={{lat: popUpCoordinates.lat, lon: popUpCoordinates.lon}}
-                                    onClick={() => this.setState({ showPopUp: false })}
-                                    style={{fontSize: 12}}
-                                    >
-                                    <h1>{popUpText}</h1>
-                    </Popup>}
-                </Map>; */

@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Admin from "./components/Admin";
+import Upload from "./components/Upload";
 import "./App.css";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/upload" element={<Upload />} />
       </Routes>
     </Container>
   );

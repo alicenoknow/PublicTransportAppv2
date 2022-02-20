@@ -5,6 +5,7 @@ export const UPDATE_START_STOPS_TYPE = "UPDATE_START_STOPS_TYPE";
 export const UPDATE_END_STOPS_TYPE = "UPDATE_END_TOPS_TYPE";
 export const UPDATE_START_COORDS = "UPDATE_START_COORDS";
 export const UPDATE_END_COORDS = "UPDATE_END_COORDS";
+export const SET_ACTIVE_POINT = "SET_ACTIVE_POINT";
 
 export const StopsType = {
   all: 0,

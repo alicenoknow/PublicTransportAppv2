@@ -51,7 +51,6 @@ class Admin extends Component {
             <div className="loginButtons">
               <Button
                 className="loginButton"
-                block
                 size="lg"
                 type="submit"
                 disabled={!this.validateForm()}
@@ -59,8 +58,7 @@ class Admin extends Component {
                 Zaloguj
               </Button>
               <button
-                class="btn btn-link"
-                block
+                className="btn btn-link"
                 size="lg"
                 type="button"
                 disabled={!this.validateEmail()}

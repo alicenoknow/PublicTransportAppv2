@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Collapsible from "react-collapsible";
 import { connect } from "react-redux";
-import { updateFilters } from "../../redux/actions";
+import { updateFilters, setStartPoint } from "../../redux/actions";
 import {
   fetchFromArea,
   fetchFromList,
@@ -25,6 +25,7 @@ class PanelContent extends Component {
     intervalEndTime: undefined,
     weekDays: [],
     ticketType: [],
+    isStartPointActive: true,
   };
 
   onStartTimeChange = (time) =>
@@ -147,18 +148,34 @@ class PanelContent extends Component {
     );
   };
 
+  changeStartPointActive = (isActive) => {
+    const { setStartPoint } = this.props;
+    this.setState({ isStartPointActive: isActive }, () =>
+      setStartPoint(isActive)
+    );
+  };
+
   getVisualizationSelection = () => {
+    const { isStartPointActive } = this.state;
     return (
       <Collapsible trigger="Rodzaje wizualizacji">
         <Collapsible
-          className={"NestedCollapsible"}
+          className={"NestedCollapsibleStart"}
+          openedClassName={"OpenedStart"}
           trigger="Wybierz początek trasy"
+          open={isStartPointActive}
+          onOpening={() => this.changeStartPointActive(true)}
+          onClosing={() => this.changeStartPointActive(false)}
         >
           <BusStopsPicker isStart={true} />
         </Collapsible>
         <Collapsible
-          className={"NestedCollapsible"}
+          className={"NestedCollapsibleEnd"}
+          openedClassName={"OpenedEnd"}
           trigger="Wybierz koniec trasy"
+          open={!isStartPointActive}
+          onOpening={() => this.changeStartPointActive(false)}
+          onClosing={() => this.changeStartPointActive(true)}
         >
           <BusStopsPicker />
         </Collapsible>
@@ -183,6 +200,6 @@ class PanelContent extends Component {
 }
 
 const mapStateToProps = (state) => state;
-const dispatchToProps = { updateFilters };
+const dispatchToProps = { updateFilters, setStartPoint };
 
 export default connect(mapStateToProps, dispatchToProps)(PanelContent);
