@@ -22,14 +22,16 @@ class BusStopsCheckBoxes extends Component {
   handleChange = () => {
     const { pickOneValue, pickAreaValue } = this.state;
     const { isStart, updateStartStopsType, updateEndStopsType } = this.props;
-    const update = isStart ? updateStartStopsType : updateEndStopsType;
+    const stopsType = pickOneValue
+      ? StopsType.one
+      : pickAreaValue
+      ? StopsType.area
+      : StopsType.all;
 
-    if (pickOneValue) {
-      update(StopsType.one);
-    } else if (pickAreaValue) {
-      update(StopsType.area);
+    if (isStart) {
+      updateStartStopsType(stopsType);
     } else {
-      update(StopsType.all);
+      updateEndStopsType(stopsType);
     }
   };
 

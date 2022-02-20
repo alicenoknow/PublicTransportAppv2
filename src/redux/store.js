@@ -22,6 +22,7 @@ function appReducer(state = initialState, action) {
     }
     case UPDATE_START_STOPS_TYPE: {
       const { content } = action.payload;
+      console.warn(content);
       return {
         ...state,
         startStopsType: content,

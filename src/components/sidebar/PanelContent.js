@@ -154,7 +154,7 @@ class PanelContent extends Component {
           className={"NestedCollapsible"}
           trigger="Wybierz początek trasy"
         >
-          <BusStopsPicker isStart={false} />
+          <BusStopsPicker isStart={true} />
         </Collapsible>
         <Collapsible
           className={"NestedCollapsible"}
@@ -173,6 +173,9 @@ class PanelContent extends Component {
         {this.getVisualizationSelection()}
         <button onClick={this.processData} className="confirmButton">
           Przetwarzaj dane
+        </button>
+        <button onClick={this.processData} className="saveButton">
+          Zapisz dane
         </button>
       </React.Fragment>
     );

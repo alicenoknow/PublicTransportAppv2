@@ -190,7 +190,7 @@ class CustomMap extends Component {
       getLineColor: [123, 145, 122, 255],
       onEdit: ({ updatedData }) => {
         if (updatedData.features.length > 0) {
-          this.props.updateCoordinates(
+          this.props.updateStartAreaCoordinates(
             updatedData.features[0].geometry.coordinates
           );
 
@@ -224,7 +224,7 @@ class CustomMap extends Component {
       getLineColor: [123, 145, 122, 255],
       onEdit: ({ updatedData }) => {
         if (updatedData.features.length > 0) {
-          this.props.updateCoordinates(
+          this.props.updateEndAreaCoordinates(
             updatedData.features[0].geometry.coordinates
           );
 
@@ -295,7 +295,7 @@ class CustomMap extends Component {
       // this.renderBusStopsLayer(),
       // this.renderTotalFlowLayer(),
       // this.renderServerDrivenLayer(),
-      // this.renderDrawStartPointLayer(),
+      this.renderDrawStartPointLayer(),
     ];
 
     return (

@@ -24,6 +24,7 @@ class Admin extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
   };
+
   render() {
     const { email, password } = this.state;
     return (
