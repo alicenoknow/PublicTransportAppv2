@@ -52,8 +52,10 @@ class Admin extends Component {
               <Button
                 className="loginButton"
                 size="lg"
+                href="/upload"
                 type="submit"
                 disabled={!this.validateForm()}
+                onClick="window.location.href='/upload"
               >
                 Zaloguj
               </Button>

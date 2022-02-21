@@ -1,3 +1,47 @@
+.smallText {
+  color: rgba(237, 246, 252, 0.829);
+  color: rgba(237, 246, 252, 0.829);
+  font-size: 90%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.mediumText {
+  color: rgba(237, 246, 252, 0.829);
+  font-size: 110%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.bigText {
+  color: rgba(237, 246, 252, 0.829);
+  margin: 20px;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  margin-left: 10px;
+}
+
+.buttonSeparator {
+  margin-right: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.upload {
+  margin: 0 auto;
+  max-width: 320px;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
 .sidePanel-open {
   position: absolute;
   left: 0px;

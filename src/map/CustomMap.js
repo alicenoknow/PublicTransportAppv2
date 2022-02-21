@@ -258,8 +258,6 @@ class CustomMap extends Component {
       getLineColor: [130, 200, 67, 240],
       stroked: true,
       filled: true,
-      wireframe: true,
-      extruded: true,
     });
 
     const layers = [
