@@ -7,6 +7,9 @@ import {
   UPDATE_START_COORDS,
   UPDATE_END_COORDS,
   SET_ACTIVE_POINT,
+  SET_BUS_STOPS_VISIBILITY,
+  SET_AREAS_VISIBILITY,
+  SET_DRAW_MODE,
 } from "./actionTypes";
 
 export const updateFilters = (content) => ({
@@ -60,6 +63,27 @@ export const updateEndBusStop = (content) => ({
 
 export const setStartPoint = (content) => ({
   type: SET_ACTIVE_POINT,
+  payload: {
+    content,
+  },
+});
+
+export const setBusStopsVisibility = (content) => ({
+  type: SET_BUS_STOPS_VISIBILITY,
+  payload: {
+    content,
+  },
+});
+
+export const setAreasVisibility = (content) => ({
+  type: SET_AREAS_VISIBILITY,
+  payload: {
+    content,
+  },
+});
+
+export const setDrawMode = (content) => ({
+  type: SET_DRAW_MODE,
   payload: {
     content,
   },

@@ -13,6 +13,8 @@ import TimeRange from "./TimeRange";
 import WeekDayPicker from "./WeekDayPicker";
 import TicketPicker from "./TicketPicker";
 import BusStopsPicker from "./BusStopsPicker";
+import AreasManager from "./AreasManager";
+import ViewPicker from "./ViewPicker";
 import { StopsType } from "../../redux/actionTypes";
 
 class PanelContent extends Component {
@@ -150,9 +152,11 @@ class PanelContent extends Component {
 
   changeStartPointActive = (isActive) => {
     const { setStartPoint } = this.props;
-    this.setState({ isStartPointActive: isActive }, () =>
-      setStartPoint(isActive)
-    );
+    if (this.state.isStartPointActive !== isActive) {
+      this.setState({ isStartPointActive: isActive }, () =>
+        setStartPoint(isActive)
+      );
+    }
   };
 
   getVisualizationSelection = () => {
@@ -183,9 +187,26 @@ class PanelContent extends Component {
     );
   };
 
+  getAreasSelection = () => {
+    return (
+      <Collapsible trigger="Obszary i przystanki">
+        <Collapsible className={"NestedCollapsible"} trigger="Widok">
+          <ViewPicker />
+        </Collapsible>
+        <Collapsible
+          className={"NestedCollapsible"}
+          trigger="Zarządzaj obszarami"
+        >
+          <AreasManager />
+        </Collapsible>
+      </Collapsible>
+    );
+  };
+
   render() {
     return (
       <React.Fragment>
+        {this.getAreasSelection()}
         {this.getFiltersSelection()}
         {this.getVisualizationSelection()}
         <button onClick={this.processData} className="confirmButton">

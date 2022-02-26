@@ -244,3 +244,38 @@
 .emailLogin {
   padding-bottom: 20px;
 }
+
+.areaListElement {
+  flex-direction: row;
+  display: flex;
+  padding: 10px;
+}
+
+.removeButton {
+  background-color: rgb(42, 35, 146);
+  border-color: transparent;
+  border-radius: 8px;
+}
+
+.addAreaButton {
+  background-color: rgb(42, 35, 146);
+  border-color: transparent;
+  border-radius: 8px;
+}
+
+.addAreaButtonContainer {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centerContainer {
+  justify-content: center;
+  flex: 1;
+  display: flex;
+}
+
+.spinner {
+  margin-top: 50%;
+}

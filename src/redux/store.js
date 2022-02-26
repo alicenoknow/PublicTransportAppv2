@@ -8,6 +8,9 @@ import {
   UPDATE_START_COORDS,
   UPDATE_END_COORDS,
   SET_ACTIVE_POINT,
+  SET_BUS_STOPS_VISIBILITY,
+  SET_AREAS_VISIBILITY,
+  SET_DRAW_MODE,
   StopsType,
   TicketsType,
 } from "./actionTypes";
@@ -70,6 +73,27 @@ function appReducer(state = initialState, action) {
         isStartPointActive: content,
       };
     }
+    case SET_BUS_STOPS_VISIBILITY: {
+      const { content } = action.payload;
+      return {
+        ...state,
+        showBusStops: content,
+      };
+    }
+    case SET_AREAS_VISIBILITY: {
+      const { content } = action.payload;
+      return {
+        ...state,
+        showAreas: content,
+      };
+    }
+    case SET_DRAW_MODE: {
+      const { content } = action.payload;
+      return {
+        ...state,
+        isDrawModeActive: content,
+      };
+    }
     default:
       return state;
   }
@@ -93,6 +117,9 @@ const initialState = {
     startSingleBusStop: [],
     endSingleBusStop: [],
     isStartPointActive: true,
+    showBusStops: true,
+    showAreas: false,
+    isDrawModeActive: false,
   },
 };
 
