@@ -277,7 +277,7 @@ class CustomMap extends Component {
 						object && object.name && `${object.name}`
 					}>
 					<ReactMapGL
-						mapboxApiAccessToken={ProcessingInstruction.env.REACT_APP_MAPBOX_TOKEN}
+						mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
 						mapStyle="mapbox://styles/mapbox/streets-v9"
 						width={window.innerWidth}
 						height={window.innerHeight}
