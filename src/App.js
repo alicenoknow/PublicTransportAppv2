@@ -8,17 +8,17 @@ import Upload from "./components/Upload";
 import "./App.css";
 
 function App() {
-  return (
-    <Container fluid className={"p-0"}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/upload" element={<Upload />} />
-      </Routes>
-    </Container>
-  );
+	return (
+		<Container fluid className={"p-0"}>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/admin" element={<Admin />} />
+				<Route path="/upload" element={<Upload />} />
+			</Routes>
+		</Container>
+	);
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = state => ({});
 
 export default connect(mapStateToProps)(App);

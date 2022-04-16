@@ -11,13 +11,13 @@ export const SET_AREAS_VISIBILITY = "SET_AREAS_VISIBILITY";
 export const SET_DRAW_MODE = "SET_DRAW_MODE";
 
 export const StopsType = {
-  all: 0,
-  one: 1,
-  area: 2,
+	all: 0,
+	one: 1,
+	area: 2,
 };
 
 export const TicketsType = {
-  all: 0,
-  normal: 1,
-  reduced: 2,
+	all: 0,
+	normal: 1,
+	reduced: 2,
 };
