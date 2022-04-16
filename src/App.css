@@ -232,7 +232,8 @@
 }
 
 .loginButtons {
-	margin: 10px;
+	margin: 1rem;
+	margin-top: 2rem;
 }
 
 .loginButton {
@@ -278,4 +279,13 @@
 
 .spinner {
 	margin-top: 50%;
+}
+
+.admin {
+	display: flex;
+	margin: 0 auto;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	color: white;
 }
