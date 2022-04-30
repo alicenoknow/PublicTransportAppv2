@@ -74,14 +74,14 @@ class BusStopsCheckBoxes extends Component {
 			<React.Fragment>
 				<div className="checkBoxContainer">
 					<Checkbox
-						label="  Pojedynczy przystanek"
+						label="  Wybrane przystanki"
 						value={pickOneValue}
 						onChange={this.handleChangeOne}
 					/>
 				</div>
 				<div className="checkBoxContainer">
 					<Checkbox
-						label="  Obszar"
+						label="  Wybrane obszary"
 						value={pickAreaValue}
 						onChange={this.handleChangeArea}
 					/>

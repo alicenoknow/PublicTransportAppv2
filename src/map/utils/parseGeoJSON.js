@@ -10,7 +10,7 @@ export function parseLinesToPoints(features, destination) {
 }
 
 export function parsePointsToScatterPlotData(data) {
-	return Object.values(Object.fromEntries(data));
+	return Object.values(data);
 }
 
 export function parseGeoJsonToLinePlotData(features) {
@@ -25,4 +25,10 @@ export function parseGeoJsonToLinePlotData(features) {
 		}));
 	}
 	return [];
+}
+
+export function getDataPointsFromIds(ids, busStopsDict) {
+	if (ids && ids[0]) {
+		return ids.map(item => (busStopsDict[item]));
+	}
 }

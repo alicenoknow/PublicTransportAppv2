@@ -7,7 +7,7 @@ import {
 	updateEndAreaCoordinates,
 	setBusStopsData,
 	updateStartBusStop,
-	updateEndBusStop
+	updateEndBusStop,
 } from "../redux/actions";
 import ReactMapGL from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -17,8 +17,15 @@ import { data as oneWayData } from "../oneWay.json";
 import {
 	parsePointsToScatterPlotData,
 	parseLinesToPoints,
+	getDataPointsFromIds,
 } from "./utils/parseGeoJSON";
-import { LineLayer, PointLayer, getDrawLayer, drawAreas, HeatMapLayer } from "./layers";
+import {
+	LineLayer,
+	PointLayer,
+	getDrawLayer,
+	drawAreas,
+	HeatMapLayer,
+} from "./layers";
 
 class CustomMap extends Component {
 	state = {
@@ -37,8 +44,14 @@ class CustomMap extends Component {
 		this.props.setBusStopsData(busStopsData);
 	}
 
-	handleBusStopClick = (info) => {
-		const { isStartPointActive, startStopsType, startBusStops, endStopsType, endBusStops } = this.props.app;
+	handleBusStopClick = info => {
+		const {
+			isStartPointActive,
+			startStopsType,
+			startBusStops,
+			endStopsType,
+			endBusStops,
+		} = this.props.app;
 		let newBusStops = [];
 
 		if (isStartPointActive) {
@@ -46,7 +59,7 @@ class CustomMap extends Component {
 				if (startBusStops.includes(info.object.id)) {
 					newBusStops = startBusStops.filter(val => val !== info.object.id);
 				} else {
-					newBusStops = [ ...startBusStops, info.object.id];
+					newBusStops = [...startBusStops, info.object.id];
 				}
 				this.props.updateStartBusStop(newBusStops);
 			}
@@ -55,28 +68,75 @@ class CustomMap extends Component {
 				if (endBusStops.includes(info.object.id)) {
 					newBusStops = endBusStops.filter(val => val !== info.object.id);
 				} else {
-					newBusStops = [ ...endBusStops, info.object.id];
+					newBusStops = [...endBusStops, info.object.id];
 				}
-				this.props.updateEndBusStop(newBusStops)
+				this.props.updateEndBusStop(newBusStops);
 			}
 		}
-	}
+	};
 
 	renderBusStopsLayer = () => {
 		const { busStopsData: data, showBusStops } = this.props.app;
 		if (data && showBusStops) {
 			const parsedData = parsePointsToScatterPlotData(data);
-			return PointLayer(parsedData, this.handleBusStopClick);
+			return PointLayer(parsedData, "bus-stops", this.handleBusStopClick);
 		}
 		return null;
 	};
 
 	renderHeatMapLayer = () => {
-		return HeatMapLayer(parseLinesToPoints(oneWayData.features, 0))
+		return HeatMapLayer(parseLinesToPoints(oneWayData.features, 0));
 	};
 
 	renderServerDrivenLayer = () => {
 		return LineLayer(oneWayData);
+	};
+
+	renderStartStops = () => {
+		const {
+			app: { startStopsType, startBusStops, busStopsData },
+		} = this.props;
+		if (startStopsType !== StopsType.one) {
+			return null;
+		}
+		const data = getDataPointsFromIds(startBusStops, busStopsData);
+		return PointLayer(
+			data,
+			"start-stops",
+			this.handleBusStopClick,
+			[204, 153, 59],
+		);
+	};
+
+	renderEndStops = () => {
+		const {
+			app: { endStopsType, endBusStops, busStopsData },
+		} = this.props;
+		if (endStopsType !== StopsType.one) {
+			return null;
+		}
+		const data = getDataPointsFromIds(endBusStops, busStopsData);
+		return PointLayer(
+			data,
+			"end-stops",
+			this.handleBusStopClick,
+			[0, 184, 148],
+		);
+	};
+
+	renderPickedStops = () => {
+		const { isStartPointActive } = this.props.app;
+		const renderFirstLayer = isStartPointActive
+			? this.renderEndStops
+			: this.renderStartStops;
+		const renderSecondLayer = isStartPointActive
+			? this.renderStartStops
+			: this.renderEndStops;
+		return (
+			[ renderFirstLayer(),
+				renderSecondLayer()
+			]
+		);
 	};
 
 	renderDrawStartAreaLayer = () => {
@@ -138,6 +198,7 @@ class CustomMap extends Component {
 			this.renderDrawStartAreaLayer(),
 			this.renderDrawEndAreaLayer(),
 			this.renderBusStopsLayer(),
+			...this.renderPickedStops(),
 			drawAreas(showStartArea ? startArea : null, showEndArea ? endArea : null),
 		];
 
@@ -147,8 +208,7 @@ class CustomMap extends Component {
 					initialViewState={this.state.viewport}
 					controller={true}
 					layers={layers}
-					getTooltip={({ object }) => this.getCustomTooltip(object)}
-				>
+					getTooltip={({ object }) => this.getCustomTooltip(object)}>
 					<ReactMapGL
 						mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
 						mapStyle="mapbox://styles/mapbox/streets-v9"
