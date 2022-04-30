@@ -10,7 +10,7 @@ import {
 	setDrawMode,
 	updateStartAreas,
 	updateEndAreas,
-	setInfo
+	setInfo,
 } from "../redux/actions";
 import ReactMapGL from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -85,7 +85,7 @@ class CustomMap extends Component {
 			endAreas,
 		} = this.props.app;
 		let newAreas = [];
-		this.props.setInfo("Wybrano obszar: " + info.object.properties.name);
+		this.props.setInfo(["Wybrano obszar: " + info.object.properties.name]);
 		if (isStartPointActive) {
 			if (startStopsType === StopsType.area) {
 				if (startAreas.includes(info.object.properties.id)) {
@@ -109,6 +109,17 @@ class CustomMap extends Component {
 		}
 	};
 
+	handleLineClick = info => {
+		this.props.setInfo(
+			["Trasa z przystanku " +
+				info.object.geometry.coordinates[0] +
+				" do przystanku " +
+				info.object.geometry.coordinates[1] +
+				"." , "Liczba pasażerów: " +
+				info.object.properties.commuters],
+		);
+	};
+
 	renderBusStopsLayer = () => {
 		const { busStopsData: data, showBusStops } = this.props.app;
 		if (data && showBusStops) {
@@ -123,7 +134,7 @@ class CustomMap extends Component {
 	};
 
 	renderServerDrivenLayer = () => {
-		return LineLayer(oneWayData);
+		return LineLayer(oneWayData, this.handleLineClick);
 	};
 
 	renderAreas = () => {
@@ -313,7 +324,7 @@ const dispatchToProps = {
 	setDrawMode,
 	updateStartAreas,
 	updateEndAreas,
-	setInfo
+	setInfo,
 };
 
 export default connect(mapStateToProps, dispatchToProps)(CustomMap);

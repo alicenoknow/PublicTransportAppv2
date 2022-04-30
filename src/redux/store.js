@@ -47,7 +47,7 @@ function appReducer(state = initialState, action) {
 				...state,
 				filters: {
 					...state.filters,
-					startEnd: content,
+					endDate: content,
 				}
 			};
 		}
@@ -250,7 +250,7 @@ const initialState = {
 		areasData: [],
 		serverQueryData: undefined,
 
-		currentInfo: ''
+		currentInfo: []
 	},
 };
 

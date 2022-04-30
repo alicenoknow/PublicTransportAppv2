@@ -23,31 +23,36 @@ export default class TicketPicker extends Component {
 		reduced: { id: 1, value: "Bilety ulgowe", isChecked: true },
 	};
 
+	setTicketInfo() {
+		const { normal, reduced } = this.state;
+		const ticketType =
+		normal.isChecked && reduced.isChecked
+			? TicketsType.all
+			: (normal.isChecked
+			? TicketsType.normal
+			: TicketsType.reduced);
+		this.props.onTicketTypeChange(ticketType);
+	}
+
 	handleCheckNormalElement = event => {
 		const { normal, reduced } = this.state;
 		if (event.target.value === normal.value) {
 			this.setState({
 				normal: {
 					...normal,
-					isChecked: !normal.isChecked,
+					isChecked: !normal.isChecked || !reduced.isChecked,
 				},
-			});
+			}, this.setTicketInfo);
 		} else {
 			this.setState({
 				reduced: {
 					...reduced,
-					isChecked: !reduced.isChecked,
+					isChecked: !reduced.isChecked || !normal.isChecked,
 				},
-			});
+			}, this.setTicketInfo);
 		}
 
-		const ticketType =
-			normal.isChecked && reduced.isChecked
-				? TicketsType.all
-				: normal.isChecked
-				? TicketsType.normal
-				: TicketsType.reduced;
-		this.props.onTicketTypeChange(ticketType);
+
 	};
 
 	render() {
