@@ -177,10 +177,3 @@ export const setServerQueryData = content => ({
 		content,
 	},
 });
-
-export const setNewAreaTitle = content => ({
-	type: SET_NEW_AREA_TITLE,
-	payload: {
-		content,
-	},
-});

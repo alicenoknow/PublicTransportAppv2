@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from "redux";
-import { parseBusStopsToDict } from "./utils";
+import { parseBusStopsToDict, parseAreasToDict } from "./utils";
 import {
 	UPDATE_START_BUS_STOP,
 	UPDATE_END_BUS_STOP,
@@ -181,13 +181,6 @@ function appReducer(state = initialState, action) {
 				isDrawModeActive: content,
 			};
 		}	
-		case SET_NEW_AREA_TITLE: {
-			const { content } = action.payload;
-			return {
-				...state,
-				newAreaTitle: content,
-			};
-		}	
 		case SET_ANALYSIS_TYPE: {
 			const { content } = action.payload;
 			return {
@@ -205,9 +198,10 @@ function appReducer(state = initialState, action) {
 		}
 		case SET_AREAS_DATA: {
 			const { content } = action.payload;
+			const areasDict = parseAreasToDict(content);
 			return {
 				...state,
-				areasData: content,
+				areasData: areasDict,
 			};
 		}
 		case SET_SERVER_QUERY_DATA: {
@@ -243,12 +237,13 @@ const initialState = {
 		showBusStops: true,
 		showAreas: false,
 		isDrawModeActive: false,
-		newAreaTitle: undefined,
 		analysisType: AnalysisType.oneWay,
 
 		busStopsData: undefined,
 		areasData: [],
 		serverQueryData: undefined,
+
+		lastRequestData: {}
 	},
 };
 

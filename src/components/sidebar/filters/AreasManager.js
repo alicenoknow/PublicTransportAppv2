@@ -4,7 +4,6 @@ import {
 	updateStartStopsType,
 	updateEndStopsType,
 	setDrawMode,
-	setNewAreaTitle,
 	setAreasData,
 } from "../../../redux/actions";
 import { ScrollView } from "@cantonjs/react-scroll-view";
@@ -24,22 +23,22 @@ class AreasManager extends Component {
 		this.setState({ isFetching: false });
 	};
 
-	removeArea = name => {
+	removeArea = id => {
 		const { areasData } = this.props.app;
-		const newAreas = areasData.filter(item => item.properties.name !== name);
-		this.props.setAreasData(newAreas);
+		delete areasData[id]
+		this.props.setAreasData(areasData);
 	};
 
 	renderListElement = area => {
 		return (
-			<div className="areaListElement" key={area.properties.name}>
+			<div className="areaListElement" key={area.properties.id}>
 				<div>{area.properties.name}</div>
 				<div style={{ flex: 1 }} />
 				<Button
 					className="removeButton"
 					type="button"
 					size="sm"
-					onClick={() => this.removeArea(area.properties.name)}>
+					onClick={() => this.removeArea(area.properties.id)}>
 					<div className="cross" />
 				</Button>
 			</div>
@@ -64,12 +63,12 @@ class AreasManager extends Component {
 		const {
 			app: { areasData },
 		} = this.props;
-		const { areas, isFetching } = this.state;
+		const { isFetching } = this.state;
 		return (
 			<>
 				{this.renderAddAreaButton()}
 				<ScrollView style={{ height: "300px" }}>
-					{!isFetching && areasData.map(el => this.renderListElement(el))}
+					{!isFetching && Object.values(areasData).map(el => this.renderListElement(el))}
 					{isFetching && (
 						<Container className="centerContainer">
 							<Spinner className="spinner" animation="grow" variant="light" />
@@ -86,7 +85,6 @@ const dispatchToProps = {
 	updateStartStopsType,
 	updateEndStopsType,
 	setDrawMode,
-	setNewAreaTitle,
 	setAreasData,
 };
 

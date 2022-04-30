@@ -12,17 +12,17 @@ import {
 	setBusStopsData,
 	setServerQueryData,
 } from "../redux/actions";
-import InfoPanel from "./sidebar/InfoPanel";
+import InfoPanel from "./infoPanel/InfoPanel";
 
 class Home extends Component {
 	componentDidMount() {
 		fetchBusStops(data => setBusStopsData(data));
-		fetchAreas(data => setAreasData(data));
+		// fetchAreas(data => setAreasData(data));
 	}
 
 	render() {
-		const { busStopsData, areasData, serverQueryData } = this.props.app;
-		const isLoading = !busStopsData || !areasData;
+		const { busStopsData, serverQueryData } = this.props.app;
+		const isLoading = !busStopsData;
 
 		// if (isLoading) {
 		// 	return <Loading />;
@@ -31,17 +31,9 @@ class Home extends Component {
 		return (
 			<Container fluid className="p-0 bg-dark">
 				<NavPadding />
-				<SidePanel
-					data={busStopsData}
-					setData={this.setServerData}
-					setServerWait={this.setServerWait}
-				/>
+				<SidePanel />
 				<InfoPanel />
-				<CustomMap
-					busStopsData={busStopsData}
-					areasData={areasData}
-					serverData={serverQueryData}
-				/>
+				<CustomMap/>
 			</Container>
 		);
 	}

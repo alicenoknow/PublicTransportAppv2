@@ -1,4 +1,6 @@
+
 import React, { Component } from "react";
+import InfoPanelContent from "./InfoPanelContent";
 import { ScrollView } from "@cantonjs/react-scroll-view";
 
 class InfoPanel extends Component {
@@ -17,11 +19,13 @@ class InfoPanel extends Component {
 					{isOpen ? ">" : "<"}
 				</button>
 				<ScrollView style={{ height: "100vh" }}>
-				
+					<div className={"infoPanelContent" + styleStatus}>
+						<InfoPanelContent />
+					</div>
 				</ScrollView>
 			</div>
 		);
-	} 
+	}
 }
 
 export default InfoPanel;

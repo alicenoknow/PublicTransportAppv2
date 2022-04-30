@@ -3,7 +3,7 @@ import axios from "axios";
 // axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 // axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
 // axios.defaults.headers.post["Content-Type"] = "application/json";
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 const API = process.env.REACT_APP_API;
 
@@ -16,7 +16,7 @@ export const login = (email, password) => {
 	const config = {
 		method: "get",
 		url: API + "/token",
-		withCredentials: true,
+		// withCredentials: true,
 		headers: {
 			"Content-Type": "application/json",
 			// "Access-Control-Allow-Origin": "*",
