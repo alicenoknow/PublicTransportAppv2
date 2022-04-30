@@ -25,6 +25,11 @@ export const SET_BUS_STOPS_VISIBILITY = "SET_BUS_STOPS_VISIBILITY";
 export const SET_AREAS_VISIBILITY = "SET_AREAS_VISIBILITY";
 export const SET_DRAW_MODE = "SET_DRAW_MODE";
 
+// Data
+export const SET_SERVER_QUERY_DATA = "SET_SERVER_QUERY_DATA";
+export const SET_BUS_STOPS_DATA = "SET_BUS_STOPS_DATA";
+export const SET_AREAS_DATA = "SET_AREAS_DATA";
+
 export const StopsType = {
 	all: 0,
 	one: 1,

@@ -6,19 +6,29 @@ class Loading extends Component {
 		super(props);
 		this.state = {};
 	}
+
+	containerStyle = {
+		height: "100%",
+		position: "absolute",
+		alignItems: "center",
+		justifyContent: "center",		
+	}
+
+	spinnerStyle = {
+		position: "relative",
+		display: "flex",
+		flex: 1,
+		alignItems: "center",
+		justifyContent: "center",
+		marginTop: "30vh"
+	}
+
 	render() {
 		return (
-			<Container
-				fluid
-				className="p-0 bg-light text-center"
-				style={{
-					height: "100%",
-					position: "fixed",
-					alignContent: "center",
-					justifyContent: "center",
-					alignItems: "center",
-				}}>
-				<Spinner className={"mt-5"} animation="grow" variant="dark" />
+			<Container fluid className="p-0 bg-dark" style={this.containerStyle}>
+				<div style={this.spinnerStyle}>
+					<Spinner className={"mt-5"} animation="grow" variant="light" />
+					</div>
 			</Container>
 		);
 	}

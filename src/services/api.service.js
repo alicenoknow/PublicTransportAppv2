@@ -15,11 +15,23 @@ export const fetchBusStops = (
             .get(API + "/api/stops")
             .catch(function (error) {
                 console.log(error.toJSON());
-                console.warn("erore")
                 return undefined;
             })
             .then(response => {
-                console.warn("hejka: ", response?.data)
+                return response?.data;
+            });
+    };
+
+export const fetchAreas = (
+    ) => {
+        console.warn("asdas")
+        return axios
+            .get(API + "/api/stops")
+            .catch(function (error) {
+                console.log(error.toJSON());
+                return undefined;
+            })
+            .then(response => {
                 return response?.data;
             });
     };

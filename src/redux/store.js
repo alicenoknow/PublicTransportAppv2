@@ -19,6 +19,9 @@ import {
 	SET_START_TIME,
 	SET_END_TIME,
 	SET_ANALYSIS_TYPE,
+	SET_BUS_STOPS_DATA,
+	SET_AREAS_DATA,
+	SET_SERVER_QUERY_DATA,
 	StopsType,
 	TicketsType,
 	AnalysisType,
@@ -183,6 +186,27 @@ function appReducer(state = initialState, action) {
 				analysisType: content,
 			};
 		}
+		case SET_BUS_STOPS_DATA: {
+			const { content } = action.payload;
+			return {
+				...state,
+				busStopsData: content,
+			};
+		}
+		case SET_AREAS_DATA: {
+			const { content } = action.payload;
+			return {
+				...state,
+				areasData: content,
+			};
+		}
+		case SET_SERVER_QUERY_DATA: {
+			const { content } = action.payload;
+			return {
+				...state,
+				serverQueryData: content,
+			};
+		}
 		default:
 			return state;
 	}
@@ -210,6 +234,10 @@ const initialState = {
 		showAreas: false,
 		isDrawModeActive: false,
 		analysisType: AnalysisType.oneWay,
+
+		busStopsData: undefined,
+		areasData: [],
+		serverQueryData: undefined,
 	},
 };
 

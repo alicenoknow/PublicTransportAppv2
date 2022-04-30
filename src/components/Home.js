@@ -3,61 +3,30 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { Container } from "react-bootstrap";
 import CustomMap from "../map/CustomMap";
-
+import Loading from "./Loading";
 import SidePanel from "./sidebar/SidePanel";
 import NavPadding from "../styled/NavPadding";
-import { fetchBusStops, fetchFromList } from "../services/apiService";
+import { fetchBusStops, fetchAreas } from "../services/api.service";
+import {
+	setAreasData,
+	setBusStopsData,
+	setServerQueryData,
+} from "../redux/actions";
 
 class Home extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			serverData: [],
-			busStopsData: [],
-			linesData: [],
-			renderBaseMap: false,
-			isLoading: true,
-			renderServerMap: false,
-		};
-	}
-
-	setServerData = data => {
-		this.setState({ serverData: data }, () => {
-			this.setState({ renderServerMap: true });
-		});
-	};
-
-	setServerWait = () => {
-		this.setState({ renderServerMap: false });
-	};
-
-	successHandler = newData => {
-		this.setState({ busStopsData: newData, isLoading: false }, () =>
-			this.setState({ renderBaseMap: true }),
-		);
-	};
-
-	successHandler = newData => {
-		this.setState({ busStopsData: newData, isLoading: false }, () =>
-			this.setState({ renderBaseMap: true }),
-		);
-	};
-
 	componentDidMount() {
-		fetchBusStops(this.successHandler);
-		fetchFromList(data => this.setState({ linesData: data }), { filters: {} });
+		fetchBusStops(data => setBusStopsData(data));
+		fetchAreas(data => setAreasData(data));
 	}
 
 	render() {
-		const {
-			renderBaseMap,
-			busStopsData,
-			linesData,
-			serverData,
-			isLoading,
-			renderServerMap,
-		} = this.state;
+		const { busStopsData, areasData, serverQueryData } = this.props.app;
+		const isLoading = !busStopsData || !areasData;
+
+		if (isLoading) {
+			return <Loading />;
+		}
+
 		return (
 			<Container fluid className="p-0 bg-dark">
 				<NavPadding />
@@ -67,12 +36,9 @@ class Home extends Component {
 					setServerWait={this.setServerWait}
 				/>
 				<CustomMap
-					isLoading={isLoading}
-					renderBaseMap={renderBaseMap}
-					data={serverData}
-					pointData={busStopsData}
-					linesData={linesData}
-					renderHeatMapFrom={renderServerMap}
+					busStopsData={busStopsData}
+					areasData={areasData}
+					serverData={serverQueryData}
 				/>
 			</Container>
 		);
@@ -80,6 +46,10 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => state;
-const dispatchToProps = dispatch => ({ dispatch });
+const dispatchToProps = {
+	setBusStopsData,
+	setAreasData,
+	setServerQueryData,
+};
 
 export default connect(mapStateToProps, dispatchToProps)(Home);

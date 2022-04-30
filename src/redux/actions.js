@@ -17,7 +17,10 @@ import {
 	SET_END_INTERVAL,
 	SET_WEEKDAYS,
 	SET_TICKET_TYPE,
-	SET_ANALYSIS_TYPE
+	SET_ANALYSIS_TYPE,
+	SET_BUS_STOPS_DATA,
+	SET_AREAS_DATA,
+	SET_SERVER_QUERY_DATA
 } from "./actionTypes";
 
 export const setStartDate = content => ({
@@ -148,6 +151,27 @@ export const setDrawMode = content => ({
 
 export const setAnalysisType = content => ({
 	type: SET_ANALYSIS_TYPE,
+	payload: {
+		content,
+	},
+});
+
+export const setBusStopsData = content => ({
+	type: SET_BUS_STOPS_DATA,
+	payload: {
+		content,
+	},
+});
+
+export const setAreasData = content => ({
+	type: SET_AREAS_DATA,
+	payload: {
+		content,
+	},
+});
+
+export const setServerQueryData = content => ({
+	type: SET_SERVER_QUERY_DATA,
 	payload: {
 		content,
 	},
