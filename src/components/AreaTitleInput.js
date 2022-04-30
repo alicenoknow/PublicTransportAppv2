@@ -13,6 +13,7 @@ export default class AreaTitleInput extends Component {
 					<Form.Group className="mb-3" controlId="formBasicEmail">
 						<Form.Control
 							type="text"
+							className="inputPadding"
 							placeholder="Nazwa obszaru"
 							value={this.state.value}
 							onChange={e => this.setState({ value: e.target.value })}

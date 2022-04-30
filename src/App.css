@@ -386,12 +386,15 @@
 	z-index: 1;
 }
 
+.inputPadding {
+	margin-top: 8%;
+}
+
 .areaTitleInput {
 	position: absolute;
 	margin: 10px;
 	right: 40vw;
 	width: 25vw;
-	padding: 10px;
 	opacity: 0.9;
 	background-color: rgb(157, 156, 218);
 	z-index: 1;
