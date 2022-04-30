@@ -17,8 +17,7 @@ class Admin extends Component {
 						className="loginButton"
 						size="lg"
 						href="/upload"
-						type="button"
-						>
+						type="button">
 						Prześlij dane
 					</Button>
 				</div>

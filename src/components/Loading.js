@@ -11,8 +11,8 @@ class Loading extends Component {
 		height: "100%",
 		position: "absolute",
 		alignItems: "center",
-		justifyContent: "center",		
-	}
+		justifyContent: "center",
+	};
 
 	spinnerStyle = {
 		position: "relative",
@@ -20,8 +20,8 @@ class Loading extends Component {
 		flex: 1,
 		alignItems: "center",
 		justifyContent: "center",
-		marginTop: "30vh"
-	}
+		marginTop: "30vh",
+	};
 
 	render() {
 		return (

@@ -3,7 +3,7 @@ export function parseLinesToPoints(features, destination) {
 		return features.map(item => ({
 			coordinates: item.geometry.coordinates[destination],
 			commuters: item.properties.commuters,
-			id: item.properties.id
+			id: item.properties.id,
 		}));
 	}
 	return [];
@@ -21,7 +21,7 @@ export function parseGeoJsonToLinePlotData(features) {
 				to: item.geometry.coordinates[1],
 			},
 			commuters: item.properties.commuters,
-			id: item.properties.id
+			id: item.properties.id,
 		}));
 	}
 	return [];
@@ -29,6 +29,6 @@ export function parseGeoJsonToLinePlotData(features) {
 
 export function getDataPointsFromIds(ids, busStopsDict) {
 	if (ids && ids[0]) {
-		return ids.map(item => (busStopsDict[item]));
+		return ids.map(item => busStopsDict[item]);
 	}
 }

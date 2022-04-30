@@ -33,7 +33,7 @@ class Home extends Component {
 				<NavPadding />
 				<SidePanel />
 				<InfoPanel />
-				<CustomMap/>
+				<CustomMap />
 			</Container>
 		);
 	}

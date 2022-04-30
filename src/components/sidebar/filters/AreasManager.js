@@ -25,7 +25,7 @@ class AreasManager extends Component {
 
 	removeArea = id => {
 		const { areasData } = this.props.app;
-		delete areasData[id]
+		delete areasData[id];
 		this.props.setAreasData(areasData);
 	};
 
@@ -68,7 +68,8 @@ class AreasManager extends Component {
 			<>
 				{this.renderAddAreaButton()}
 				<ScrollView style={{ height: "300px" }}>
-					{!isFetching && Object.values(areasData).map(el => this.renderListElement(el))}
+					{!isFetching &&
+						Object.values(areasData).map(el => this.renderListElement(el))}
 					{isFetching && (
 						<Container className="centerContainer">
 							<Spinner className="spinner" animation="grow" variant="light" />

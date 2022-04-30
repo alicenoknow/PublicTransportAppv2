@@ -90,7 +90,13 @@ class InfoPanelContent extends Component {
 	};
 
 	renderCurrentInfo = currentInfo => {
-		return <div key="info">{currentInfo.map((item, idx) => <p key={`${idx}`}>{item}</p>)}</div>;
+		return (
+			<div key="info">
+				{currentInfo.map((item, idx) => (
+					<p key={`${idx}`}>{item}</p>
+				))}
+			</div>
+		);
 	};
 
 	render() {

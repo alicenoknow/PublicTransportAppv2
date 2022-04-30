@@ -1,6 +1,5 @@
 import { GeoJsonLayer } from "@deck.gl/layers";
 
-
 export default function getLineLayer(data, onClick) {
 	if (data && data.features && data.features[0]) {
 		const maxCommuters = Math.max.apply(
@@ -14,16 +13,15 @@ export default function getLineLayer(data, onClick) {
 			id: "geojson",
 			data: data,
 			opacity: 0.5,
-            lineWidthMinPixels: 0.5,
-            lineWidthMaxPixels: 30,
+			lineWidthMinPixels: 0.5,
+			lineWidthMaxPixels: 30,
 			getLineColor: [230, 5, 65],
-            getLineWidth: d => 50 * (d.properties.commuters / maxCommuters),
+			getLineWidth: d => 50 * (d.properties.commuters / maxCommuters),
 			stroked: false,
 			filled: true,
 			pickable: true,
-			onClick: onClick
-
+			onClick: onClick,
 		});
 	}
-    return null;
+	return null;
 }

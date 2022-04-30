@@ -110,14 +110,14 @@ class CustomMap extends Component {
 	};
 
 	handleLineClick = info => {
-		this.props.setInfo(
-			["Trasa z przystanku " +
+		this.props.setInfo([
+			"Trasa z przystanku " +
 				info.object.geometry.coordinates[0] +
 				" do przystanku " +
 				info.object.geometry.coordinates[1] +
-				"." , "Liczba pasażerów: " +
-				info.object.properties.commuters],
-		);
+				".",
+			"Liczba pasażerów: " + info.object.properties.commuters,
+		]);
 	};
 
 	renderBusStopsLayer = () => {

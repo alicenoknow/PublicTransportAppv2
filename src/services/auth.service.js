@@ -31,5 +31,4 @@ export const login = (email, password) => {
 		.catch(function (error) {
 			console.log(error);
 		});
-
 };

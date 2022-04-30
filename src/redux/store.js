@@ -38,7 +38,7 @@ function appReducer(state = initialState, action) {
 				filters: {
 					...state.filters,
 					startDate: content,
-				}
+				},
 			};
 		}
 		case SET_END_DATE: {
@@ -48,7 +48,7 @@ function appReducer(state = initialState, action) {
 				filters: {
 					...state.filters,
 					endDate: content,
-				}
+				},
 			};
 		}
 		case SET_START_TIME: {
@@ -58,7 +58,7 @@ function appReducer(state = initialState, action) {
 				filters: {
 					...state.filters,
 					startTime: content,
-				}
+				},
 			};
 		}
 		case SET_END_TIME: {
@@ -68,7 +68,7 @@ function appReducer(state = initialState, action) {
 				filters: {
 					...state.filters,
 					endTime: content,
-				}
+				},
 			};
 		}
 		case SET_START_INTERVAL: {
@@ -78,7 +78,7 @@ function appReducer(state = initialState, action) {
 				filters: {
 					...state.filters,
 					intervalStartTime: content,
-				}
+				},
 			};
 		}
 		case SET_END_INTERVAL: {
@@ -88,7 +88,7 @@ function appReducer(state = initialState, action) {
 				filters: {
 					...state.filters,
 					intervalEndTime: content,
-				}
+				},
 			};
 		}
 		case SET_WEEKDAYS: {
@@ -98,7 +98,7 @@ function appReducer(state = initialState, action) {
 				filters: {
 					...state.filters,
 					weekDays: content,
-				}
+				},
 			};
 		}
 		case SET_TICKET_TYPE: {
@@ -108,7 +108,7 @@ function appReducer(state = initialState, action) {
 				filters: {
 					...state.filters,
 					ticketType: content,
-				}
+				},
 			};
 		}
 		case UPDATE_START_STOPS_TYPE: {
@@ -180,7 +180,7 @@ function appReducer(state = initialState, action) {
 				...state,
 				isDrawModeActive: content,
 			};
-		}	
+		}
 		case SET_ANALYSIS_TYPE: {
 			const { content } = action.payload;
 			return {
@@ -250,7 +250,7 @@ const initialState = {
 		areasData: [],
 		serverQueryData: undefined,
 
-		currentInfo: []
+		currentInfo: [],
 	},
 };
 

@@ -7,29 +7,26 @@ axios.defaults.withCredentials = true;
 
 const API = process.env.REACT_APP_API;
 
+export const fetchBusStops = () => {
+	return axios
+		.get(API + "/api/stops")
+		.catch(function (error) {
+			console.log(error.toJSON());
+			return undefined;
+		})
+		.then(response => {
+			return response?.data;
+		});
+};
 
-export const fetchBusStops = (
-    ) => {
-        return axios
-            .get(API + "/api/stops")
-            .catch(function (error) {
-                console.log(error.toJSON());
-                return undefined;
-            })
-            .then(response => {
-                return response?.data;
-            });
-    };
-
-export const fetchAreas = (
-    ) => {
-        return axios
-            .get(API + "/api/stops")
-            .catch(function (error) {
-                console.log(error.toJSON());
-                return undefined;
-            })
-            .then(response => {
-                return response?.data;
-            });
-    };
+export const fetchAreas = () => {
+	return axios
+		.get(API + "/api/stops")
+		.catch(function (error) {
+			console.log(error.toJSON());
+			return undefined;
+		})
+		.then(response => {
+			return response?.data;
+		});
+};

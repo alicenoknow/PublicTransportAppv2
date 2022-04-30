@@ -25,10 +25,10 @@ import {
 
 class PanelContent extends Component {
 	state = {
-		isStartPointActive: true
-	}
+		isStartPointActive: true,
+	};
 
-	processData = () => {}
+	processData = () => {};
 
 	getFiltersSelection = () => {
 		return (

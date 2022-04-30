@@ -21,7 +21,7 @@ import {
 	SET_BUS_STOPS_DATA,
 	SET_AREAS_DATA,
 	SET_SERVER_QUERY_DATA,
-	SET_INFO
+	SET_INFO,
 } from "./actionTypes";
 
 export const setStartDate = content => ({

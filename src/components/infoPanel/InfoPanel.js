@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import InfoPanelContent from "./InfoPanelContent";
 import { ScrollView } from "@cantonjs/react-scroll-view";

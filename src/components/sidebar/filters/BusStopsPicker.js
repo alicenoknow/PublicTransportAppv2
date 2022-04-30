@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updateStartStopsType, updateEndStopsType } from "../../../redux/actions";
+import {
+	updateStartStopsType,
+	updateEndStopsType,
+} from "../../../redux/actions";
 import { StopsType } from "../../../redux/actionTypes";
 
 const Checkbox = ({ label, value, onChange }) => {
