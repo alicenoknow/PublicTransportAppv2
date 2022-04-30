@@ -1,4 +1,4 @@
-import { GeoJsonLayer, LineLayer } from "@deck.gl/layers";
+import { GeoJsonLayer } from "@deck.gl/layers";
 
 
 export default function getLineLayer(data) {

@@ -13,15 +13,6 @@ import {
 	setStartPoint,
 } from "../../redux/actions";
 import {
-	fetchFromArea,
-	fetchFromList,
-	fetchToList,
-	fetchToArea,
-} from "../../services/apiService";
-import {
-	fetchBusStops
-} from '../../services/api.service';
-import {
 	DateRange,
 	AreasManager,
 	BusStopsPicker,
@@ -31,7 +22,6 @@ import {
 	WeekDayPicker,
 	AnalysisPicker,
 } from "./filters";
-import { StopsType } from "../../redux/actionTypes";
 
 class PanelContent extends Component {
 	state = {
@@ -137,7 +127,7 @@ class PanelContent extends Component {
 				<button onClick={this.processData} className="confirmButton">
 					Przetwarzaj dane
 				</button>
-				<button onClick={fetchBusStops} className="saveButton">
+				<button onClick={this.processData} className="saveButton">
 					Zapisz dane
 				</button>
 			</React.Fragment>

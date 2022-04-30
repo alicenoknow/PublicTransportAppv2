@@ -10,17 +10,16 @@ export default function getPointLayer(data, onHover) {
     );
 
     return new ScatterplotLayer({
-        id: "scatterplot-layer",
+        id: "scatterplot-layer2",
         data: data,
         pickable: true,
         opacity: 0.3,
         stroked: false,
         filled: true,
-        radiusScale: 10,
         radiusMinPixels: 4,
         radiusScale: 10,
         getPosition: d => d.coordinates,
-        getRadius: d =>  130 * (d.commuters / maxCommuters),
+        getRadius: d =>  80 * (d.commuters / maxCommuters),
         getFillColor: _d => [220, 20, 130],
     });
 }

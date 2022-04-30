@@ -5,7 +5,6 @@ const LIST_TO_URL = "https://4dd3-149-156-124-16.ngrok.io/going_to_list";
 const AREA_TO_URL = "https://4dd3-149-156-124-16.ngrok.io/going_to_area";
 
 const fetchData = async (url, options, successHandler) => {
-	console.warn(options);
 	fetch(url, options)
 		.then(response => {
 			if (response.ok) {
@@ -16,7 +15,6 @@ const fetchData = async (url, options, successHandler) => {
 		})
 		.then(responseJson => {
 			successHandler && successHandler(responseJson);
-			console.warn(responseJson);
 			return;
 		})
 		.catch(error => {

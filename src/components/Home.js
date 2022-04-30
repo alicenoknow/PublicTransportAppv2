@@ -12,7 +12,7 @@ import {
 	setBusStopsData,
 	setServerQueryData,
 } from "../redux/actions";
-import InfoPanel from "./InfoPanel";
+import InfoPanel from "./sidebar/InfoPanel";
 
 class Home extends Component {
 	componentDidMount() {

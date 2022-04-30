@@ -3,7 +3,7 @@ import { ScatterplotLayer } from "@deck.gl/layers";
 
 export default function getPointLayer(data, onHover) {
     return new ScatterplotLayer({
-        id: "scatterplot-layer",
+        id: "scatterplot-layer1",
         data: data,
         pickable: true,
         opacity: 0.6,

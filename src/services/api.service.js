@@ -10,7 +10,6 @@ const API = process.env.REACT_APP_API;
 
 export const fetchBusStops = (
     ) => {
-        console.warn("asdas")
         return axios
             .get(API + "/api/stops")
             .catch(function (error) {
@@ -24,7 +23,6 @@ export const fetchBusStops = (
 
 export const fetchAreas = (
     ) => {
-        console.warn("asdas")
         return axios
             .get(API + "/api/stops")
             .catch(function (error) {
