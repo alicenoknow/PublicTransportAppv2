@@ -28,7 +28,7 @@ class Loading extends Component {
 			<Container fluid className="p-0 bg-dark" style={this.containerStyle}>
 				<div style={this.spinnerStyle}>
 					<Spinner className={"mt-5"} animation="grow" variant="light" />
-					</div>
+				</div>
 			</Container>
 		);
 	}

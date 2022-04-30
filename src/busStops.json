@@ -1,0 +1,4961 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53376667,
+                    50.10142222
+                ]
+            },
+            "properties": {
+                "name": "Rybnik DKM",
+                "id": 1
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52844444,
+                    50.10197222
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko Nowiny RondoMazamet",
+                "id": 2
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52334722,
+                    50.10163889
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko NowinyBudowlanych",
+                "id": 3
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.515875,
+                    50.09444445
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko Nowiny Chabrowa",
+                "id": 4
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.5215,
+                    50.09720833
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko Nowiny",
+                "id": 5
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53291667,
+                    50.09576389
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko NowinyZebrzydowicka",
+                "id": 6
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.540875,
+                    50.093375
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Sąd",
+                "id": 7
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54562963,
+                    50.08921296
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście DworzecKolejowy",
+                "id": 8
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54780556,
+                    50.09169444
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Kościuszki",
+                "id": 9
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55051852,
+                    50.09731481
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Bazylika",
+                "id": 10
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.563125,
+                    50.09468056
+                ]
+            },
+            "properties": {
+                "name": "R-k Ligota Ligocka KuźniaWiadukt",
+                "id": 11
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.57136111,
+                    50.09268056
+                ]
+            },
+            "properties": {
+                "name": "R-k Ligota Ligocka Kuźnia Żorska",
+                "id": 12
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.57829167,
+                    50.09011111
+                ]
+            },
+            "properties": {
+                "name": "R-k Ligota Ligocka KuźniaKaplica",
+                "id": 13
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58658333,
+                    50.08731944
+                ]
+            },
+            "properties": {
+                "name": "R-k Ligota Ligocka Kuźnia RBoguszowicki",
+                "id": 14
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58608334,
+                    50.08255556
+                ]
+            },
+            "properties": {
+                "name": "R-k Ligota Ligocka KuźniaBoguszowicka",
+                "id": 15
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.59379167,
+                    50.07341667
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice StareRaszowiec",
+                "id": 16
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.59984723,
+                    50.06513889
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice Stare",
+                "id": 17
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.59934722,
+                    50.06143056
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice Stare Szkoła",
+                "id": 18
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58963889,
+                    50.05588889
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice StareMałachowskiego",
+                "id": 19
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58902778,
+                    50.04918056
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice OsiedleKopalnia",
+                "id": 20
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.60027778,
+                    50.04815278
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice OsiedlePatriotów",
+                "id": 21
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.60790972,
+                    50.04666667
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice Osiedle Pętla",
+                "id": 22
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54669444,
+                    50.09311111
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Chrobrego",
+                "id": 23
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.515625,
+                    50.10018056
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko Nowiny Szkoła",
+                "id": 24
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52430556,
+                    50.08761112
+                ]
+            },
+            "properties": {
+                "name": "R-k Smolna Krzyżowa",
+                "id": 25
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.59969445,
+                    50.083375
+                ]
+            },
+            "properties": {
+                "name": "R-k Ligota Ligocka Kuźnia",
+                "id": 26
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.6124375,
+                    50.08
+                ]
+            },
+            "properties": {
+                "name": "R-k Gotartowice",
+                "id": 27
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.63802778,
+                    50.07115278
+                ]
+            },
+            "properties": {
+                "name": "R-k Gotartowice Lotnisko",
+                "id": 28
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.65554167,
+                    50.06615278
+                ]
+            },
+            "properties": {
+                "name": "Żory Rybnicka Wiśniowa",
+                "id": 29
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.66625,
+                    50.05954167
+                ]
+            },
+            "properties": {
+                "name": "Żory Rybnicka Pałki",
+                "id": 30
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.67180556,
+                    50.05815278
+                ]
+            },
+            "properties": {
+                "name": "Żory Rybnicka Strefa",
+                "id": 31
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.67872222,
+                    50.05548611
+                ]
+            },
+            "properties": {
+                "name": "Żory Rybnicka Cmentarz",
+                "id": 32
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.68570834,
+                    50.05163889
+                ]
+            },
+            "properties": {
+                "name": "Żory Rybnicka Kłapczyka",
+                "id": 33
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.69394444,
+                    50.04780556
+                ]
+            },
+            "properties": {
+                "name": "Żory Dworzec Autobusowy",
+                "id": 34
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.68830556,
+                    50.04469444
+                ]
+            },
+            "properties": {
+                "name": "Żory Al. Niepodległości",
+                "id": 35
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.68955556,
+                    50.03779167
+                ]
+            },
+            "properties": {
+                "name": "Żory Al. Jana Pawła II Sąd",
+                "id": 36
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.68605556,
+                    50.02915278
+                ]
+            },
+            "properties": {
+                "name": "Żory Al. Jana Pawła IIBajerówka",
+                "id": 37
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.69561111,
+                    50.04308333
+                ]
+            },
+            "properties": {
+                "name": "Żory Stodolna Cmentarz",
+                "id": 38
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54422222,
+                    50.0925
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście 3 Maja",
+                "id": 40
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54409722,
+                    50.09005556
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Urszulanki",
+                "id": 41
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54291666,
+                    50.089
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Policja",
+                "id": 42
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52866667,
+                    50.09495833
+                ]
+            },
+            "properties": {
+                "name": "R-k Smolna Kotucza",
+                "id": 43
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.61638889,
+                    50.07511111
+                ]
+            },
+            "properties": {
+                "name": "R-k Gotartowice Straż",
+                "id": 44
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52847222,
+                    50.09005556
+                ]
+            },
+            "properties": {
+                "name": "R-k Smolna Reymonta",
+                "id": 45
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52188889,
+                    50.09188889
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko Nowiny Raciborska",
+                "id": 46
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.544625,
+                    50.10209723
+                ]
+            },
+            "properties": {
+                "name": "R-k Północ Rondo Gliwickie",
+                "id": 47
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.535625,
+                    50.09395834
+                ]
+            },
+            "properties": {
+                "name": "R-k Smolna Franciszkanie",
+                "id": 48
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53033334,
+                    50.08679167
+                ]
+            },
+            "properties": {
+                "name": "R-k Smolna Osiedle",
+                "id": 49
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52580556,
+                    50.0825
+                ]
+            },
+            "properties": {
+                "name": "R-k Zamysłów Plebiscytowa",
+                "id": 50
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.51888889,
+                    50.08311111
+                ]
+            },
+            "properties": {
+                "name": "R-k Zamysłów Niedobczycka",
+                "id": 51
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.51076852,
+                    50.07965741
+                ]
+            },
+            "properties": {
+                "name": "R-k Zamysłów Wrzosy",
+                "id": 52
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50373611,
+                    50.07456944
+                ]
+            },
+            "properties": {
+                "name": "R-k Niedobczyce Niedobczycka",
+                "id": 53
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.49777778,
+                    50.06825
+                ]
+            },
+            "properties": {
+                "name": "R-k Niedobczyce Szkoła",
+                "id": 54
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.49361111,
+                    50.07111111
+                ]
+            },
+            "properties": {
+                "name": "R-k NiedobczyceWołodyjowskiego",
+                "id": 55
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.48175,
+                    50.07211111
+                ]
+            },
+            "properties": {
+                "name": "R-k Niedobczyce Cegielnia",
+                "id": 56
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.47561111,
+                    50.07111111
+                ]
+            },
+            "properties": {
+                "name": "R-k Niewiadom Racławicka",
+                "id": 57
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.46765973,
+                    50.07025
+                ]
+            },
+            "properties": {
+                "name": "R-k Niewiadom Dworzec Kol.",
+                "id": 58
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.46785555,
+                    50.06162223
+                ]
+            },
+            "properties": {
+                "name": "R-k Niewiadom Kopalnia Ignacy",
+                "id": 59
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.47448148,
+                    50.04977778
+                ]
+            },
+            "properties": {
+                "name": "Radlin Korfantego Centrum",
+                "id": 60
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.48736111,
+                    50.04208334
+                ]
+            },
+            "properties": {
+                "name": "Radlin Korfantego KWK Marcel",
+                "id": 61
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.46816667,
+                    50.05561111
+                ]
+            },
+            "properties": {
+                "name": "Radlin Hallera Sokolnia",
+                "id": 62
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55061111,
+                    50.09938889
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Piasta",
+                "id": 63
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.546875,
+                    50.08172222
+                ]
+            },
+            "properties": {
+                "name": "R-k Meksyk Park",
+                "id": 64
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54906945,
+                    50.07177778
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałowice Kopalnia",
+                "id": 65
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55194444,
+                    50.06295834
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałowice Osiedle",
+                "id": 66
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55507407,
+                    50.06008333
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałowice Pętla",
+                "id": 67
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54637963,
+                    50.08706481
+                ]
+            },
+            "properties": {
+                "name": "R-k Meksyk Kamyczek",
+                "id": 68
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52586111,
+                    50.08058333
+                ]
+            },
+            "properties": {
+                "name": "R-k Zamysłów Wodzisławska",
+                "id": 69
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.51844445,
+                    50.07105556
+                ]
+            },
+            "properties": {
+                "name": "R-k Niedobczyce Paryż",
+                "id": 70
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50975,
+                    50.06929167
+                ]
+            },
+            "properties": {
+                "name": "R-k Niedobczyce Karolinka",
+                "id": 71
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.49459722,
+                    50.06469445
+                ]
+            },
+            "properties": {
+                "name": "R-k Niedobczyce Stadion",
+                "id": 72
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.48780556,
+                    50.05875
+                ]
+            },
+            "properties": {
+                "name": "R-k Niedobczyce Orlik",
+                "id": 73
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.48375,
+                    50.05475
+                ]
+            },
+            "properties": {
+                "name": "R-k Niedobczyce Wrębowa",
+                "id": 74
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.49805556,
+                    50.04280556
+                ]
+            },
+            "properties": {
+                "name": "Obszary Wiadukt",
+                "id": 75
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50030556,
+                    50.04330556
+                ]
+            },
+            "properties": {
+                "name": "Radlin Marklowicka Dom Górnika",
+                "id": 76
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50611111,
+                    50.03530556
+                ]
+            },
+            "properties": {
+                "name": "Marklowice Wiosny LudówKaplica",
+                "id": 77
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50638889,
+                    50.02811111
+                ]
+            },
+            "properties": {
+                "name": "Marklowice Wiosny Ludów Sklep",
+                "id": 78
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50865278,
+                    50.01851389
+                ]
+            },
+            "properties": {
+                "name": "Marklowice Wiosny Ludów Górka",
+                "id": 79
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.51938889,
+                    50.11469444
+                ]
+            },
+            "properties": {
+                "name": "R-k Orzepowice Borki",
+                "id": 80
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52306945,
+                    50.11277778
+                ]
+            },
+            "properties": {
+                "name": "R-k Orzepowice Szpital Woj",
+                "id": 81
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.48194445,
+                    50.06484722
+                ]
+            },
+            "properties": {
+                "name": "R-k Niedobczyce Janasa",
+                "id": 82
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.472,
+                    50.06497222
+                ]
+            },
+            "properties": {
+                "name": "R-k Niedobczyce Hałdy",
+                "id": 83
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.46525,
+                    50.07483334
+                ]
+            },
+            "properties": {
+                "name": "R-k Niewiadom Szkoła",
+                "id": 84
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.45955556,
+                    50.080625
+                ]
+            },
+            "properties": {
+                "name": "R-k Niewiadom Frontowa",
+                "id": 85
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.45530556,
+                    50.08061111
+                ]
+            },
+            "properties": {
+                "name": "Radoszowy Kościół",
+                "id": 86
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.47976852,
+                    50.08075926
+                ]
+            },
+            "properties": {
+                "name": "R-k Niewiadom Kol Beata",
+                "id": 87
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50455556,
+                    50.08876389
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko Nowiny Graniczna",
+                "id": 88
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.51411111,
+                    50.09101389
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko Nowiny Brzozowa",
+                "id": 89
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53080556,
+                    50.09384723
+                ]
+            },
+            "properties": {
+                "name": "R-k Smolna Sławików",
+                "id": 90
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53913889,
+                    50.08586111
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Jankowicka ZUS",
+                "id": 91
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53673611,
+                    50.08136111
+                ]
+            },
+            "properties": {
+                "name": "R-k Zamysłów Jankowicka",
+                "id": 92
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53206945,
+                    50.07340278
+                ]
+            },
+            "properties": {
+                "name": "R-k Zamysłów Dolna Mostek",
+                "id": 93
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52975,
+                    50.07629167
+                ]
+            },
+            "properties": {
+                "name": "R-k Zamysłów Dolna Las",
+                "id": 94
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52990278,
+                    50.08088889
+                ]
+            },
+            "properties": {
+                "name": "R-k Zamysłów Dolna",
+                "id": 95
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.49669444,
+                    50.06055556
+                ]
+            },
+            "properties": {
+                "name": "R-k Niedobczyce Kopalnia Rymer",
+                "id": 96
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50622917,
+                    50.05469445
+                ]
+            },
+            "properties": {
+                "name": "R-k Popielów Skrzyżowanie",
+                "id": 97
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.51030556,
+                    50.05611111
+                ]
+            },
+            "properties": {
+                "name": "R-k Popielów Staffa",
+                "id": 98
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.51609723,
+                    50.05290278
+                ]
+            },
+            "properties": {
+                "name": "R-k Popielów Kościół",
+                "id": 99
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52061111,
+                    50.05580556
+                ]
+            },
+            "properties": {
+                "name": "R-k Radziejów",
+                "id": 100
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52638889,
+                    50.05888889
+                ]
+            },
+            "properties": {
+                "name": "R-k Radziejów Okulickiego",
+                "id": 101
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53061111,
+                    50.06469444
+                ]
+            },
+            "properties": {
+                "name": "R-k Radziejów Świercze",
+                "id": 102
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53733333,
+                    50.06936111
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałowice Las",
+                "id": 103
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52623611,
+                    50.11683333
+                ]
+            },
+            "properties": {
+                "name": "R-k Orzepowice Kuźnia",
+                "id": 104
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.535,
+                    50.11
+                ]
+            },
+            "properties": {
+                "name": "R-k Północ Wawok",
+                "id": 105
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53719444,
+                    50.10388889
+                ]
+            },
+            "properties": {
+                "name": "R-k Północ Rudzka Cmentarz",
+                "id": 106
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52007639,
+                    50.11924306
+                ]
+            },
+            "properties": {
+                "name": "R-k Orzepowice Rondo",
+                "id": 107
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50694445,
+                    50.12455556
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałęcice Przystań",
+                "id": 108
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.49230556,
+                    50.13008334
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałęcice Kierchówek",
+                "id": 109
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.48434723,
+                    50.13770833
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałęcice Skrzyżowanie",
+                "id": 110
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.47847222,
+                    50.14675
+                ]
+            },
+            "properties": {
+                "name": "R-k Stodoły Przystań",
+                "id": 111
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.47894445,
+                    50.15373611
+                ]
+            },
+            "properties": {
+                "name": "R-k Stodoły Kaplica",
+                "id": 112
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.47595834,
+                    50.17359722
+                ]
+            },
+            "properties": {
+                "name": "Rudy Paproć",
+                "id": 113
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.45904167,
+                    50.18280556
+                ]
+            },
+            "properties": {
+                "name": "Rudy Rybnicka",
+                "id": 114
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.45419444,
+                    50.18919444
+                ]
+            },
+            "properties": {
+                "name": "Rudy Skrzyżowanie",
+                "id": 115
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.44719444,
+                    50.1925
+                ]
+            },
+            "properties": {
+                "name": "Rudy Kościół",
+                "id": 116
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.45123612,
+                    50.07963889
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Piekarnia",
+                "id": 117
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.43952778,
+                    50.07777778
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Kowalski",
+                "id": 118
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.42248611,
+                    50.07545139
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Orłowiec",
+                "id": 119
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.41930556,
+                    50.07234722
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Mickiewicza",
+                "id": 120
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.424875,
+                    50.06529167
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Ofiar Terroru",
+                "id": 121
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.41564583,
+                    50.05672222
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Rynek",
+                "id": 122
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.40569445,
+                    50.05123611
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Traugutta Granica",
+                "id": 123
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.40322223,
+                    50.04186111
+                ]
+            },
+            "properties": {
+                "name": "Pszów Traugutta ZSZ",
+                "id": 124
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.39698611,
+                    50.04055556
+                ]
+            },
+            "properties": {
+                "name": "Pszów DA",
+                "id": 125
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54668056,
+                    50.10331945
+                ]
+            },
+            "properties": {
+                "name": "R-k Północ Gliwicka Szpital",
+                "id": 126
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54620834,
+                    50.1115
+                ]
+            },
+            "properties": {
+                "name": "R-k Północ Kąpielisko Ruda",
+                "id": 127
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54834723,
+                    50.11608334
+                ]
+            },
+            "properties": {
+                "name": "R-k Wielopole Skrzyżowanie",
+                "id": 128
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54419444,
+                    50.11780556
+                ]
+            },
+            "properties": {
+                "name": "R-k Wielopole Lipowa",
+                "id": 129
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53061111,
+                    50.12188889
+                ]
+            },
+            "properties": {
+                "name": "R-k Rybnicka Kuźnia Szkoła",
+                "id": 130
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52505556,
+                    50.12425
+                ]
+            },
+            "properties": {
+                "name": "R-k Rybnicka KuźniaMaksymiliana",
+                "id": 131
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52280556,
+                    50.12688889
+                ]
+            },
+            "properties": {
+                "name": "R-k Rybnicka Kuźnia Osiedle",
+                "id": 132
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52138889,
+                    50.13091667
+                ]
+            },
+            "properties": {
+                "name": "R-k Rybnicka Kuźnia Elektrownia",
+                "id": 133
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52813889,
+                    50.13360555
+                ]
+            },
+            "properties": {
+                "name": "R-k Rybnicka Kuźnia Chłodnie I",
+                "id": 134
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55031945,
+                    50.123125
+                ]
+            },
+            "properties": {
+                "name": "R-k Wielopole Szkoła",
+                "id": 135
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54979861,
+                    50.13140972
+                ]
+            },
+            "properties": {
+                "name": "R-k Wielopole Wiadukt",
+                "id": 136
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54230556,
+                    50.13358334
+                ]
+            },
+            "properties": {
+                "name": "R-k Rybnicka Kuźnia WORD",
+                "id": 137
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.63058334,
+                    50.0525
+                ]
+            },
+            "properties": {
+                "name": "R-k Kłokocin Pętla",
+                "id": 138
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.62094444,
+                    50.05499306
+                ]
+            },
+            "properties": {
+                "name": "R-k Kłokocin Osiedle",
+                "id": 139
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.61055556,
+                    50.0575
+                ]
+            },
+            "properties": {
+                "name": "R-k Kłokocin Urząd Celny",
+                "id": 140
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.605,
+                    50.06111111
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice StareKłokocińska",
+                "id": 141
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.480625,
+                    50.13619445
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałęcice Kościół",
+                "id": 142
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.47113889,
+                    50.13563889
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałęcice Goj",
+                "id": 143
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.45719444,
+                    50.14
+                ]
+            },
+            "properties": {
+                "name": "Zwonowice Classen",
+                "id": 144
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.45111111,
+                    50.14188889
+                ]
+            },
+            "properties": {
+                "name": "Zwonowice Wyzwolenia",
+                "id": 145
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.44169444,
+                    50.14419444
+                ]
+            },
+            "properties": {
+                "name": "Zwonowice Szkoła",
+                "id": 146
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50969444,
+                    50.05080556
+                ]
+            },
+            "properties": {
+                "name": "R-k Popielów Konarskiego",
+                "id": 147
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55877778,
+                    50.09766666
+                ]
+            },
+            "properties": {
+                "name": "R-k Północ Karolinka",
+                "id": 148
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.56625,
+                    50.10171296
+                ]
+            },
+            "properties": {
+                "name": "R-k Paruszowiec Piaski HutaSilesia",
+                "id": 149
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.57388889,
+                    50.10555556
+                ]
+            },
+            "properties": {
+                "name": "R-k Paruszowiec PiaskiMikołowska",
+                "id": 150
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.59355556,
+                    50.11783333
+                ]
+            },
+            "properties": {
+                "name": "R-k Kamień Las",
+                "id": 151
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.59419445,
+                    50.12809722
+                ]
+            },
+            "properties": {
+                "name": "R-k Kamień Robotnicza",
+                "id": 152
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.59636112,
+                    50.13259722
+                ]
+            },
+            "properties": {
+                "name": "R-k Kamień Ośrodek Sportowy",
+                "id": 153
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.60341667,
+                    50.13979167
+                ]
+            },
+            "properties": {
+                "name": "R-k Kamień Szkoła",
+                "id": 154
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.61195834,
+                    50.14466667
+                ]
+            },
+            "properties": {
+                "name": "Kamień Cegielnia",
+                "id": 155
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.61711111,
+                    50.14194444
+                ]
+            },
+            "properties": {
+                "name": "R-k Kamień Rzędówka",
+                "id": 156
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.63327778,
+                    50.14238889
+                ]
+            },
+            "properties": {
+                "name": "Leszczyny Rondo",
+                "id": 157
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.62886111,
+                    50.14116667
+                ]
+            },
+            "properties": {
+                "name": "Leszczyny Ligonia",
+                "id": 158
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.62175,
+                    50.13997222
+                ]
+            },
+            "properties": {
+                "name": "Leszczyny Broniewskiego",
+                "id": 159
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.60469444,
+                    50.14961111
+                ]
+            },
+            "properties": {
+                "name": "Książenice Brzozy",
+                "id": 160
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.59881482,
+                    50.15371296
+                ]
+            },
+            "properties": {
+                "name": "Książenice Kościół",
+                "id": 161
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.59833333,
+                    50.14583333
+                ]
+            },
+            "properties": {
+                "name": "R-k Kamień Pojdy",
+                "id": 162
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.60055556,
+                    50.14055556
+                ]
+            },
+            "properties": {
+                "name": "R-k Kamień Skrzyżowanie",
+                "id": 163
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.57765278,
+                    50.10320834
+                ]
+            },
+            "properties": {
+                "name": "R-k Paruszowiec Piaski Stawowa",
+                "id": 164
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58152778,
+                    50.10095834
+                ]
+            },
+            "properties": {
+                "name": "R-k Paruszowiec Piaski Błonia",
+                "id": 165
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.57564815,
+                    50.09815741
+                ]
+            },
+            "properties": {
+                "name": "R-k Paruszowiec PiaskiPrzemysłowa",
+                "id": 166
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58747223,
+                    50.09522223
+                ]
+            },
+            "properties": {
+                "name": "R-k Paruszowiec Piaski Wolna",
+                "id": 167
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.59286111,
+                    50.09230556
+                ]
+            },
+            "properties": {
+                "name": "R-k Ligota Ligocka Kuźnia Skrzyż",
+                "id": 168
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.60009722,
+                    50.08741667
+                ]
+            },
+            "properties": {
+                "name": "R-k Ligota Ligocka KuźniaKościół",
+                "id": 169
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.61561111,
+                    50.08419444
+                ]
+            },
+            "properties": {
+                "name": "R-k Gotartowice Sygnały",
+                "id": 170
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50875,
+                    50.09845834
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko Nowiny Księżok",
+                "id": 171
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50001389,
+                    50.09972222
+                ]
+            },
+            "properties": {
+                "name": "R-k Zebrzydowice Myto",
+                "id": 172
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.49299074,
+                    50.10142593
+                ]
+            },
+            "properties": {
+                "name": "R-k Zebrzydowice Szkoła",
+                "id": 173
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.48709723,
+                    50.10204167
+                ]
+            },
+            "properties": {
+                "name": "R-k Zebrzydowice",
+                "id": 174
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.47621528,
+                    50.10477778
+                ]
+            },
+            "properties": {
+                "name": "Jejkowice Centrum",
+                "id": 175
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.46701389,
+                    50.10826389
+                ]
+            },
+            "properties": {
+                "name": "Jejkowice Kuźnia",
+                "id": 176
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.45747222,
+                    50.10619445
+                ]
+            },
+            "properties": {
+                "name": "Szczerbice Piaskowa",
+                "id": 177
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.44775,
+                    50.10463889
+                ]
+            },
+            "properties": {
+                "name": "Szczerbice",
+                "id": 178
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.431125,
+                    50.10872222
+                ]
+            },
+            "properties": {
+                "name": "Gaszowice UG",
+                "id": 179
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.42280556,
+                    50.10611111
+                ]
+            },
+            "properties": {
+                "name": "Gaszowice Cegielnia",
+                "id": 180
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.40688889,
+                    50.09919444
+                ]
+            },
+            "properties": {
+                "name": "Łuków PKP",
+                "id": 181
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.40111111,
+                    50.09469444
+                ]
+            },
+            "properties": {
+                "name": "Łuków",
+                "id": 182
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.39995833,
+                    50.08320834
+                ]
+            },
+            "properties": {
+                "name": "Czernica Straż",
+                "id": 183
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.39991667,
+                    50.07486111
+                ]
+            },
+            "properties": {
+                "name": "Czernica przy Krzyżu",
+                "id": 184
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.40704167,
+                    50.07179167
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Bema Raciborska",
+                "id": 185
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.41159723,
+                    50.06679167
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Bema Stadion",
+                "id": 186
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.41454167,
+                    50.06280556
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Bema Lidl",
+                "id": 187
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.42061111,
+                    50.11188889
+                ]
+            },
+            "properties": {
+                "name": "Gaszowice Pogwizdów",
+                "id": 188
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.4135,
+                    50.12084723
+                ]
+            },
+            "properties": {
+                "name": "Sumina Centrum",
+                "id": 189
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.40080556,
+                    50.12061111
+                ]
+            },
+            "properties": {
+                "name": "Lyski Blazel",
+                "id": 190
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.39072222,
+                    50.12022222
+                ]
+            },
+            "properties": {
+                "name": "Lyski Rondo",
+                "id": 191
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.429625,
+                    50.10161111
+                ]
+            },
+            "properties": {
+                "name": "Gaszowice Rydułtowska",
+                "id": 192
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.43030556,
+                    50.09445834
+                ]
+            },
+            "properties": {
+                "name": "Piece Gimnazjum",
+                "id": 193
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.42469444,
+                    50.08330556
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Piecowska",
+                "id": 194
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58893056,
+                    50.04331945
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice OsiedleJastrzębska",
+                "id": 195
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.572125,
+                    50.04384722
+                ]
+            },
+            "properties": {
+                "name": "Jankowice Urząd Gminy",
+                "id": 196
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.56802778,
+                    50.04773611
+                ]
+            },
+            "properties": {
+                "name": "Jankowice Gwarek",
+                "id": 197
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55954167,
+                    50.05395834
+                ]
+            },
+            "properties": {
+                "name": "Jankowice Świerklańska",
+                "id": 198
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55034723,
+                    50.13669444
+                ]
+            },
+            "properties": {
+                "name": "R-k Golejów Górka",
+                "id": 199
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54872222,
+                    50.14363889
+                ]
+            },
+            "properties": {
+                "name": "R-k Golejów Skrzyżowanie",
+                "id": 200
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54025,
+                    50.09819445
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Kampus",
+                "id": 201
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50497222,
+                    50.08234723
+                ]
+            },
+            "properties": {
+                "name": "R-k Zamysłów Wodociągi",
+                "id": 202
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.49854167,
+                    50.08490278
+                ]
+            },
+            "properties": {
+                "name": "R-k Zamysłów Gruntowa",
+                "id": 203
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.44219444,
+                    50.08530556
+                ]
+            },
+            "properties": {
+                "name": "Buzowice Skrzyżowanie",
+                "id": 204
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.45138889,
+                    50.08188889
+                ]
+            },
+            "properties": {
+                "name": "R-k Niewiadom Buzowice",
+                "id": 205
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.44361111,
+                    50.05311111
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Bohaterów W-wyCegielnia",
+                "id": 206
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.43280556,
+                    50.05580556
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Bohaterów W-wyOrlovska",
+                "id": 207
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.42519444,
+                    50.06
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Plebiscytowa Szpital",
+                "id": 208
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.45358334,
+                    50.04738889
+                ]
+            },
+            "properties": {
+                "name": "Radlin Domeyki",
+                "id": 209
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.46459722,
+                    50.0475
+                ]
+            },
+            "properties": {
+                "name": "Radlin Rymera Piekarnia",
+                "id": 210
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.46219444,
+                    50.05438889
+                ]
+            },
+            "properties": {
+                "name": "Radlin Rydułtowska Reden",
+                "id": 211
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.45179167,
+                    50.05361111
+                ]
+            },
+            "properties": {
+                "name": "Radlin Rydułtowska RedenGórka",
+                "id": 212
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54295834,
+                    50.14419444
+                ]
+            },
+            "properties": {
+                "name": "R-k Golejów Szkoła",
+                "id": 213
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52811111,
+                    50.13969444
+                ]
+            },
+            "properties": {
+                "name": "R-k Grabownia Poloczka",
+                "id": 214
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.51638889,
+                    50.14138889
+                ]
+            },
+            "properties": {
+                "name": "R-k Grabownia Olszowiec",
+                "id": 215
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54688889,
+                    50.14808334
+                ]
+            },
+            "properties": {
+                "name": "R-k Golejów Siedliska",
+                "id": 216
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54304167,
+                    50.15893056
+                ]
+            },
+            "properties": {
+                "name": "R-k Ochojec Młynek",
+                "id": 217
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54830556,
+                    50.16438889
+                ]
+            },
+            "properties": {
+                "name": "R-k Ochojec Kościół",
+                "id": 218
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54061111,
+                    50.16669444
+                ]
+            },
+            "properties": {
+                "name": "R-k Ochojec Centrum",
+                "id": 219
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.43,
+                    50.06811111
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Kopalnia",
+                "id": 220
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55375,
+                    50.08515278
+                ]
+            },
+            "properties": {
+                "name": "R-k Meksyk Budowlanka",
+                "id": 221
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.56469444,
+                    50.07388889
+                ]
+            },
+            "properties": {
+                "name": "R-k Meksyk Tkoczów",
+                "id": 222
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.56311111,
+                    50.06780556
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałowice Królewiok",
+                "id": 223
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55611111,
+                    50.06530556
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałowice Kolonia",
+                "id": 224
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55361111,
+                    50.06330556
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałowice Malchera",
+                "id": 225
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.56669444,
+                    50.05669444
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałowice Kożdoniów",
+                "id": 226
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.57355555,
+                    50.05192593
+                ]
+            },
+            "properties": {
+                "name": "Jankowice Pętla",
+                "id": 227
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.511375,
+                    50.06086111
+                ]
+            },
+            "properties": {
+                "name": "R-k Popielów Żabik",
+                "id": 228
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50111111,
+                    50.04609259
+                ]
+            },
+            "properties": {
+                "name": "R-k Popielów Wodzisławska",
+                "id": 229
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.49,
+                    50.04654167
+                ]
+            },
+            "properties": {
+                "name": "Biertułtowy Mariacka",
+                "id": 230
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.59738889,
+                    50.05351389
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice StareSztolniowa",
+                "id": 239
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.59719444,
+                    50.05580556
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice StareSztolniowa 1",
+                "id": 240
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54969444,
+                    50.14169444
+                ]
+            },
+            "properties": {
+                "name": "R-k Golejów Kaplica",
+                "id": 241
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.555,
+                    50.14361111
+                ]
+            },
+            "properties": {
+                "name": "R-k Golejów Rondo",
+                "id": 242
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52813889,
+                    50.12107408
+                ]
+            },
+            "properties": {
+                "name": "Rybnicka Kuźnia Gimnazjum  I",
+                "id": 243
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.48227778,
+                    50.13613889
+                ]
+            },
+            "properties": {
+                "name": "Chwałęcice Przedszkole",
+                "id": 245
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.48488889,
+                    50.13483333
+                ]
+            },
+            "properties": {
+                "name": "Chwałęcice Szkoła",
+                "id": 246
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52083333,
+                    50.12944444
+                ]
+            },
+            "properties": {
+                "name": "Rybnicka Kuźnia Basen",
+                "id": 247
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.57915278,
+                    50.08969445
+                ]
+            },
+            "properties": {
+                "name": "Ligota Gimnazjum",
+                "id": 248
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58408333,
+                    50.09625
+                ]
+            },
+            "properties": {
+                "name": "Piaski Szkoła",
+                "id": 249
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54411111,
+                    50.09589583
+                ]
+            },
+            "properties": {
+                "name": "Plac Wolności",
+                "id": 250
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.61194444,
+                    50.14408333
+                ]
+            },
+            "properties": {
+                "name": "R-k Kamień Szewczyka",
+                "id": 251
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55080556,
+                    50.09880556
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście MikołowskaLiceum",
+                "id": 252
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.543,
+                    50.08766667
+                ]
+            },
+            "properties": {
+                "name": "Za Komendą",
+                "id": 253
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53813889,
+                    50.07023611
+                ]
+            },
+            "properties": {
+                "name": "Chwałowice Skrzyżowanie",
+                "id": 254
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55052778,
+                    50.06644444
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałowice Kupiecka",
+                "id": 255
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55388889,
+                    50.08538889
+                ]
+            },
+            "properties": {
+                "name": "Meksyk Prosta",
+                "id": 256
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55352778,
+                    50.10094444
+                ]
+            },
+            "properties": {
+                "name": "R-k Północ Wyzwolenia",
+                "id": 258
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.57991667,
+                    50.098
+                ]
+            },
+            "properties": {
+                "name": "Paruszowiec Kościół",
+                "id": 259
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.48033334,
+                    50.14240278
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałęcice Pniowiec",
+                "id": 260
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53584722,
+                    50.09741667
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Dworek",
+                "id": 261
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53655556,
+                    50.112375
+                ]
+            },
+            "properties": {
+                "name": "R-k Północ Janiego",
+                "id": 262
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.56436111,
+                    50.04758333
+                ]
+            },
+            "properties": {
+                "name": "Jankowice Remiza",
+                "id": 267
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55677778,
+                    50.04663889
+                ]
+            },
+            "properties": {
+                "name": "Jankowice Sklep",
+                "id": 268
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54754167,
+                    50.04790278
+                ]
+            },
+            "properties": {
+                "name": "Jankowice Kościelna",
+                "id": 269
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.5475463,
+                    50.04646296
+                ]
+            },
+            "properties": {
+                "name": "Jankowice Kościół",
+                "id": 270
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54245833,
+                    50.04541667
+                ]
+            },
+            "properties": {
+                "name": "Jankowice Wowry",
+                "id": 271
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54705556,
+                    50.04405556
+                ]
+            },
+            "properties": {
+                "name": "Jankowice Rybnicka",
+                "id": 272
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.57077778,
+                    50.04306945
+                ]
+            },
+            "properties": {
+                "name": "Jankowice G.S.",
+                "id": 273
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55681945,
+                    50.04297223
+                ]
+            },
+            "properties": {
+                "name": "Jankowice Skrzyżowanie",
+                "id": 274
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.44647222,
+                    50.09002778
+                ]
+            },
+            "properties": {
+                "name": "Szczerbice Radoszowska",
+                "id": 275
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.44980556,
+                    50.09447222
+                ]
+            },
+            "properties": {
+                "name": "Szczerbice Dwór",
+                "id": 276
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.44983333,
+                    50.09983333
+                ]
+            },
+            "properties": {
+                "name": "Szczerbice Szkolna",
+                "id": 277
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.45008333,
+                    50.10247222
+                ]
+            },
+            "properties": {
+                "name": "Szczerbice Straż",
+                "id": 278
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.60593056,
+                    50.05118056
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice Osiedle Rajska",
+                "id": 286
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58938889,
+                    50.05470834
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice StareRejewskiego",
+                "id": 288
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54419444,
+                    50.09594444
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Plac Wolności 1",
+                "id": 289
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54419444,
+                    50.09594444
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Plac Wolności 2",
+                "id": 290
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54419444,
+                    50.09594444
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Plac Wolności 3",
+                "id": 291
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.62888889,
+                    50.07391667
+                ]
+            },
+            "properties": {
+                "name": "Gotartowice Pętla",
+                "id": 292
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53383333,
+                    50.10138889
+                ]
+            },
+            "properties": {
+                "name": "Rybnik Dworzec Autobusowy 2",
+                "id": 293
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53375,
+                    50.10141667
+                ]
+            },
+            "properties": {
+                "name": "Rybnik Dworzec Autobusowy 3",
+                "id": 294
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53363889,
+                    50.10152778
+                ]
+            },
+            "properties": {
+                "name": "Rybnik Dworzec Autobusowy 4",
+                "id": 295
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.5335,
+                    50.10158333
+                ]
+            },
+            "properties": {
+                "name": "Rybnik Dworzec Autobusowy 5",
+                "id": 296
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53338889,
+                    50.10119444
+                ]
+            },
+            "properties": {
+                "name": "Rybnik Dworzec Autobusowy A",
+                "id": 297
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.59030556,
+                    50.03477778
+                ]
+            },
+            "properties": {
+                "name": "Świerklany Plebiscytowa",
+                "id": 298
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58791667,
+                    50.02933333
+                ]
+            },
+            "properties": {
+                "name": "Świerklany Górne",
+                "id": 299
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58094444,
+                    50.03447222
+                ]
+            },
+            "properties": {
+                "name": "Świerklany Piekarnia",
+                "id": 300
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.61004167,
+                    50.07220834
+                ]
+            },
+            "properties": {
+                "name": "R-k Gotartowice Gotartowicka",
+                "id": 301
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.39983333,
+                    50.08641667
+                ]
+            },
+            "properties": {
+                "name": "Czernica Ośrodek Zdrowia",
+                "id": 302
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.46194444,
+                    50.06072222
+                ]
+            },
+            "properties": {
+                "name": "R-k Niewiadom Morcinka",
+                "id": 304
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58741667,
+                    50.02597222
+                ]
+            },
+            "properties": {
+                "name": "Świerklany Ośrodek Zdrowia",
+                "id": 305
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58005556,
+                    50.01930556
+                ]
+            },
+            "properties": {
+                "name": "Świerklany Dolne",
+                "id": 306
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.57822222,
+                    50.01454167
+                ]
+            },
+            "properties": {
+                "name": "Świerklany Szkoła Gimnazjum",
+                "id": 308
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.57818056,
+                    50.00468056
+                ]
+            },
+            "properties": {
+                "name": "Świerklany Bar Karliczek",
+                "id": 309
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58483333,
+                    50.00238889
+                ]
+            },
+            "properties": {
+                "name": "Świerklany Szyb",
+                "id": 310
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.45516667,
+                    50.11133333
+                ]
+            },
+            "properties": {
+                "name": "Jejkowice Sumińska",
+                "id": 312
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.445,
+                    50.11375
+                ]
+            },
+            "properties": {
+                "name": "Szczerbice Kaplica",
+                "id": 313
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.42716667,
+                    50.11791667
+                ]
+            },
+            "properties": {
+                "name": "Gaszowice Las",
+                "id": 314
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53155556,
+                    50.14088889
+                ]
+            },
+            "properties": {
+                "name": "R-k Grabownia I",
+                "id": 316
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52322222,
+                    50.13972222
+                ]
+            },
+            "properties": {
+                "name": "R-k Grabownia Sklep",
+                "id": 317
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.38216667,
+                    50.11919444
+                ]
+            },
+            "properties": {
+                "name": "Lyski UPT",
+                "id": 318
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.35769444,
+                    50.11716667
+                ]
+            },
+            "properties": {
+                "name": "Nowa Wieś",
+                "id": 319
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.35430556,
+                    50.10572222
+                ]
+            },
+            "properties": {
+                "name": "Dzimierz",
+                "id": 320
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.35605556,
+                    50.08919444
+                ]
+            },
+            "properties": {
+                "name": "Pstrążna Centrum",
+                "id": 321
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.31997222,
+                    50.10919444
+                ]
+            },
+            "properties": {
+                "name": "Żytna Centrum",
+                "id": 322
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.33108333,
+                    50.13072222
+                ]
+            },
+            "properties": {
+                "name": "Adamowice Centrum",
+                "id": 325
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.34083333,
+                    50.13119444
+                ]
+            },
+            "properties": {
+                "name": "Adamowice Las",
+                "id": 326
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.36433333,
+                    50.13677778
+                ]
+            },
+            "properties": {
+                "name": "Bogunice Centrum",
+                "id": 327
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.38386111,
+                    50.13622222
+                ]
+            },
+            "properties": {
+                "name": "Bogunice Bączkowiec",
+                "id": 328
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.39619444,
+                    50.1325
+                ]
+            },
+            "properties": {
+                "name": "Lyski Las",
+                "id": 329
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50466667,
+                    50.02422222
+                ]
+            },
+            "properties": {
+                "name": "Marklowice Wiosny LudówWidokowa",
+                "id": 330
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.64843056,
+                    50.06938889
+                ]
+            },
+            "properties": {
+                "name": "Żory Rybnicka Świetlica",
+                "id": 331
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.47363889,
+                    50.04786111
+                ]
+            },
+            "properties": {
+                "name": "Radlin UM",
+                "id": 333
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53655556,
+                    50.13230556
+                ]
+            },
+            "properties": {
+                "name": "R-k Rybnicka Kuźnia Boisko",
+                "id": 334
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.47244444,
+                    50.08047222
+                ]
+            },
+            "properties": {
+                "name": "R-k Niewiadom Kol Helena",
+                "id": 335
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.61691667,
+                    50.05241667
+                ]
+            },
+            "properties": {
+                "name": "R-k Kłokocin Poligonowa",
+                "id": 339
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53480556,
+                    50.08930556
+                ]
+            },
+            "properties": {
+                "name": "R-k Smolna RondoWodzisławskie",
+                "id": 344
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54233333,
+                    50.09383333
+                ]
+            },
+            "properties": {
+                "name": "Śródmieście Urząd Miasta",
+                "id": 347
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.46388889,
+                    50.19
+                ]
+            },
+            "properties": {
+                "name": "Rudy Stacja KolejkiWąskotorowej",
+                "id": 348
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52919444,
+                    50.10219444
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko Nowiny Żołędziowa",
+                "id": 349
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52886111,
+                    50.13430556
+                ]
+            },
+            "properties": {
+                "name": "R-k Rybnicka Kuźnia Chłodnie II",
+                "id": 350
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.38825,
+                    50.045
+                ]
+            },
+            "properties": {
+                "name": "Pszów Wiadukt",
+                "id": 351
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.38105556,
+                    50.05216667
+                ]
+            },
+            "properties": {
+                "name": "Krzyżkowice Skrzyżowanie",
+                "id": 352
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.38633333,
+                    50.05486111
+                ]
+            },
+            "properties": {
+                "name": "Pszów Armii Krajowej Szkoła nr3",
+                "id": 353
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.39972222,
+                    50.05908333
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy KrzyżkowickaJesionowa",
+                "id": 354
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.40808333,
+                    50.05788889
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy KrzyżkowickaOrzechowa",
+                "id": 355
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.39397222,
+                    50.0405
+                ]
+            },
+            "properties": {
+                "name": "Pszów Bazylika",
+                "id": 356
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54019444,
+                    50.10213889
+                ]
+            },
+            "properties": {
+                "name": "Kotucza Cmentarz",
+                "id": 364
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.58638889,
+                    50.05225
+                ]
+            },
+            "properties": {
+                "name": "R-k Boguszowice Stare Błękitna",
+                "id": 368
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.66348611,
+                    50.0615
+                ]
+            },
+            "properties": {
+                "name": "Żory Rybnicka Rondo",
+                "id": 373
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.46669444,
+                    50.07069444
+                ]
+            },
+            "properties": {
+                "name": "R-k Niewiadom Boisko",
+                "id": 374
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.51394444,
+                    50.01833333
+                ]
+            },
+            "properties": {
+                "name": "Marklowice Dolne",
+                "id": 375
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.51705556,
+                    50.01675
+                ]
+            },
+            "properties": {
+                "name": "Marklowice Słoneczna Wyspa",
+                "id": 376
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.49025,
+                    50.04033333
+                ]
+            },
+            "properties": {
+                "name": "Radlin Ujejskiego",
+                "id": 377
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.64336111,
+                    50.07008333
+                ]
+            },
+            "properties": {
+                "name": "Żory Rybnicka Granica",
+                "id": 378
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.51645833,
+                    50.10308334
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko Nowiny Krakusa",
+                "id": 379
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.51430556,
+                    50.11283333
+                ]
+            },
+            "properties": {
+                "name": "R-k Orzepowice Borki 1",
+                "id": 397
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50108333,
+                    50.10716667
+                ]
+            },
+            "properties": {
+                "name": "R-k Zebrzydowice Przedmieście",
+                "id": 398
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.49958333,
+                    50.09541667
+                ]
+            },
+            "properties": {
+                "name": "R-k Zebrzydowice Kasztanowa",
+                "id": 399
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50002778,
+                    50.08980556
+                ]
+            },
+            "properties": {
+                "name": "R-k Zebrzydowice Las",
+                "id": 400
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.48766667,
+                    50.07691667
+                ]
+            },
+            "properties": {
+                "name": "R-k Niedobczyce Garbocze",
+                "id": 401
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50041667,
+                    50.05594444
+                ]
+            },
+            "properties": {
+                "name": "R-k Popielów Worcella",
+                "id": 402
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.50902778,
+                    50.11125
+                ]
+            },
+            "properties": {
+                "name": "R-k Orzepowice Borki 2",
+                "id": 403
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.46688889,
+                    50.06090278
+                ]
+            },
+            "properties": {
+                "name": "R-k Niewiadom Sportowa",
+                "id": 404
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.60679167,
+                    50.08556945
+                ]
+            },
+            "properties": {
+                "name": "R-k Ligota Ligocka Kuźnia Wolna",
+                "id": 405
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.47809722,
+                    50.15668056
+                ]
+            },
+            "properties": {
+                "name": "R-k Stodoły Stadnina",
+                "id": 406
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.48408333,
+                    50.13538889
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałęcice Kościół 1",
+                "id": 407
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55825,
+                    50.10261111
+                ]
+            },
+            "properties": {
+                "name": "Północ Strzelecka",
+                "id": 409
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.39647222,
+                    50.11019444
+                ]
+            },
+            "properties": {
+                "name": "Lyski Kamionki",
+                "id": 411
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55344444,
+                    50.1065
+                ]
+            },
+            "properties": {
+                "name": "R-k Północ Żużlowa",
+                "id": 414
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.61883333,
+                    50.0775
+                ]
+            },
+            "properties": {
+                "name": "Gotartowice tymczasowy",
+                "id": 415
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.53722222,
+                    50.08383333
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Jankowicka",
+                "id": 416
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54594444,
+                    50.06972222
+                ]
+            },
+            "properties": {
+                "name": "R-k Chwałowice Śląska",
+                "id": 417
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.55836111,
+                    50.10272222
+                ]
+            },
+            "properties": {
+                "name": "R-k Północ Strzelecka",
+                "id": 418
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54419444,
+                    50.09594444
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Plac Wolności 3kon",
+                "id": 420
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.41191667,
+                    50.07347222
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Galeria",
+                "id": 421
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.42605556,
+                    50.07366667
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Obywatelska",
+                "id": 422
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.41875,
+                    50.06583333
+                ]
+            },
+            "properties": {
+                "name": "Rydułtowy Ośrodek Zdrowia",
+                "id": 423
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.47636111,
+                    50.05259722
+                ]
+            },
+            "properties": {
+                "name": "Radlin Rogozina",
+                "id": 424
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.54091667,
+                    50.08908333
+                ]
+            },
+            "properties": {
+                "name": "R-k Śródmieście Reymonta ZUS",
+                "id": 426
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.30086111,
+                    50.12113889
+                ]
+            },
+            "properties": {
+                "name": "Raszczyce Centrum",
+                "id": 427
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.48388889,
+                    50.04552778
+                ]
+            },
+            "properties": {
+                "name": "Radlin KorfantegoMakuszyńskiego",
+                "id": 428
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.52277778,
+                    50.09972222
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko Nowiny Kominka",
+                "id": 434
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.51830556,
+                    50.09938889
+                ]
+            },
+            "properties": {
+                "name": "R-k Maroko Nowiny Orzepowicka",
+                "id": 435
+            }
+        }
+    ]
+}

@@ -38,60 +38,7 @@ class PanelContent extends Component {
 		isStartPointActive: true
 	}
 
-	processData = () => {
-		const { app, setData, setServerWait } = this.props;
-		setServerWait();
-		console.warn(app.chosenBusStops)
-		if (app.stopsType === StopsType.one || app.stopsType === StopsType.all) {
-			fetchFromList(data => setData(data), {
-				filters: {
-					startDate: app.filters.startDate,
-					endDate: app.filters.endDate,
-					startTime: app.filters.startTime,
-					endTime: app.filters.endTime,
-					weekDays: app.filters.weekDays,
-				},
-				busStops:
-					app.chosenBusStops.length === 0 ? undefined : [app.chosenBusStops],
-			});
-		} else {
-			fetchFromArea(data => setData(data), {
-				filters: {
-					startDate: app.filters.startDate,
-					endDate: app.filters.endDate,
-					startTime: app.filters.startTime,
-					endTime: app.filters.endTime,
-					weekDays: app.filters.weekDays,
-				},
-				corners: app.chosenBusStops[0],
-			});
-		}
-
-		if (app.stopsType === StopsType.one || app.stopsType === StopsType.all) {
-			fetchToList(data => setData(data), {
-				filters: {
-					startDate: app.filters.startDate,
-					endDate: app.filters.endDate,
-					startTime: app.filters.startTime,
-					endTime: app.filters.endTime,
-					weekDays: app.filters.weekDays,
-				},
-				busStops:
-					app.chosenBusStops.length === 0 ? undefined : [app.chosenBusStops],
-			});
-		} else {
-			fetchToArea(data => setData(data), {
-				filters: {
-					startDate: app.filters.startDate,
-					endDate: app.filters.endDate,
-					startTime: app.filters.startTime,
-					endTime: app.filters.endTime,
-					weekDays: app.filters.weekDays,
-				},
-				corners: app.chosenBusStops[0],
-			});
-		}
-	};
+	processData = () => {}
 
 	getFiltersSelection = () => {
 		return (

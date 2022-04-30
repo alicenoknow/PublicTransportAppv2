@@ -26,7 +26,7 @@ class AreasManager extends Component {
 
 	renderListElement = area => {
 		return (
-			<div className="areaListElement">
+			<div className="areaListElement" key={area}>
 				<div>Area</div>
 				<div style={{ flex: 1 }} />
 				<Button
@@ -34,7 +34,7 @@ class AreasManager extends Component {
 					type="button"
 					size="sm"
 					onClick={this.removeArea}>
-					Usuń
+					<div className="cross"/>
 				</Button>
 			</div>
 		);

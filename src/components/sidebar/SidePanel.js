@@ -11,7 +11,7 @@ class SidePanel extends Component {
 
 	render() {
 		const { isOpen } = this.state;
-		const { data, setData, setServerWait } = this.props;
+		const { data, setData } = this.props;
 		const styleStatus = isOpen ? "-open" : "-closed";
 		return (
 			<div className={"sidePanel" + styleStatus}>
@@ -23,7 +23,6 @@ class SidePanel extends Component {
 						<PanelContent
 							data={data}
 							setData={setData}
-							setServerWait={setServerWait}
 						/>
 					</div>
 				</ScrollView>

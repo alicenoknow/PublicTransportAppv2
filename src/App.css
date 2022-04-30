@@ -296,3 +296,42 @@
 	height: 100%;
 	width: 100%;
 }
+
+.cross {
+	position: relative;
+	opacity: 0.3;
+	height: 15px;
+	width: 5px;
+}
+.cross:hover {
+	opacity: 1;
+}
+.cross:before,
+.cross:after {
+	position: absolute;
+	content: " ";
+	left: 1px;
+	height: 15px;
+	width: 2px;
+	background-color: rgb(255, 255, 255);
+}
+.cross:before {
+	transform: rotate(45deg);
+}
+.cross:after {
+	transform: rotate(-45deg);
+}
+
+.infoPanel {
+	position: absolute;
+	margin: 10px;
+	right: 10px;
+	height: 10vh;
+	width: 25vw;
+	padding: 10px;
+	opacity: 0.6;
+	background-color: rgb(157, 156, 218);
+	will-change: opacity;
+	transform: opacity ease-in 0.3s;
+	z-index: 1;
+}

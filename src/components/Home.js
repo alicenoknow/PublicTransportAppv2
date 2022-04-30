@@ -12,6 +12,7 @@ import {
 	setBusStopsData,
 	setServerQueryData,
 } from "../redux/actions";
+import InfoPanel from "./InfoPanel";
 
 class Home extends Component {
 	componentDidMount() {
@@ -23,9 +24,9 @@ class Home extends Component {
 		const { busStopsData, areasData, serverQueryData } = this.props.app;
 		const isLoading = !busStopsData || !areasData;
 
-		if (isLoading) {
-			return <Loading />;
-		}
+		// if (isLoading) {
+		// 	return <Loading />;
+		// }
 
 		return (
 			<Container fluid className="p-0 bg-dark">
@@ -35,6 +36,7 @@ class Home extends Component {
 					setData={this.setServerData}
 					setServerWait={this.setServerWait}
 				/>
+				<InfoPanel />
 				<CustomMap
 					busStopsData={busStopsData}
 					areasData={areasData}
