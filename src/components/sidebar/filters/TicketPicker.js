@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TicketsType } from "../../redux/actionTypes";
+import { TicketsType } from "../../../redux/actionTypes";
 
 const CheckBox = props => {
 	return (

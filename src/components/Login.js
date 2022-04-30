@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { login } from "../services/auth.service";
 
 class Login extends Component {
 	state = {
@@ -23,6 +24,10 @@ class Login extends Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
+	};
+
+	handleLogin = () => {
+		login(this.state.email, this.state.password);
 	};
 
 	render() {
@@ -52,10 +57,10 @@ class Login extends Component {
 							<Button
 								className="loginButton"
 								size="lg"
-								href="/admin"
-								type="submit"
-								disabled={!this.validateForm()}
-								onClick="window.location.href='/upload">
+								// href="/admin"
+								type="button"
+								// disabled={!this.validateForm()}
+								onClick={this.handleLogin}>
 								Zaloguj
 							</Button>
 							<button

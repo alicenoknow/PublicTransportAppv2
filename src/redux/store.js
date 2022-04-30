@@ -1,6 +1,5 @@
 import { createStore, combineReducers } from "redux";
 import {
-	UPDATE_FILTERS,
 	UPDATE_START_BUS_STOP,
 	UPDATE_END_BUS_STOP,
 	UPDATE_START_STOPS_TYPE,
@@ -11,17 +10,100 @@ import {
 	SET_BUS_STOPS_VISIBILITY,
 	SET_AREAS_VISIBILITY,
 	SET_DRAW_MODE,
+	SET_WEEKDAYS,
+	SET_TICKET_TYPE,
+	SET_START_DATE,
+	SET_END_DATE,
+	SET_START_INTERVAL,
+	SET_END_INTERVAL,
+	SET_START_TIME,
+	SET_END_TIME,
+	SET_ANALYSIS_TYPE,
 	StopsType,
 	TicketsType,
+	AnalysisType,
 } from "./actionTypes";
 
 function appReducer(state = initialState, action) {
 	switch (action.type) {
-		case UPDATE_FILTERS: {
+		case SET_START_DATE: {
 			const { content } = action.payload;
 			return {
 				...state,
-				filters: content,
+				filters: {
+					...state.filters,
+					startDate: content,
+				}
+			};
+		}
+		case SET_END_DATE: {
+			const { content } = action.payload;
+			return {
+				...state,
+				filters: {
+					...state.filters,
+					startEnd: content,
+				}
+			};
+		}
+		case SET_START_TIME: {
+			const { content } = action.payload;
+			return {
+				...state,
+				filters: {
+					...state.filters,
+					startTime: content,
+				}
+			};
+		}
+		case SET_END_TIME: {
+			const { content } = action.payload;
+			return {
+				...state,
+				filters: {
+					...state.filters,
+					endTime: content,
+				}
+			};
+		}
+		case SET_START_INTERVAL: {
+			const { content } = action.payload;
+			return {
+				...state,
+				filters: {
+					...state.filters,
+					intervalStartTime: content,
+				}
+			};
+		}
+		case SET_END_INTERVAL: {
+			const { content } = action.payload;
+			return {
+				...state,
+				filters: {
+					...state.filters,
+					intervalEndTime: content,
+				}
+			};
+		}
+		case SET_WEEKDAYS: {
+			const { content } = action.payload;
+			return {
+				...state,
+				filters: {
+					...state.filters,
+					weekDays: content,
+				}
+			};
+		}
+		case SET_TICKET_TYPE: {
+			const { content } = action.payload;
+			return {
+				...state,
+				filters: {
+					...state.filters,
+					ticketType: content,
+				}
 			};
 		}
 		case UPDATE_START_STOPS_TYPE: {
@@ -93,6 +175,13 @@ function appReducer(state = initialState, action) {
 				...state,
 				isDrawModeActive: content,
 			};
+		}	
+		case SET_ANALYSIS_TYPE: {
+			const { content } = action.payload;
+			return {
+				...state,
+				analysisType: content,
+			};
 		}
 		default:
 			return state;
@@ -120,6 +209,7 @@ const initialState = {
 		showBusStops: true,
 		showAreas: false,
 		isDrawModeActive: false,
+		analysisType: AnalysisType.oneWay,
 	},
 };
 

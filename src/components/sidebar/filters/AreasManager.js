@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updateStartStopsType, updateEndStopsType } from "../../redux/actions";
+import { updateStartStopsType, updateEndStopsType } from "../../../redux/actions";
 import { ScrollView } from "@cantonjs/react-scroll-view";
 import { Spinner, Container, Button } from "react-bootstrap";
 

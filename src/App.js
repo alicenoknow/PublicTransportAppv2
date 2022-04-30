@@ -8,7 +8,8 @@ import Login from "./components/Login";
 import Upload from "./components/Upload";
 import "./App.css";
 
-function App() {
+function App(props) {
+	console.warn(props.navigator)
 	return (
 		<Container fluid className={"p-0"}>
 			<Routes>

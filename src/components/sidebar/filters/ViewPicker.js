@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setBusStopsVisibility, setAreasVisibility } from "../../redux/actions";
+import { setBusStopsVisibility, setAreasVisibility } from "../../../redux/actions";
 
 const CheckBox = props => {
 	return (

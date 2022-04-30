@@ -6,7 +6,7 @@ import CustomMap from "../map/CustomMap";
 
 import SidePanel from "./sidebar/SidePanel";
 import NavPadding from "../styled/NavPadding";
-import { fetchBusStops, fetchFromList } from "../api/apiService";
+import { fetchBusStops, fetchFromList } from "../services/apiService";
 
 class Home extends Component {
 	constructor(props) {

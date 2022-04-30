@@ -1,68 +1,47 @@
 import React, { Component } from "react";
 import Collapsible from "react-collapsible";
 import { connect } from "react-redux";
-import { updateFilters, setStartPoint } from "../../redux/actions";
+import {
+	setStartTime,
+	setEndTime,
+	setStartDate,
+	setEndDate,
+	setWeekdays,
+	setTicketsType,
+	setIntervalEnd,
+	setIntervalStart,
+	setStartPoint,
+} from "../../redux/actions";
 import {
 	fetchFromArea,
 	fetchFromList,
 	fetchToList,
 	fetchToArea,
-} from "../../api/apiService";
-import DateRange from "./DateRange";
-import TimeRange from "./TimeRange";
-import WeekDayPicker from "./WeekDayPicker";
-import TicketPicker from "./TicketPicker";
-import BusStopsPicker from "./BusStopsPicker";
-import AreasManager from "./AreasManager";
-import ViewPicker from "./ViewPicker";
+} from "../../services/apiService";
+import {
+	fetchBusStops
+} from '../../services/api.service';
+import {
+	DateRange,
+	AreasManager,
+	BusStopsPicker,
+	TicketPicker,
+	TimeRange,
+	ViewPicker,
+	WeekDayPicker,
+	AnalysisPicker,
+} from "./filters";
 import { StopsType } from "../../redux/actionTypes";
 
 class PanelContent extends Component {
 	state = {
-		startDate: undefined,
-		endDate: undefined,
-		startTime: undefined,
-		endTime: undefined,
-		intervalStartTime: undefined,
-		intervalEndTime: undefined,
-		weekDays: [],
-		ticketType: [],
-		isStartPointActive: true,
-	};
-
-	onStartTimeChange = time =>
-		this.setState({ startTime: time }, this.updateFilters);
-	onEndTimeChange = time =>
-		this.setState({ endTime: time }, this.updateFilters);
-	onIntervalStartTimeChange = time =>
-		this.setState({ intervalStartTime: time }, this.updateFilters);
-	onIntervalEndTimeChange = time =>
-		this.setState({ intervalEndTime: time }, this.updateFilters);
-	onStartDateChange = date =>
-		this.setState({ startDate: date }, this.updateFilters);
-	onEndDateChange = date =>
-		this.setState({ endDate: date }, this.updateFilters);
-	onWeekDaysChange = weekDays =>
-		this.setState({ weekDays: weekDays }, this.updateFilters);
-	onTicketTypeChange = ticketType =>
-		this.setState({ ticketType: ticketType }, this.updateFilters);
-	updateFilters = () => {
-		const { startDate, endDate, startTime, endTime, weekDays, ticketType } =
-			this.state;
-		this.props.updateFilters({
-			startDate,
-			endDate,
-			startTime,
-			endTime,
-			weekDays,
-			ticketType,
-		});
-	};
+		isStartPointActive: true
+	}
 
 	processData = () => {
 		const { app, setData, setServerWait } = this.props;
 		setServerWait();
-
+		console.warn(app.chosenBusStops)
 		if (app.stopsType === StopsType.one || app.stopsType === StopsType.all) {
 			fetchFromList(data => setData(data), {
 				filters: {
@@ -119,29 +98,29 @@ class PanelContent extends Component {
 			<Collapsible trigger="Filtry">
 				<Collapsible className={"NestedCollapsible"} trigger="Wybierz godziny">
 					<TimeRange
-						onStartTimeChange={this.onStartTimeChange}
-						onEndTimeChange={this.onEndTimeChange}
-						onIntervalStartTimeChange={this.onIntervalStartTimeChange}
-						onIntervalEndTimeChange={this.onIntervalEndTimeChange}
+						onStartTimeChange={this.props.setStartTime}
+						onEndTimeChange={this.props.setEndTime}
+						onIntervalStartTimeChange={this.props.setIntervalStart}
+						onIntervalEndTimeChange={this.props.setIntervalEnd}
 					/>
 				</Collapsible>
 				<Collapsible
 					className={"NestedCollapsible"}
 					trigger="Wybierz zakres dat">
 					<DateRange
-						onStartDateChange={this.onStartDateChange}
-						onEndDateChange={this.onEndDateChange}
+						onStartDateChange={this.props.setStartDate}
+						onEndDateChange={this.props.setEndDate}
 					/>
 				</Collapsible>
 				<Collapsible
 					className={"NestedCollapsible"}
 					trigger="Wybierz dzień tygodnia">
-					<WeekDayPicker onWeekDaysChange={this.onWeekDaysChange} />
+					<WeekDayPicker onWeekDaysChange={this.props.setWeekdays} />
 				</Collapsible>
 				<Collapsible
 					className={"NestedCollapsible"}
 					trigger="Wybierz rodzaj biletów">
-					<TicketPicker onTicketTypeChange={this.onTicketTypeChange} />
+					<TicketPicker onTicketTypeChange={this.props.setTicketsType} />
 				</Collapsible>
 			</Collapsible>
 		);
@@ -178,6 +157,11 @@ class PanelContent extends Component {
 					onClosing={() => this.changeStartPointActive(true)}>
 					<BusStopsPicker />
 				</Collapsible>
+				<Collapsible
+					className={"NestedCollapsible"}
+					trigger="Wybierz rodzaj analizy">
+					<AnalysisPicker />
+				</Collapsible>
 			</Collapsible>
 		);
 	};
@@ -206,7 +190,7 @@ class PanelContent extends Component {
 				<button onClick={this.processData} className="confirmButton">
 					Przetwarzaj dane
 				</button>
-				<button onClick={this.processData} className="saveButton">
+				<button onClick={fetchBusStops} className="saveButton">
 					Zapisz dane
 				</button>
 			</React.Fragment>
@@ -215,6 +199,16 @@ class PanelContent extends Component {
 }
 
 const mapStateToProps = state => state;
-const dispatchToProps = { updateFilters, setStartPoint };
+const dispatchToProps = {
+	setStartDate,
+	setEndDate,
+	setStartTime,
+	setEndTime,
+	setIntervalStart,
+	setIntervalEnd,
+	setWeekdays,
+	setStartPoint,
+	setTicketsType,
+};
 
 export default connect(mapStateToProps, dispatchToProps)(PanelContent);

@@ -18,7 +18,7 @@ class Admin extends Component {
 						size="lg"
 						href="/upload"
 						type="button"
-						onClick="window.location.href='/upload">
+						>
 						Prześlij dane
 					</Button>
 				</div>

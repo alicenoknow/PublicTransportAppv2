@@ -1,5 +1,4 @@
 import {
-	UPDATE_FILTERS,
 	UPDATE_START_BUS_STOP,
 	UPDATE_END_BUS_STOP,
 	UPDATE_START_STOPS_TYPE,
@@ -10,10 +9,68 @@ import {
 	SET_BUS_STOPS_VISIBILITY,
 	SET_AREAS_VISIBILITY,
 	SET_DRAW_MODE,
+	SET_START_DATE,
+	SET_END_DATE,
+	SET_START_TIME,
+	SET_END_TIME,
+	SET_START_INTERVAL,
+	SET_END_INTERVAL,
+	SET_WEEKDAYS,
+	SET_TICKET_TYPE,
+	SET_ANALYSIS_TYPE
 } from "./actionTypes";
 
-export const updateFilters = content => ({
-	type: UPDATE_FILTERS,
+export const setStartDate = content => ({
+	type: SET_START_DATE,
+	payload: {
+		content,
+	},
+});
+
+export const setEndDate = content => ({
+	type: SET_END_DATE,
+	payload: {
+		content,
+	},
+});
+
+export const setStartTime = content => ({
+	type: SET_START_TIME,
+	payload: {
+		content,
+	},
+});
+
+export const setEndTime = content => ({
+	type: SET_END_TIME,
+	payload: {
+		content,
+	},
+});
+
+export const setIntervalStart = content => ({
+	type: SET_START_INTERVAL,
+	payload: {
+		content,
+	},
+});
+
+export const setIntervalEnd = content => ({
+	type: SET_END_INTERVAL,
+	payload: {
+		content,
+	},
+});
+
+export const setWeekdays = content => ({
+	type: SET_WEEKDAYS,
+	payload: {
+		content,
+	},
+});
+
+export const setTicketsType = content => ({
+	type: SET_TICKET_TYPE,
 	payload: {
 		content,
 	},
@@ -84,6 +141,13 @@ export const setAreasVisibility = content => ({
 
 export const setDrawMode = content => ({
 	type: SET_DRAW_MODE,
+	payload: {
+		content,
+	},
+});
+
+export const setAnalysisType = content => ({
+	type: SET_ANALYSIS_TYPE,
 	payload: {
 		content,
 	},
