@@ -23,7 +23,7 @@ import {
 	SET_BUS_STOPS_DATA,
 	SET_AREAS_DATA,
 	SET_SERVER_QUERY_DATA,
-	SET_NEW_AREA_TITLE,
+	SET_INFO,
 	StopsType,
 	TicketsType,
 	AnalysisType,
@@ -211,6 +211,13 @@ function appReducer(state = initialState, action) {
 				serverQueryData: content,
 			};
 		}
+		case SET_INFO: {
+			const { content } = action.payload;
+			return {
+				...state,
+				currentInfo: content,
+			};
+		}
 		default:
 			return state;
 	}
@@ -243,7 +250,7 @@ const initialState = {
 		areasData: [],
 		serverQueryData: undefined,
 
-		lastRequestData: {}
+		currentInfo: ''
 	},
 };
 

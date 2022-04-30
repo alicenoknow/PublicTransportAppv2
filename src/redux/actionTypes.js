@@ -24,7 +24,7 @@ export const SET_ACTIVE_POINT = "SET_ACTIVE_POINT";
 export const SET_BUS_STOPS_VISIBILITY = "SET_BUS_STOPS_VISIBILITY";
 export const SET_AREAS_VISIBILITY = "SET_AREAS_VISIBILITY";
 export const SET_DRAW_MODE = "SET_DRAW_MODE";
-export const SET_NEW_AREA_TITLE = "SET_NEW_AREA_TITLE";
+export const SET_INFO = "SET_INFO";
 
 // Data
 export const SET_SERVER_QUERY_DATA = "SET_SERVER_QUERY_DATA";
@@ -38,9 +38,9 @@ export const StopsType = {
 };
 
 export const TicketsType = {
-	all: 0,
-	normal: 1,
-	reduced: 2,
+	all: "Wszystkie",
+	normal: "Normalne",
+	reduced: "Ulgowe",
 };
 
 export const AnalysisType = {

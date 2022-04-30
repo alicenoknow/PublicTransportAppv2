@@ -10,6 +10,7 @@ import {
 	setDrawMode,
 	updateStartAreas,
 	updateEndAreas,
+	setInfo
 } from "../redux/actions";
 import ReactMapGL from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -84,6 +85,7 @@ class CustomMap extends Component {
 			endAreas,
 		} = this.props.app;
 		let newAreas = [];
+		this.props.setInfo("Wybrano obszar: " + info.object.properties.name);
 		if (isStartPointActive) {
 			if (startStopsType === StopsType.area) {
 				if (startAreas.includes(info.object.properties.id)) {
@@ -311,6 +313,7 @@ const dispatchToProps = {
 	setDrawMode,
 	updateStartAreas,
 	updateEndAreas,
+	setInfo
 };
 
 export default connect(mapStateToProps, dispatchToProps)(CustomMap);

@@ -21,7 +21,7 @@ import {
 	SET_BUS_STOPS_DATA,
 	SET_AREAS_DATA,
 	SET_SERVER_QUERY_DATA,
-	SET_NEW_AREA_TITLE
+	SET_INFO
 } from "./actionTypes";
 
 export const setStartDate = content => ({
@@ -173,6 +173,13 @@ export const setAreasData = content => ({
 
 export const setServerQueryData = content => ({
 	type: SET_SERVER_QUERY_DATA,
+	payload: {
+		content,
+	},
+});
+
+export const setInfo = content => ({
+	type: SET_INFO,
 	payload: {
 		content,
 	},
