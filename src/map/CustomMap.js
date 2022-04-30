@@ -5,11 +5,14 @@ import { StopsType } from "../redux/actionTypes";
 import {
 	updateStartAreaCoordinates,
 	updateEndAreaCoordinates,
+	setBusStopsData,
+	updateStartBusStop,
+	updateEndBusStop
 } from "../redux/actions";
 import ReactMapGL from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import DeckGL from "@deck.gl/react";
-import { features as busStopsData } from "../busStops.json";
+import { data as busStopsData } from "../busStops.json";
 import { data as oneWayData } from "../oneWay.json";
 import {
 	parsePointsToScatterPlotData,
@@ -30,8 +33,42 @@ class CustomMap extends Component {
 		endPoint: undefined,
 	};
 
+	componentDidMount() {
+		this.props.setBusStopsData(busStopsData);
+	}
+
+	handleBusStopClick = (info) => {
+		const { isStartPointActive, startStopsType, startBusStops, endStopsType, endBusStops } = this.props.app;
+		let newBusStops = [];
+
+		if (isStartPointActive) {
+			if (startStopsType === StopsType.one) {
+				if (startBusStops.includes(info.object.id)) {
+					newBusStops = startBusStops.filter(val => val !== info.object.id);
+				} else {
+					newBusStops = [ ...startBusStops, info.object.id];
+				}
+				this.props.updateStartBusStop(newBusStops);
+			}
+		} else {
+			if (endStopsType === StopsType.one) {
+				if (endBusStops.includes(info.object.id)) {
+					newBusStops = endBusStops.filter(val => val !== info.object.id);
+				} else {
+					newBusStops = [ ...endBusStops, info.object.id];
+				}
+				this.props.updateEndBusStop(newBusStops)
+			}
+		}
+	}
+
 	renderBusStopsLayer = () => {
-		return PointLayer(parsePointsToScatterPlotData(busStopsData));
+		const { busStopsData: data, showBusStops } = this.props.app;
+		if (data && showBusStops) {
+			const parsedData = parsePointsToScatterPlotData(data);
+			return PointLayer(parsedData, this.handleBusStopClick);
+		}
+		return null;
 	};
 
 	renderHeatMapLayer = () => {
@@ -76,38 +113,6 @@ class CustomMap extends Component {
 			false,
 		);
 		return layer;
-	};
-
-	onClickUpdate = clickEvent => {
-		const { app, updateCoordinates, pointData } = this.props;
-		const coords = [
-			parseFloat(Number(clickEvent.lngLat.lng).toFixed(3)),
-			parseFloat(Number(clickEvent.lngLat.lat).toFixed(3)),
-		];
-		const cut = pointData.features?.map(item => [
-			parseFloat(Number(item.geometry.coordinates[0]).toFixed(3)),
-			parseFloat(Number(item.geometry.coordinates[1]).toFixed(3)),
-			item.properties.id,
-			item.properties.name,
-		]);
-		const filtered = cut.filter(
-			item => item[0] === coords[0] && item[1] === coords[1],
-		);
-		if (!filtered || !filtered[0]) return;
-		if (app.stopsType === StopsType.one) {
-			updateCoordinates(filtered[0][2]);
-		}
-		if (filtered[0].length < 4) {
-			return;
-		}
-		this.setState({
-			popUpCoordinates: {
-				lon: clickEvent.lngLat.lng,
-				lat: clickEvent.lngLat.lat,
-			},
-			showPopUp: true,
-			popUpText: filtered[0][3],
-		});
 	};
 
 	getCustomTooltip = object => {
@@ -161,6 +166,9 @@ const mapStateToProps = state => state;
 const dispatchToProps = {
 	updateStartAreaCoordinates,
 	updateEndAreaCoordinates,
+	setBusStopsData,
+	updateStartBusStop,
+	updateEndBusStop,
 };
 
 export default connect(mapStateToProps, dispatchToProps)(CustomMap);

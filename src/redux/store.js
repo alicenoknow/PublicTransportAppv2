@@ -1,4 +1,5 @@
 import { createStore, combineReducers } from "redux";
+import { parseBusStopsToDict } from "./utils";
 import {
 	UPDATE_START_BUS_STOP,
 	UPDATE_END_BUS_STOP,
@@ -127,28 +128,28 @@ function appReducer(state = initialState, action) {
 			const { content } = action.payload;
 			return {
 				...state,
-				startAreaCoordinates: content,
+				startAreas: content,
 			};
 		}
 		case UPDATE_END_COORDS: {
 			const { content } = action.payload;
 			return {
 				...state,
-				endAreaCoordinates: content,
+				endAreas: content,
 			};
 		}
 		case UPDATE_START_BUS_STOP: {
 			const { content } = action.payload;
 			return {
 				...state,
-				startSingleBusStop: content,
+				startBusStops: content,
 			};
 		}
 		case UPDATE_END_BUS_STOP: {
 			const { content } = action.payload;
 			return {
 				...state,
-				endSingleBusStop: content,
+				endBusStops: content,
 			};
 		}
 		case SET_ACTIVE_POINT: {
@@ -188,9 +189,10 @@ function appReducer(state = initialState, action) {
 		}
 		case SET_BUS_STOPS_DATA: {
 			const { content } = action.payload;
+			const busStopsDict = parseBusStopsToDict(content);
 			return {
 				...state,
-				busStopsData: content,
+				busStopsData: busStopsDict,
 			};
 		}
 		case SET_AREAS_DATA: {
@@ -225,10 +227,10 @@ const initialState = {
 		},
 		startStopsType: StopsType.all,
 		endStopsType: StopsType.all,
-		startAreaCoordinates: [],
-		endAreaCoordinates: [],
-		startSingleBusStop: [],
-		endSingleBusStop: [],
+		startAreas: [],
+		endAreas: [],
+		startBusStops: [],
+		endBusStops: [],
 		isStartPointActive: true,
 		showBusStops: true,
 		showAreas: false,

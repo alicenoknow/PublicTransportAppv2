@@ -20,6 +20,6 @@ export default function getPointLayer(data, onHover) {
         radiusScale: 10,
         getPosition: d => d.coordinates,
         getRadius: d =>  80 * (d.commuters / maxCommuters),
-        getFillColor: _d => [220, 20, 130],
+        getFillColor: _d => [150, 70, 230],
     });
 }

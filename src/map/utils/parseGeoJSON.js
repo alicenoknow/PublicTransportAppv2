@@ -9,15 +9,8 @@ export function parseLinesToPoints(features, destination) {
 	return [];
 }
 
-export function parsePointsToScatterPlotData(features) {
-	if (features && features[0]) {
-		return features.map(item => ({
-			coordinates: item.geometry.coordinates,
-			name: item.properties.name,
-			id: item.properties.id
-		}));
-	}
-	return [];
+export function parsePointsToScatterPlotData(data) {
+	return Object.values(Object.fromEntries(data));
 }
 
 export function parseGeoJsonToLinePlotData(features) {

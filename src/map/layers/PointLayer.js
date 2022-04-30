@@ -1,7 +1,7 @@
 import { ScatterplotLayer } from "@deck.gl/layers";
 
 
-export default function getPointLayer(data, onHover) {
+export default function getPointLayer(data, onClick) {
     return new ScatterplotLayer({
         id: "scatterplot-layer1",
         data: data,
@@ -16,5 +16,7 @@ export default function getPointLayer(data, onHover) {
         getPosition: d => d.coordinates,
         getRadius: d => Math.sqrt(d.exits),
         getFillColor: _d => [120, 0, 120],
+        onClick: onClick
+
     });
 }
