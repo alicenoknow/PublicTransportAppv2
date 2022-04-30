@@ -23,6 +23,7 @@ import {
 	SET_BUS_STOPS_DATA,
 	SET_AREAS_DATA,
 	SET_SERVER_QUERY_DATA,
+	SET_NEW_AREA_TITLE,
 	StopsType,
 	TicketsType,
 	AnalysisType,
@@ -180,6 +181,13 @@ function appReducer(state = initialState, action) {
 				isDrawModeActive: content,
 			};
 		}	
+		case SET_NEW_AREA_TITLE: {
+			const { content } = action.payload;
+			return {
+				...state,
+				newAreaTitle: content,
+			};
+		}	
 		case SET_ANALYSIS_TYPE: {
 			const { content } = action.payload;
 			return {
@@ -235,6 +243,7 @@ const initialState = {
 		showBusStops: true,
 		showAreas: false,
 		isDrawModeActive: false,
+		newAreaTitle: undefined,
 		analysisType: AnalysisType.oneWay,
 
 		busStopsData: undefined,

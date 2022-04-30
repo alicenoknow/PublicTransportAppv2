@@ -371,3 +371,24 @@
 	transform: opacity ease-in 0.3s;
 	z-index: 1;
 }
+
+.areaTitleInput {
+	position: absolute;
+	margin: 10px;
+	right: 40vw;
+	width: 25vw;
+	padding: 10px;
+	opacity: 0.9;
+	background-color: rgb(157, 156, 218);
+	z-index: 1;
+}
+
+.formInput {
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	align-items: center;
+	justify-content: space-around;
+	justify-items: center;
+
+}

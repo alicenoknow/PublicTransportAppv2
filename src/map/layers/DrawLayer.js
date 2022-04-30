@@ -14,27 +14,22 @@ const EMPTY_FEATURE = {
 	},
 };
 
-export function getDrawLayer(data, setStateData, updateFinalData, isStart) {
+export function getDrawLayer(data, setStateData) {
+	console.warn(data)
 	const layer = new EditableGeoJsonLayer({
-		id: `area-draw-layer-${isStart ? "start" : "end"}`,
-		data: data,
+		id: "area-draw-layer",
+		data: { type: "FeatureCollection", features: data },
 		mode: DrawPolygonMode,
 		selectedFeatureIndexes: [],
-		getFillColor: isStart ? START_COLOR.fill : END_COLOR.fill,
-		getLineColor: isStart ? START_COLOR.line : END_COLOR.line,
+		getFillColor: END_COLOR.fill,
+		getLineColor: END_COLOR.line,
 		onEdit: ({ updatedData }) => {
-			if (updatedData.features.length > 0) {
-				updateFinalData(updatedData.features[0].geometry.coordinates);
+			console.warn(updatedData.features)
 
-				if (updatedData.features.length > 1) {
-					setStateData({
-						type: updatedData.type,
-						features: [updatedData.features[1]],
-					});
-					return;
-				}
+			if (updatedData?.features && updatedData.features.length > 0) {
+				console.warn(updatedData.features)
+				setStateData(updatedData.features);
 			}
-			setStateData(updatedData);
 		},
 	});
 	return layer;
@@ -54,23 +49,4 @@ function getFeature(area, isStart) {
 		};
 	}
 	return EMPTY_FEATURE;
-}
-
-export function drawAreas(startArea, endArea) {
-	return new GeoJsonLayer({
-		id: "geojson-layer-start",
-		data: {
-			type: "FeatureCollection",
-			features: [getFeature(startArea, true), getFeature(endArea, false)],
-		},
-		pickable: true,
-		stroked: true,
-		filled: true,
-		lineWidthScale: 20,
-		lineWidthMinPixels: 2,
-		getFillColor: d =>
-			d.properties.isStart ? START_COLOR.fill : END_COLOR.fill,
-		getLineColor: d =>
-			d.properties.isStart ? START_COLOR.line : END_COLOR.line,
-	});
 }

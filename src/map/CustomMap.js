@@ -3,11 +3,12 @@ import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import { StopsType } from "../redux/actionTypes";
 import {
-	updateStartAreaCoordinates,
-	updateEndAreaCoordinates,
 	setBusStopsData,
 	updateStartBusStop,
 	updateEndBusStop,
+	setNewAreaTitle,
+	setAreasData,
+	setDrawMode,
 } from "../redux/actions";
 import ReactMapGL from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -19,6 +20,7 @@ import {
 	parseLinesToPoints,
 	getDataPointsFromIds,
 } from "./utils/parseGeoJSON";
+import AreaTitleInput from "../components/AreaTitleInput";
 import {
 	LineLayer,
 	PointLayer,
@@ -34,10 +36,7 @@ class CustomMap extends Component {
 			longitude: 18.5462847,
 			zoom: 13,
 		},
-		startArea: { type: "FeatureCollection", features: [] },
-		endArea: { type: "FeatureCollection", features: [] },
-		startPoint: undefined,
-		endPoint: undefined,
+		areaData: [],
 	};
 
 	componentDidMount() {
@@ -92,6 +91,16 @@ class CustomMap extends Component {
 		return LineLayer(oneWayData);
 	};
 
+	renderAreas = () => {
+		const {
+			app: { showAreas, areasData },
+		} = this.props;
+		if (showAreas && areasData) {
+			return drawAreas(areasData);
+		}
+		return null;
+	};
+
 	renderStartStops = () => {
 		const {
 			app: { startStopsType, startBusStops, busStopsData },
@@ -132,45 +141,34 @@ class CustomMap extends Component {
 		const renderSecondLayer = isStartPointActive
 			? this.renderStartStops
 			: this.renderEndStops;
-		return (
-			[ renderFirstLayer(),
-				renderSecondLayer()
-			]
-		);
+		return [renderFirstLayer(), renderSecondLayer()];
 	};
 
-	renderDrawStartAreaLayer = () => {
-		const {
-			updateStartAreaCoordinates,
-			app: { startStopsType, isStartPointActive },
-		} = this.props;
-		if (startStopsType !== StopsType.area || !isStartPointActive) {
+	renderDrawAreaLayer = () => {
+		const { isDrawModeActive, newAreaTitle, areasData } = this.props.app;
+		const { areaData } = this.state;
+		if (!isDrawModeActive) {
 			return null;
 		}
-		const setStateData = data => this.setState({ startArea: data });
-		const layer = getDrawLayer(
-			this.state.startArea,
-			setStateData,
-			updateStartAreaCoordinates,
-			true,
-		);
-		return layer;
-	};
 
-	renderDrawEndAreaLayer = () => {
-		const {
-			updateEndAreaCoordinates,
-			app: { endStopsType, isStartPointActive },
-		} = this.props;
-		if (endStopsType !== StopsType.area || isStartPointActive) {
+		if (newAreaTitle && areaData) {
+			const newArea = areaData.map(item => {
+				return {
+					...item,
+					properties: {
+						name: newAreaTitle,
+					},
+				};
+			});
+			this.props.setNewAreaTitle(undefined);
+			this.props.setAreasData([...areasData, ...newArea]);
+			this.props.setDrawMode(false);
+			this.setState({ areaData: [] });
 			return null;
 		}
-		const setStateData = data => this.setState({ endArea: data });
-		const layer = getDrawLayer(
-			this.state.endArea,
-			setStateData,
-			updateEndAreaCoordinates,
-			false,
+
+		const layer = getDrawLayer(areaData, data =>
+			this.setState({ areaData: data }),
 		);
 		return layer;
 	};
@@ -195,8 +193,8 @@ class CustomMap extends Component {
 		const layers = [
 			this.renderHeatMapLayer(),
 			this.renderServerDrivenLayer(),
-			this.renderDrawStartAreaLayer(),
-			this.renderDrawEndAreaLayer(),
+			this.renderDrawAreaLayer(),
+			this.renderAreas(),
 			this.renderBusStopsLayer(),
 			...this.renderPickedStops(),
 			drawAreas(showStartArea ? startArea : null, showEndArea ? endArea : null),
@@ -204,6 +202,7 @@ class CustomMap extends Component {
 
 		return (
 			<Container fluid className="p-0 bg-light">
+				<AreaTitleInput />
 				<DeckGL
 					initialViewState={this.state.viewport}
 					controller={true}
@@ -224,11 +223,12 @@ class CustomMap extends Component {
 
 const mapStateToProps = state => state;
 const dispatchToProps = {
-	updateStartAreaCoordinates,
-	updateEndAreaCoordinates,
 	setBusStopsData,
 	updateStartBusStop,
 	updateEndBusStop,
+	setNewAreaTitle,
+	setAreasData,
+	setDrawMode,
 };
 
 export default connect(mapStateToProps, dispatchToProps)(CustomMap);

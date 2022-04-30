@@ -20,7 +20,8 @@ import {
 	SET_ANALYSIS_TYPE,
 	SET_BUS_STOPS_DATA,
 	SET_AREAS_DATA,
-	SET_SERVER_QUERY_DATA
+	SET_SERVER_QUERY_DATA,
+	SET_NEW_AREA_TITLE
 } from "./actionTypes";
 
 export const setStartDate = content => ({
@@ -79,14 +80,14 @@ export const setTicketsType = content => ({
 	},
 });
 
-export const updateStartAreaCoordinates = content => ({
+export const updateStartAreas = content => ({
 	type: UPDATE_START_COORDS,
 	payload: {
 		content,
 	},
 });
 
-export const updateEndAreaCoordinates = content => ({
+export const updateEndAreas = content => ({
 	type: UPDATE_END_COORDS,
 	payload: {
 		content,
@@ -172,6 +173,13 @@ export const setAreasData = content => ({
 
 export const setServerQueryData = content => ({
 	type: SET_SERVER_QUERY_DATA,
+	payload: {
+		content,
+	},
+});
+
+export const setNewAreaTitle = content => ({
+	type: SET_NEW_AREA_TITLE,
 	payload: {
 		content,
 	},
