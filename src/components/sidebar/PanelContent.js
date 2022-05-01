@@ -121,9 +121,9 @@ class PanelContent extends Component {
 	render() {
 		return (
 			<React.Fragment>
+				{this.getVisualizationSelection()}
 				{this.getAreasSelection()}
 				{this.getFiltersSelection()}
-				{this.getVisualizationSelection()}
 				<button onClick={this.processData} className="confirmButton">
 					Przetwarzaj dane
 				</button>

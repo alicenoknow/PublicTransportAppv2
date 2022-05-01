@@ -3,7 +3,7 @@ import axios from "axios";
 // axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 // axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
 // axios.defaults.headers.post["Content-Type"] = "application/json";
-// axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 
 const API = process.env.REACT_APP_API;
 

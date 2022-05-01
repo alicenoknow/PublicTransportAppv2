@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import moment from "moment";
 import NumberPicker from "react-widgets/NumberPicker";
 import TimeInput from "react-widgets/TimeInput";
+import { connect } from "react-redux";
 import "react-widgets/styles.css";
+import { AnalysisType } from "../../../redux/actionTypes";
 
 class TimelineRange extends Component {
 	state = {
@@ -83,29 +85,36 @@ class TimelineRange extends Component {
 					<p>Wybierz godzinę końcową: </p>
 					<TimeInput onChange={this.onChangeToCallback} defaultValue={to} />
 				</div>
-				<div className="timeRow">
-					<p>Wybierz początek interwału: </p>
-					<NumberPicker
-						defaultValue={intervalFrom}
-						step={0.5}
-						onChange={this.onChangeIntervalFromCallback}
-						min={this.getIntervalLowerBound()}
-						max={this.getIntervalUpperBound()}
-					/>
-				</div>
-				<div className="timeRow">
-					<p>Wybierz koniec interwału: </p>
-					<NumberPicker
-						defaultValue={intervalTo}
-						step={0.5}
-						onChange={this.onChangeIntervalToCallback}
-						min={this.getIntervalLowerBound(true)}
-						max={this.getIntervalUpperBound(true)}
-					/>
-				</div>
+				{this.props.app.analysisType === AnalysisType.twoWay && (
+					<>
+						<div className="timeRow">
+							<p>Wybierz początek interwału: </p>
+							<NumberPicker
+								defaultValue={intervalFrom}
+								step={0.5}
+								onChange={this.onChangeIntervalFromCallback}
+								min={this.getIntervalLowerBound()}
+								max={this.getIntervalUpperBound()}
+							/>
+						</div>
+						<div className="timeRow">
+							<p>Wybierz koniec interwału: </p>
+							<NumberPicker
+								defaultValue={intervalTo}
+								step={0.5}
+								onChange={this.onChangeIntervalToCallback}
+								min={this.getIntervalLowerBound(true)}
+								max={this.getIntervalUpperBound(true)}
+							/>
+						</div>
+					</>
+				)}
 			</div>
 		);
 	}
 }
 
-export default TimelineRange;
+const mapStateToProps = state => state;
+const dispatchToProps = {};
+
+export default connect(mapStateToProps, dispatchToProps)(TimelineRange);

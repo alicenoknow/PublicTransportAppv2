@@ -24,7 +24,7 @@ const CheckBox = props => {
 class ViewPicker extends Component {
 	state = {
 		busStops: { id: 0, value: "Pokaż przystanki", isChecked: true },
-		areas: { id: 1, value: "Pokaż obszary", isChecked: false },
+		areas: { id: 1, value: "Pokaż obszary", isChecked: true },
 	};
 
 	handleCheck = event => {

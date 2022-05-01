@@ -20,6 +20,8 @@ export function getDrawLayer(data, setStateData) {
 		selectedFeatureIndexes: [],
 		getFillColor: [150, 190, 250, 120],
 		getLineColor: [90, 120, 180, 255],
+		pickable: true,
+		pickingRadius: 15,
 		onEdit: ({ updatedData }) => {
 			if (updatedData?.features && updatedData.features.length > 0) {
 				setStateData(updatedData.features);

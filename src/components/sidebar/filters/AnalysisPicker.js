@@ -58,7 +58,7 @@ class AnalysisPicker extends Component {
 				},
 				() =>
 					this.props.setAnalysisType(
-						this.state.oneWay ? AnalysisType.oneWay : AnalysisType.twoWay,
+						this.state.oneWay.isChecked ? AnalysisType.oneWay : AnalysisType.twoWay,
 					),
 			);
 		}
