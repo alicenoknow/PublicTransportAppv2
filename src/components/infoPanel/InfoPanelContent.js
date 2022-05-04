@@ -26,7 +26,7 @@ class InfoPanelContent extends Component {
 					<div key="stops">
 						<p>Wybrane przystanki:</p>
 						{stops.map(item => (
-							<p>{busStopsData[item].name}</p>
+							<p key={busStopsData[item].name}>{busStopsData[item].name}</p>
 						))}
 					</div>
 				);
@@ -36,7 +36,7 @@ class InfoPanelContent extends Component {
 					<div key="areas">
 						<p>Wybrane obszary:</p>
 						{areas.map(item => (
-							<p>{areasData[item].properties.name}</p>
+							<p key={areasData[item].id}>{areasData[item].properties.NAZWA}</p>
 						))}
 					</div>
 				);

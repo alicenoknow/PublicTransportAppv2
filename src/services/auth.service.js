@@ -31,13 +31,40 @@ export const login = (email, password) => {
 		});
 	};
 
-	export const fetchBusStops = () => {
+	export const requestPasswordReset = (email) => {
 		const config = {
 			method: "get",
-			url: API + "/api/stops",
+			url: API + `/token/reset?email=${email}`,
 			headers: {
 				"Content-Type": "application/json",
 			},
+			withCredentials: true,
+		};
+	
+		return axios(config)
+			.then(function (response) {
+				const data =  JSON.stringify(response?.data);
+				return data;
+			})
+			.catch(function (error) {
+				console.log(error);
+				return;
+			});
+		};
+
+	export const resetPassword = (email, password) => {
+		const data = JSON.stringify({
+			username: email,
+			password: password,
+		});
+
+		const config = {
+			method: "post",
+			url: API + "/token/reset",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			data: data,
 			withCredentials: true,
 		};
 	

@@ -1,16 +1,4 @@
 import { EditableGeoJsonLayer, DrawPolygonMode } from "nebula.gl";
-import { GeoJsonLayer } from "deck.gl";
-
-const EMPTY_FEATURE = {
-	type: "Feature",
-	geometry: {
-		type: "Polygon",
-		coordinates: [],
-	},
-	properties: {
-		isStart: false,
-	},
-};
 
 export function getDrawLayer(data, setStateData) {
 	const layer = new EditableGeoJsonLayer({

@@ -12,7 +12,6 @@ import {
 	setIntervalStart,
 	setStartPoint,
 } from "../../redux/actions";
-import { fetchBusStops } from "../../services/auth.service";
 import {
 	DateRange,
 	AreasManager,

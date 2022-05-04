@@ -14,7 +14,6 @@ import {
 import ReactMapGL from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import DeckGL from "@deck.gl/react";
-import { data as oneWayData } from "../oneWay.json";
 import {
 	parsePointsToScatterPlotData,
 	parseLinesToPoints,
@@ -85,24 +84,25 @@ class CustomMap extends Component {
 			endAreas,
 		} = this.props.app;
 		let newAreas = [];
-		this.props.setInfo(["Wybrano obszar: " + info.object.properties.name]);
+		this.props.setInfo(["Wybrano obszar: " + info.object.properties.NAZWA]);
 		if (isStartPointActive) {
 			if (startStopsType === StopsType.area) {
-				if (startAreas.includes(info.object.properties.id)) {
+				console.warn(info.object)
+				if (startAreas.includes(info.object.id)) {
 					newAreas = startAreas.filter(
-						val => val !== info.object.properties.id,
+						val => val !== info.object.id,
 					);
 				} else {
-					newAreas = [...startAreas, info.object.properties.id];
+					newAreas = [...startAreas, info.object.id];
 				}
 				this.props.updateStartAreas(newAreas);
 			}
 		} else {
 			if (endStopsType === StopsType.area) {
-				if (endAreas.includes(info.object.properties.id)) {
-					newAreas = endAreas.filter(val => val !== info.object.properties.id);
+				if (endAreas.includes(info.object.id)) {
+					newAreas = endAreas.filter(val => val !== info.object.id);
 				} else {
-					newAreas = [...endAreas, info.object.properties.id];
+					newAreas = [...endAreas, info.object.id];
 				}
 				this.props.updateEndAreas(newAreas);
 			}
@@ -130,11 +130,13 @@ class CustomMap extends Component {
 	};
 
 	renderHeatMapLayer = () => {
-		return HeatMapLayer(parseLinesToPoints(oneWayData.features, 0));
+		const { serverQueryData: data } = this.props.app;
+		return HeatMapLayer(parseLinesToPoints(data?.features, 0));
 	};
 
 	renderServerDrivenLayer = () => {
-		return LineLayer(oneWayData, this.handleLineClick);
+		const { serverQueryData: data  } = this.props.app;
+		return LineLayer(data, this.handleLineClick);
 	};
 
 	renderAreas = () => {
@@ -146,7 +148,7 @@ class CustomMap extends Component {
 				Object.values(areasData),
 				this.handleAreaClick,
 				"all-areas",
-				[80, 140, 250, 120],
+				[80, 140, 250, 100],
 				[90, 120, 180, 255],
 			);
 		}
