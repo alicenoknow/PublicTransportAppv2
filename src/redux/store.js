@@ -24,6 +24,7 @@ import {
 	SET_AREAS_DATA,
 	SET_SERVER_QUERY_DATA,
 	SET_INFO,
+	SET_LOADING,
 	StopsType,
 	TicketsType,
 	AnalysisType,
@@ -199,6 +200,7 @@ function appReducer(state = initialState, action) {
 		case SET_AREAS_DATA: {
 			const { content } = action.payload;
 			const areasDict = parseAreasToDict(content);
+
 			return {
 				...state,
 				areasData: areasDict,
@@ -216,6 +218,13 @@ function appReducer(state = initialState, action) {
 			return {
 				...state,
 				currentInfo: content,
+			};
+		}
+		case SET_LOADING: {
+			const { content } = action.payload;
+			return {
+				...state,
+				isLoading: content,
 			};
 		}
 		default:
@@ -251,6 +260,7 @@ const initialState = {
 		serverQueryData: undefined,
 
 		currentInfo: [],
+		isLoading: false,
 	},
 };
 

@@ -1,84 +1,85 @@
-import React from "react";
-import { Component } from "react";
-import { connect } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { login } from "../services/auth.service";
+import { fetchBusStops } from "../services/api.service";
 
-class Login extends Component {
-	state = {
-		email: "",
-		password: "",
-	};
+export default function Login() {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [result, setResult] = useState();
+	const [alert, setAlert] = useState('');
+	const navigate = useNavigate();
 
-	validateEmail = () => {
-		const { email } = this.state;
+	useEffect(() => {
+		if (result == 200) {
+			setAlert('');
+			setTimeout(() => navigate("/home"), 1000);
+		} else if(result) {
+			setAlert("Logowanie nie powiodło się.");
+		}
+	}, [result]);
+
+	const validateEmail = () => {
 		return email.length > 0 && email.includes("@");
 	};
 
-	validateForm = () => {
-		const { password } = this.state;
-		return this.validateEmail() && password.length > 0;
+	const validateForm = () => {
+		return validateEmail() && password.length > 0;
 	};
 
-	handleSubmit = event => {
+	const handleSubmit = event => {
 		event.preventDefault();
 	};
 
-	handleLogin = () => {
-		login(this.state.email, this.state.password);
+	const handleLogin = async () => {
+		const result = await login(email, password);
+		setResult(result);
 	};
 
-	render() {
-		const { email, password } = this.state;
-		return (
-			<Container fluid className="p-0 bg-dark">
-				<div className="login">
-					<Form onSubmit={this.handleSubmit}>
-						<Form.Group className="emailLogin" size="lg" controlId="email">
-							<Form.Label>Email</Form.Label>
-							<Form.Control
-								autoFocus
-								type="email"
-								value={email}
-								onChange={e => this.setState({ email: e.target.value })}
-							/>
-						</Form.Group>
-						<Form.Group size="lg" controlId="password">
-							<Form.Label>Hasło</Form.Label>
-							<Form.Control
-								type="password"
-								value={password}
-								onChange={e => this.setState({ password: e.target.value })}
-							/>
-						</Form.Group>
-						<div className="loginButtons">
-							<Button
-								className="loginButton"
-								size="lg"
-								// href="/admin"
-								type="button"
-								// disabled={!this.validateForm()}
-								onClick={this.handleLogin}>
-								Zaloguj
-							</Button>
-							<button
-								className="btn btn-link"
-								size="lg"
-								type="button"
-								disabled={!this.validateEmail()}>
-								Resetuj hasło
-							</button>
-						</div>
-					</Form>
-				</div>
-			</Container>
-		);
-	}
+	return (
+		<Container fluid className="p-0 bg-dark">
+			<div className="login">
+				<Form onSubmit={handleSubmit}>
+					<Form.Group className="emailLogin" size="lg" controlId="email">
+						<Form.Label>Email</Form.Label>
+						<Form.Control
+							autoFocus
+							type="email"
+							value={email}
+							onChange={e => setEmail(e.target.value ?? "")}
+						/>
+					</Form.Group>
+					<Form.Group size="lg" controlId="password">
+						<Form.Label>Hasło</Form.Label>
+						<Form.Control
+							type="password"
+							value={password}
+							onChange={e => setPassword(e.target.value ?? "")}
+						/>
+						<Form.Text >{alert}</Form.Text>
+					</Form.Group>
+					<div className="loginButtons">
+						<Button
+							className="loginButton"
+							size="lg"
+							type="button"
+							onClick={handleLogin}>
+							Zaloguj
+						</Button>
+						<button
+							className="btn btn-link"
+							size="lg"
+							type="button"
+							disabled={!validateEmail()}
+							onClick={() => fetchBusStops()}>
+							Resetuj hasło
+						</button>
+					</div>
+				</Form>
+			</div>
+		</Container>
+	);
 }
-
-const mapStateToProps = state => state;
-const dispatchToProps = dispatch => ({ dispatch });
-
-export default connect(mapStateToProps, dispatchToProps)(Login);

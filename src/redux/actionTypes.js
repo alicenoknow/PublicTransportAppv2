@@ -31,6 +31,8 @@ export const SET_SERVER_QUERY_DATA = "SET_SERVER_QUERY_DATA";
 export const SET_BUS_STOPS_DATA = "SET_BUS_STOPS_DATA";
 export const SET_AREAS_DATA = "SET_AREAS_DATA";
 
+export const SET_LOADING = "SET_LOADING";
+
 export const StopsType = {
 	all: 0,
 	one: 1,

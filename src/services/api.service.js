@@ -1,32 +1,46 @@
 import axios from "axios";
 
-axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
-axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
-axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.defaults.headers.get["Content-Type"] = "application/json";
 axios.defaults.withCredentials = true;
 
 const API = process.env.REACT_APP_API;
 
 export const fetchBusStops = () => {
-	return axios
-		.get(API + "/api/stops")
-		.catch(function (error) {
-			console.log(error.toJSON());
-			return undefined;
-		})
-		.then(response => {
+	const config = {
+		method: "get",
+		url: API + "/api/stops",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		withCredentials: true,
+	};
+
+	return axios(config)
+		.then(function (response) {
 			return response?.data;
+		})
+		.catch(function (error) {
+			console.log(error);
+			return;
 		});
-};
+	};
 
 export const fetchAreas = () => {
-	return axios
-		.get(API + "/api/stops")
-		.catch(function (error) {
-			console.log(error.toJSON());
-			return undefined;
-		})
-		.then(response => {
+	const config = {
+		method: "get",
+		url: API + "/api/areas",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		withCredentials: true,
+	};
+
+	return axios(config)
+		.then(function (response) {
 			return response?.data;
+		})
+		.catch(function (error) {
+			console.log(error);
+			return;
 		});
-};
+	};

@@ -1,8 +1,5 @@
 import axios from "axios";
 
-// axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
-// axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
-// axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.withCredentials = true;
 
 const API = process.env.REACT_APP_API;
@@ -14,21 +11,43 @@ export const login = (email, password) => {
 	});
 
 	const config = {
-		method: "get",
+		method: "post",
 		url: API + "/token",
-		// withCredentials: true,
 		headers: {
 			"Content-Type": "application/json",
-			// "Access-Control-Allow-Origin": "*",
 		},
+		withCredentials: true,
 		data: data,
 	};
 
-	axios(config)
+	return axios(config)
 		.then(function (response) {
-			console.log(JSON.stringify(response.data));
+			const status =  JSON.stringify(response.status);
+			return status;
 		})
 		.catch(function (error) {
 			console.log(error);
+			return;
 		});
-};
+	};
+
+	export const fetchBusStops = () => {
+		const config = {
+			method: "get",
+			url: API + "/api/stops",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			withCredentials: true,
+		};
+	
+		return axios(config)
+			.then(function (response) {
+				const data =  JSON.stringify(response?.data);
+				return data;
+			})
+			.catch(function (error) {
+				console.log(error);
+				return;
+			});
+		};

@@ -3,7 +3,6 @@ import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import { StopsType } from "../redux/actionTypes";
 import {
-	setBusStopsData,
 	updateStartBusStop,
 	updateEndBusStop,
 	setAreasData,
@@ -15,7 +14,6 @@ import {
 import ReactMapGL from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import DeckGL from "@deck.gl/react";
-import { data as busStopsData } from "../busStops.json";
 import { data as oneWayData } from "../oneWay.json";
 import {
 	parsePointsToScatterPlotData,
@@ -46,10 +44,6 @@ class CustomMap extends Component {
 		areaData: [],
 	};
 
-	componentDidMount() {
-		this.props.setBusStopsData(busStopsData);
-	}
-
 	handleBusStopClick = info => {
 		const {
 			isStartPointActive,
@@ -79,6 +73,7 @@ class CustomMap extends Component {
 				this.props.updateEndBusStop(newBusStops);
 			}
 		}
+		this.props.setInfo([]);
 	};
 
 	handleAreaClick = info => {
@@ -127,6 +122,7 @@ class CustomMap extends Component {
 
 	renderBusStopsLayer = () => {
 		const { busStopsData: data, showBusStops } = this.props.app;
+		console.warn(data)
 		if (data && showBusStops) {
 			const parsedData = parsePointsToScatterPlotData(data);
 			return PointLayer(parsedData, "bus-stops", this.handleBusStopClick);
@@ -322,7 +318,6 @@ class CustomMap extends Component {
 
 const mapStateToProps = state => state;
 const dispatchToProps = {
-	setBusStopsData,
 	updateStartBusStop,
 	updateEndBusStop,
 	setAreasData,

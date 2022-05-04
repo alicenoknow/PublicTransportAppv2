@@ -10,7 +10,8 @@ class Header extends Component {
 					Analiza transportu publicznego w Rybniku
 				</Navbar.Brand>
 				<Nav className="me-auto">
-					<Nav.Link href="/login">Admin</Nav.Link>
+					<Nav.Link href="/upload">Dane</Nav.Link>
+					<Nav.Link href="/help">Pomoc</Nav.Link>
 				</Nav>
 			</Navbar>
 		);

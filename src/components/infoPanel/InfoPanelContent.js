@@ -41,6 +41,8 @@ class InfoPanelContent extends Component {
 					</div>
 				);
 			}
+			default:
+				return null;
 		}
 	};
 

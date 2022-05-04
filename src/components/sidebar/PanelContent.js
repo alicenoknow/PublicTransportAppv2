@@ -12,6 +12,7 @@ import {
 	setIntervalStart,
 	setStartPoint,
 } from "../../redux/actions";
+import { fetchBusStops } from "../../services/auth.service";
 import {
 	DateRange,
 	AreasManager,
@@ -28,7 +29,9 @@ class PanelContent extends Component {
 		isStartPointActive: true,
 	};
 
-	processData = () => {};
+	processData = () => {
+		console.warn(fetchBusStops());
+	};
 
 	getFiltersSelection = () => {
 		return (

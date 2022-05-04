@@ -340,6 +340,23 @@
 	color: white;
 }
 
+::-webkit-scrollbar {
+	display: none;
+  }
+
+.help {
+	height: "100%";
+	color: white;
+	padding-left: 25%;
+	padding-right: 25%;
+}
+
+
+
+.help a {
+	color: rgb(255, 95, 130);
+}
+
 .loadingContainer {
 	display: flex;
 	flex: 1;
@@ -391,6 +408,15 @@
 }
 
 .areaTitleInput {
+	position: absolute;
+	margin: 10px;
+	right: 40vw;
+	width: 25vw;
+	opacity: 0.9;
+	background-color: rgb(157, 156, 218);
+	z-index: 1;
+}
+.loadingAlert {
 	position: absolute;
 	margin: 10px;
 	right: 40vw;

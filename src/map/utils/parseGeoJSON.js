@@ -32,3 +32,7 @@ export function getDataPointsFromIds(ids, busStopsDict) {
 		return ids.map(item => busStopsDict[item]);
 	}
 }
+
+export function parseArrayToGeoJsonLines(data) {}
+
+export function parseArrayToHeatmap(data) {}
