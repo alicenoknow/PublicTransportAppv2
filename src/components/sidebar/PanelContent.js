@@ -30,8 +30,7 @@ class PanelContent extends Component {
 	};
 
 	processData = () => {
-		console.warn(fetchBusStops());
-	};
+	}
 
 	getFiltersSelection = () => {
 		return (

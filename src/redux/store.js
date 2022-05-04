@@ -200,7 +200,6 @@ function appReducer(state = initialState, action) {
 		case SET_AREAS_DATA: {
 			const { content } = action.payload;
 			const areasDict = parseAreasToDict(content);
-
 			return {
 				...state,
 				areasData: areasDict,
@@ -251,7 +250,7 @@ const initialState = {
 		endBusStops: [],
 		isStartPointActive: true,
 		showBusStops: true,
-		showAreas: false,
+		showAreas: true,
 		isDrawModeActive: false,
 		analysisType: AnalysisType.oneWay,
 

@@ -30,15 +30,16 @@ class AreasManager extends Component {
 	};
 
 	renderListElement = area => {
+		// TODO
 		return (
-			<div className="areaListElement" key={area.properties.id}>
-				<div>{area.properties.name}</div>
+			<div className="areaListElement" key={area.id}>
+				<div>{area.properties.NAZWA}</div>
 				<div style={{ flex: 1 }} />
 				<Button
 					className="removeButton"
 					type="button"
 					size="sm"
-					onClick={() => this.removeArea(area.properties.id)}>
+					onClick={() => this.removeArea(area.id)}>
 					<div className="cross" />
 				</Button>
 			</div>

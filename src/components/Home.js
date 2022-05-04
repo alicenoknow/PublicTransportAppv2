@@ -47,9 +47,8 @@ class Home extends Component {
 		} = this.props;
 		const result = await fetchAreas();
 		if (result) {
-			// setAreasState(result?.features); TODO
+			// setAreasState(result); TODO
 			setAreasState(areas);
-			console.warn(areas)
 			if (busStopsData) {
 				setLoadingState(false);
 			}

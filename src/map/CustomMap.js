@@ -122,7 +122,6 @@ class CustomMap extends Component {
 
 	renderBusStopsLayer = () => {
 		const { busStopsData: data, showBusStops } = this.props.app;
-		console.warn(data)
 		if (data && showBusStops) {
 			const parsedData = parsePointsToScatterPlotData(data);
 			return PointLayer(parsedData, "bus-stops", this.handleBusStopClick);
