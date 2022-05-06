@@ -25,6 +25,7 @@ import {
 	SET_SERVER_QUERY_DATA,
 	SET_INFO,
 	SET_LOADING,
+	UPDATE_AREAS,
 	StopsType,
 	TicketsType,
 	AnalysisType,
@@ -203,6 +204,13 @@ function appReducer(state = initialState, action) {
 			return {
 				...state,
 				areasData: areasDict,
+			};
+		}
+		case UPDATE_AREAS: {
+			const { content } = action.payload;
+			return {
+				...state,
+				areasData: content,
 			};
 		}
 		case SET_SERVER_QUERY_DATA: {

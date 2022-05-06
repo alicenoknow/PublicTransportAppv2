@@ -22,7 +22,8 @@ import {
 	SET_AREAS_DATA,
 	SET_SERVER_QUERY_DATA,
 	SET_INFO,
-	SET_LOADING
+	SET_LOADING,
+	UPDATE_AREAS
 } from "./actionTypes";
 
 export const setStartDate = content => ({
@@ -171,6 +172,14 @@ export const setAreasData = content => ({
 		content,
 	},
 });
+
+export const updateAreasData = content => ({
+	type: UPDATE_AREAS,
+	payload: {
+		content,
+	},
+});
+
 
 export const setServerQueryData = content => ({
 	type: SET_SERVER_QUERY_DATA,

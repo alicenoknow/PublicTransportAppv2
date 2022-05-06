@@ -91,7 +91,7 @@ export default function Login() {
 							className="loginButton"
 							size="lg"
 							type="button"
-							disabled={!validateForm()}
+							// disabled={!validateForm()}
 							onClick={handleLogin}>
 							{reset ? "Resetuj hasło" : "Zaloguj"}
 						</Button>

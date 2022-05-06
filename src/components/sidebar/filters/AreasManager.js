@@ -4,10 +4,11 @@ import {
 	updateStartStopsType,
 	updateEndStopsType,
 	setDrawMode,
-	setAreasData,
+	updateAreasData,
 } from "../../../redux/actions";
 import { ScrollView } from "@cantonjs/react-scroll-view";
 import { Spinner, Container, Button } from "react-bootstrap";
+import { deleteArea } from "../../../services/areas.service";
 
 class AreasManager extends Component {
 	state = {
@@ -26,11 +27,15 @@ class AreasManager extends Component {
 	removeArea = id => {
 		const { areasData } = this.props.app;
 		delete areasData[id];
-		this.props.setAreasData(areasData);
+		this.props.updateAreasData(areasData);
+		deleteArea(id);
 	};
 
 	renderListElement = area => {
-		// TODO
+		if (!area){
+			return null;
+		}
+
 		return (
 			<div className="areaListElement" key={area.id}>
 				<div>{area.properties.NAZWA}</div>
@@ -87,7 +92,7 @@ const dispatchToProps = {
 	updateStartStopsType,
 	updateEndStopsType,
 	setDrawMode,
-	setAreasData,
+	updateAreasData,
 };
 
 export default connect(mapStateToProps, dispatchToProps)(AreasManager);

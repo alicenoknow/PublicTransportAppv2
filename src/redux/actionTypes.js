@@ -30,6 +30,7 @@ export const SET_INFO = "SET_INFO";
 export const SET_SERVER_QUERY_DATA = "SET_SERVER_QUERY_DATA";
 export const SET_BUS_STOPS_DATA = "SET_BUS_STOPS_DATA";
 export const SET_AREAS_DATA = "SET_AREAS_DATA";
+export const UPDATE_AREAS = "UPDATE_AREAS";
 
 export const SET_LOADING = "SET_LOADING";
 

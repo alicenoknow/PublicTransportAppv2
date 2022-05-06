@@ -27,11 +27,13 @@ import {
 	drawAreas,
 	HeatMapLayer,
 } from "./layers";
+import { addArea } from "../services/areas.service.js"
 
 /* eslint-disable import/no-webpack-loader-syntax */
-import mapboxgl from 'mapbox-gl';
+import mapboxgl from "mapbox-gl";
 // @ts-ignore
-mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+mapboxgl.workerClass =
+	require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 class CustomMap extends Component {
 	state = {
@@ -87,11 +89,9 @@ class CustomMap extends Component {
 		this.props.setInfo(["Wybrano obszar: " + info.object.properties.NAZWA]);
 		if (isStartPointActive) {
 			if (startStopsType === StopsType.area) {
-				console.warn(info.object)
+				console.warn(info.object);
 				if (startAreas.includes(info.object.id)) {
-					newAreas = startAreas.filter(
-						val => val !== info.object.id,
-					);
+					newAreas = startAreas.filter(val => val !== info.object.id);
 				} else {
 					newAreas = [...startAreas, info.object.id];
 				}
@@ -135,7 +135,7 @@ class CustomMap extends Component {
 	};
 
 	renderServerDrivenLayer = () => {
-		const { serverQueryData: data  } = this.props.app;
+		const { serverQueryData: data } = this.props.app;
 		return LineLayer(data, this.handleLineClick);
 	};
 
@@ -216,23 +216,22 @@ class CustomMap extends Component {
 		return layer;
 	};
 
-	onNewAreaSubmit = title => {
+	onNewAreaSubmit = async (title) => {
 		const { areaData } = this.state;
 		const {
 			app: { areasData },
 		} = this.props;
 		if (title && areaData) {
-			const newArea = areaData.map(item => {
-				return {
-					...item,
-					properties: {
-						id: this.getRandomInt(1, 1000),
-						name: title,
-					},
-				};
-			});
+			const newID = await addArea(title, areaData[0].geometry.coordinates);
+			const newArea = {
+				...areaData[0],
+				id: newID ?? this.getRandomInt(1000, 10000),
+				properties: {
+					NAZWA: title,
+				},
+			};
 			this.props.setDrawMode(false);
-			this.props.setAreasData([...Object.values(areasData), ...newArea]);
+			this.props.setAreasData([...Object.values(areasData), newArea]);
 			this.setState({ areaData: [] });
 			return null;
 		}
