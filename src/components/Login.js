@@ -12,20 +12,20 @@ import {
 export default function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [result, setResult] = useState();
+	const [loginStatus, setLoginStatus] = useState(1);
 	const [alert, setAlert] = useState("");
 	const [reset, setReset] = useState(false);
+	const [magic, setMagic] = useState("");
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		const status = result ? parseInt(result) : -1;
-		if (status === 200) {
+		if (loginStatus === 200) {
 			setAlert("");
 			setTimeout(() => navigate("/home"), 1000);
-		} else if (result) {
+		} else if (!loginStatus) {
 			setAlert("Logowanie nie powiodło się.");
 		}
-	}, [result, navigate]);
+	}, [loginStatus, navigate]);
 
 	const validateEmail = () => {
 		return email.length > 0 && email.includes("@");
@@ -41,24 +41,28 @@ export default function Login() {
 
 	const handleLogin = async () => {
 		if (reset) {
-			const result = await resetPassword(email, password);
+			setAlert("Resetowanie hasła...");
+			const result = await resetPassword(email, password, magic);
 			setReset(false);
-			setAlert("");
 
 			if (result !== 200) {
 				setAlert("Nie udało się zresetować hasła.");
+			} else {
+				setAlert("Hasło zostało zresetowane.");
 			}
+		} else {
+			const result = await login(email, password);
+			setLoginStatus(result);
 		}
-		const result = await login(email, password);
-		setResult(result);
 	};
 
 	const handlePasswordReset = async () => {
+		setAlert("Sprawdzanie danych...");
 		const result = await requestPasswordReset(email);
 
 		if (result === 200) {
 			setReset(true);
-			setAlert("");
+			setAlert("Zresetuj hasło z użyciem kodu wysłanego na podany adres e-mail.");
 		} else {
 			setAlert("Nie udało się znaleźć konta z podanym adresem e-mail.");
 		}
@@ -77,6 +81,14 @@ export default function Login() {
 							onChange={e => setEmail(e.target.value ?? "")}
 						/>
 					</Form.Group>
+					{reset && <Form.Group size="lg" controlId="text">
+						<Form.Label>{"Kod"}</Form.Label>
+						<Form.Control
+							type="text"
+							value={magic}
+							onChange={e => setMagic(e.target.value ?? "")}
+						/>
+					</Form.Group>}
 					<Form.Group size="lg" controlId="password">
 						<Form.Label>{reset ? "Nowe hasło" : "Hasło"}</Form.Label>
 						<Form.Control
@@ -91,7 +103,7 @@ export default function Login() {
 							className="loginButton"
 							size="lg"
 							type="button"
-							// disabled={!validateForm()}
+							disabled={!validateForm()}
 							onClick={handleLogin}>
 							{reset ? "Resetuj hasło" : "Zaloguj"}
 						</Button>

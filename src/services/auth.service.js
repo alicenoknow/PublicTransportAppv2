@@ -22,8 +22,7 @@ export const login = (email, password) => {
 
 	return axios(config)
 		.then(function (response) {
-			const status =  JSON.stringify(response.status);
-			return status;
+			return response?.status;
 		})
 		.catch(function (error) {
 			console.log(error);
@@ -34,7 +33,7 @@ export const login = (email, password) => {
 	export const requestPasswordReset = (email) => {
 		const config = {
 			method: "get",
-			url: API + `/token/reset?email=${email}`,
+			url: API + `/token/reset/${email}`,
 			headers: {
 				"Content-Type": "application/json",
 			},
@@ -43,8 +42,7 @@ export const login = (email, password) => {
 	
 		return axios(config)
 			.then(function (response) {
-				const data =  JSON.stringify(response?.data);
-				return data;
+				return response?.status;
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -52,10 +50,11 @@ export const login = (email, password) => {
 			});
 		};
 
-	export const resetPassword = (email, password) => {
+	export const resetPassword = (email, password, magic) => {
 		const data = JSON.stringify({
 			username: email,
 			password: password,
+			magic: magic
 		});
 
 		const config = {
@@ -70,8 +69,7 @@ export const login = (email, password) => {
 	
 		return axios(config)
 			.then(function (response) {
-				const data =  JSON.stringify(response?.data);
-				return data;
+				return response?.status;
 			})
 			.catch(function (error) {
 				console.log(error);
