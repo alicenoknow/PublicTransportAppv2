@@ -2,6 +2,7 @@ import React from "react";
 import { Component } from "react";
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import { uploadFile } from "../services/upload.service";
 
 class Upload extends Component {
 	constructor(props) {
@@ -13,23 +14,11 @@ class Upload extends Component {
 	}
 
 	onFileChange = event => {
-		// Update the state
 		this.setState({ selectedFile: event.target.files[0] });
 	};
 
 	onFileUpload = () => {
-		// Create an object of formData
-		const formData = new FormData();
-
-		// Update the formData object
-		formData.append(
-			"myFile",
-			this.state.selectedFile,
-			this.state.selectedFile.name,
-		);
-
-		// Details of the uploaded file
-		console.log(this.state.selectedFile);
+		uploadFile(this.state.selectedFile);
 	};
 
 	fileData = () => {
