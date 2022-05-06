@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "@cantonjs/react-scroll-view": "^0.4.2",
+    "@deck.gl/aggregation-layers": "^8.7.8",
+    "@deck.gl/core": "^8.7.8",
+    "@deck.gl/layers": "^8.7.8",
     "axios": "^0.27.2",
     "bootstrap": "^5.1.3",
     "date-fns": "^2.27.0",

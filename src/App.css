@@ -328,7 +328,11 @@
 }
 
 .spinner {
-	margin-top: 50%;
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	left: 50%;
+	align-self: center;
 }
 
 .admin {
@@ -433,5 +437,33 @@
 	align-items: center;
 	justify-content: space-around;
 	justify-items: center;
+}
 
+.infoButton {
+	width: 100%;
+	display: flex;
+	padding: 10px;
+	background-color: rgb(42, 35, 146, 0.8);
+	color: rgba(237, 246, 252, 0.829);
+	cursor: pointer;
+	outline: none;
+}
+
+.infoButton {
+	width: 100%;
+	display: flex;
+	padding: 10px;
+	background-color: rgb(42, 35, 146, 0.8);
+	color: rgba(237, 246, 252, 0.829);
+	cursor: pointer;
+	outline: none;
+	opacity: 0.3;
+}
+
+.infoButton:hover {
+	opacity: 1;
+}
+
+.infoButton:active {
+	opacity: 1;
 }

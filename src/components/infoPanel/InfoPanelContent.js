@@ -3,6 +3,7 @@ import { ScrollView } from "@cantonjs/react-scroll-view";
 import { connect } from "react-redux";
 import Collapsible from "react-collapsible";
 import { StopsType, TicketsType } from "../../redux/actionTypes";
+import { setHighlight } from "../../redux/actions";
 
 const WEEKDAYS = {
 	0: "poniedziałek ",
@@ -91,13 +92,44 @@ class InfoPanelContent extends Component {
 		);
 	};
 
+	renderServerInfoList = busId => {
+		const { serverQueryData, busStopsData } = this.props.app;
+		const filteredData = serverQueryData?.stats.filter(
+			item => item.beginStop === busId,
+		);
+		const sortedData = filteredData.sort(
+			(first, second) => second.passengers - first.passengers,
+		);
+		return sortedData?.map(item => {
+			const start = busStopsData[item.beginStop];
+			const destination = busStopsData[item.endStop];
+			return (
+				<button
+					key={destination.name}
+					className="infoButton"
+					onClick={() =>
+						this.props.setHighlight([
+							start.coordinates,
+							destination.coordinates,
+						])
+					}>{`${destination.name}: ${item.passengers}`}</button>
+			);
+		});
+	};
+
 	renderCurrentInfo = currentInfo => {
 		return (
-			<div key="info">
-				{currentInfo.map((item, idx) => (
-					<p key={`${idx}`}>{item}</p>
-				))}
-			</div>
+			<>
+				{currentInfo?.messages && (
+					<div key="info">
+						{currentInfo.messages.map((item, idx) => (
+							<p key={`${idx}`}>{item}</p>
+						))}
+					</div>
+				)}
+				{currentInfo?.busId && this.renderServerInfoList(currentInfo.busId)}
+				{currentInfo?.areaId && <></>}
+			</>
 		);
 	};
 
@@ -136,6 +168,6 @@ class InfoPanelContent extends Component {
 }
 
 const mapStateToProps = state => state;
-const dispatchToProps = {};
+const dispatchToProps = { setHighlight };
 
 export default connect(mapStateToProps, dispatchToProps)(InfoPanelContent);

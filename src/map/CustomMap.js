@@ -16,8 +16,8 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import DeckGL from "@deck.gl/react";
 import {
 	parsePointsToScatterPlotData,
-	parseLinesToPoints,
 	getDataPointsFromIds,
+	parseArrayToHeatmap,
 } from "./utils/parseGeoJSON";
 import AreaTitleInput from "../components/AreaTitleInput";
 import {
@@ -26,8 +26,9 @@ import {
 	getDrawLayer,
 	drawAreas,
 	HeatMapLayer,
+	HighlightLayer,
 } from "./layers";
-import { addArea } from "../services/areas.service.js"
+import { addArea } from "../services/areas.service.js";
 
 /* eslint-disable import/no-webpack-loader-syntax */
 import mapboxgl from "mapbox-gl";
@@ -45,6 +46,20 @@ class CustomMap extends Component {
 		areaData: [],
 	};
 
+	componentDidUpdate(prevProps) {
+		const { highlightData: data } = this.props.app;
+		if (data !== prevProps.app.highlightData && data) {
+			this.setState({
+				viewport: {
+					...this.state.viewport,
+					zoom: 13,
+					latitude: (data[0][1] + data[1][1]) / 2,
+					longitude: (data[0][0] + data[1][0]) / 2,
+				},
+			});
+		}
+	}
+
 	handleBusStopClick = info => {
 		const {
 			isStartPointActive,
@@ -52,6 +67,8 @@ class CustomMap extends Component {
 			startBusStops,
 			endStopsType,
 			endBusStops,
+			serverQueryData,
+			busStopsData,
 		} = this.props.app;
 		let newBusStops = [];
 
@@ -74,7 +91,17 @@ class CustomMap extends Component {
 				this.props.updateEndBusStop(newBusStops);
 			}
 		}
-		this.props.setInfo([]);
+
+		if (serverQueryData) {
+			this.props.setInfo({
+				messages: [
+					`Pasażerowie na trasie z przystanku ${
+						busStopsData[info.object.id].name
+					} do:`,
+				],
+				busId: info.object.id,
+			});
+		}
 	};
 
 	handleAreaClick = info => {
@@ -86,10 +113,11 @@ class CustomMap extends Component {
 			endAreas,
 		} = this.props.app;
 		let newAreas = [];
-		this.props.setInfo(["Wybrano obszar: " + info.object.properties.NAZWA]);
+		this.props.setInfo({
+			messages: ["Wybrano obszar: " + info.object.properties.NAZWA],
+		});
 		if (isStartPointActive) {
 			if (startStopsType === StopsType.area) {
-				console.warn(info.object);
 				if (startAreas.includes(info.object.id)) {
 					newAreas = startAreas.filter(val => val !== info.object.id);
 				} else {
@@ -110,14 +138,16 @@ class CustomMap extends Component {
 	};
 
 	handleLineClick = info => {
-		this.props.setInfo([
-			"Trasa z przystanku " +
-				info.object.geometry.coordinates[0] +
-				" do przystanku " +
-				info.object.geometry.coordinates[1] +
-				".",
-			"Liczba pasażerów: " + info.object.properties.commuters,
-		]);
+		this.props.setInfo({
+			messages: [
+				"Trasa z przystanku " +
+					info.object.geometry.coordinates[0] +
+					" do przystanku " +
+					info.object.geometry.coordinates[1] +
+					".",
+				"Liczba pasażerów: " + info.object.properties.commuters,
+			],
+		});
 	};
 
 	renderBusStopsLayer = () => {
@@ -129,13 +159,15 @@ class CustomMap extends Component {
 		return null;
 	};
 
-	renderHeatMapLayer = () => {
-		const { serverQueryData: data } = this.props.app;
-		return HeatMapLayer(parseLinesToPoints(data?.features, 0));
-	};
-
 	renderServerDrivenLayer = () => {
-		const { serverQueryData: data } = this.props.app;
+		const { serverQueryData: data, busStopsData } = this.props.app;
+		if (!data?.type || !data?.stats) {
+			return null;
+		}
+		if (data.type === "SELECTED") {
+			const dataToDraw = parseArrayToHeatmap(data.stats, busStopsData);
+			return HeatMapLayer(dataToDraw);
+		}
 		return LineLayer(data, this.handleLineClick);
 	};
 
@@ -216,7 +248,7 @@ class CustomMap extends Component {
 		return layer;
 	};
 
-	onNewAreaSubmit = async (title) => {
+	onNewAreaSubmit = async title => {
 		const { areaData } = this.state;
 		const {
 			app: { areasData },
@@ -272,6 +304,14 @@ class CustomMap extends Component {
 		return drawAreas(areas, this.handleAreaClick, "start-end-areas");
 	};
 
+	renderHighlight = () => {
+		const data = this.props.app.highlightData;
+		if (data) {
+			return HighlightLayer(data);
+		}
+		return null;
+	};
+
 	getCustomTooltip = object => {
 		if (!object) {
 			return;
@@ -284,8 +324,8 @@ class CustomMap extends Component {
 	render() {
 		const { isDrawModeActive } = this.props.app;
 		const layers = [
-			this.renderHeatMapLayer(),
 			this.renderServerDrivenLayer(),
+			this.renderHighlight(),
 			this.renderDrawAreaLayer(),
 			this.renderAreas(),
 			this.renderBusStopsLayer(),

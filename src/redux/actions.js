@@ -23,7 +23,8 @@ import {
 	SET_SERVER_QUERY_DATA,
 	SET_INFO,
 	SET_LOADING,
-	UPDATE_AREAS
+	UPDATE_AREAS,
+	SET_HIGHLIGHT
 } from "./actionTypes";
 
 export const setStartDate = content => ({
@@ -197,6 +198,13 @@ export const setInfo = content => ({
 
 export const setLoading = content => ({
 	type: SET_LOADING,
+	payload: {
+		content,
+	},
+});
+
+export const setHighlight = content => ({
+	type: SET_HIGHLIGHT,
 	payload: {
 		content,
 	},

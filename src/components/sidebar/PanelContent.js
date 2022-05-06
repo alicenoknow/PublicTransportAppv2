@@ -11,6 +11,8 @@ import {
 	setIntervalEnd,
 	setIntervalStart,
 	setStartPoint,
+	setServerQueryData,
+	setLoading,
 } from "../../redux/actions";
 import {
 	DateRange,
@@ -22,13 +24,17 @@ import {
 	WeekDayPicker,
 	AnalysisPicker,
 } from "./filters";
+import { sendDataForAnalysis } from "../../services/analysis.service";
 
 class PanelContent extends Component {
 	state = {
 		isStartPointActive: true,
 	};
 
-	processData = () => {
+	processData = async () => {
+		this.props.setLoading(true);
+		const result = await sendDataForAnalysis(this.props.app);
+		this.props.setServerQueryData(result);
 	}
 
 	getFiltersSelection = () => {
@@ -147,6 +153,8 @@ const dispatchToProps = {
 	setWeekdays,
 	setStartPoint,
 	setTicketsType,
+	setServerQueryData,
+	setLoading
 };
 
 export default connect(mapStateToProps, dispatchToProps)(PanelContent);

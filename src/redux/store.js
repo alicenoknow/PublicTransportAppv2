@@ -26,6 +26,7 @@ import {
 	SET_INFO,
 	SET_LOADING,
 	UPDATE_AREAS,
+	SET_HIGHLIGHT,
 	StopsType,
 	TicketsType,
 	AnalysisType,
@@ -218,6 +219,7 @@ function appReducer(state = initialState, action) {
 			return {
 				...state,
 				serverQueryData: content,
+				isLoading: false,
 			};
 		}
 		case SET_INFO: {
@@ -232,6 +234,13 @@ function appReducer(state = initialState, action) {
 			return {
 				...state,
 				isLoading: content,
+			};
+		}
+		case SET_HIGHLIGHT: {
+			const { content } = action.payload;
+			return {
+				...state,
+				highlightData: content,
 			};
 		}
 		default:
@@ -265,8 +274,13 @@ const initialState = {
 		busStopsData: undefined,
 		areasData: [],
 		serverQueryData: undefined,
+		highlightData: undefined,
 
-		currentInfo: [],
+		currentInfo: {
+			busId: undefined,
+			areaId: undefined,
+			messages: [],
+		},
 		isLoading: false,
 	},
 };

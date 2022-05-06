@@ -2,6 +2,7 @@ import React from "react";
 import { Component } from "react";
 import { connect } from "react-redux";
 import { Container } from "react-bootstrap";
+import { Navigate } from "react-router-dom";
 import CustomMap from "../map/CustomMap";
 import Loading from "./Loading";
 import SidePanel from "./sidebar/SidePanel";
@@ -17,6 +18,10 @@ import {
 import InfoPanel from "./infoPanel/InfoPanel";
 
 class Home extends Component {
+	state = {
+		loginFailed: false
+	}
+
 	componentDidMount() {
 		const { setLoading: setLoadingState } = this.props;
 		setLoadingState(true);
@@ -36,6 +41,8 @@ class Home extends Component {
 			if (areasData) {
 				setLoadingState(false);
 			}
+		}  else {
+			this.setState({loginFailed: true})
 		}
 	}
 
@@ -51,15 +58,17 @@ class Home extends Component {
 			setAreasState(areas?.features);
 			if (busStopsData) {
 				setLoadingState(false);
-			}
+			} 
+		}  else {
+			this.setState({loginFailed: true})
 		}
 	}
 
 	render() {
 		const { isLoading } = this.props.app;
 
-		if (isLoading) {
-			return <Loading />;
+		if (this.state.loginFailed) {
+			return <Navigate to="/" replace={true} />
 		}
 		return (
 			<Container fluid className="p-0 bg-dark">
@@ -67,6 +76,7 @@ class Home extends Component {
 				<SidePanel />
 				<InfoPanel />
 				<CustomMap />
+				{isLoading && <Loading />}
 			</Container>
 		);
 	}
