@@ -18,6 +18,7 @@ const WEEKDAYS = {
 class InfoPanelContent extends Component {
 	renderPointInfo = (type, areas, stops) => {
 		const { busStopsData, areasData } = this.props.app;
+		console.warn(areas, areasData)
 		switch (type) {
 			case StopsType.all: {
 				return <p>Wybrano wszystkie przystanki</p>;
@@ -26,7 +27,7 @@ class InfoPanelContent extends Component {
 				return (
 					<div key="stops">
 						<p>Wybrane przystanki:</p>
-						{stops.map(item => (
+						{stops.length > 0 && stops.map(item => (
 							<p key={busStopsData[item].name}>{busStopsData[item].name}</p>
 						))}
 					</div>
@@ -36,8 +37,8 @@ class InfoPanelContent extends Component {
 				return (
 					<div key="areas">
 						<p>Wybrane obszary:</p>
-						{areas.map(item => (
-							<p key={areasData[item].properties.id}>{areasData[item].properties.name}</p>
+						{areas.length > 0 && areas.map(item => (
+							<p key={areasData[item]?.properties.id}>{areasData[item]?.properties.name}</p>
 						))}
 					</div>
 				);

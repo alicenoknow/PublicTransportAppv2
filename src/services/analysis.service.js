@@ -12,13 +12,12 @@ export async function sendDataForAnalysis(state) {
 	const data = {
 		startStopsType: state.startStopsType,
 		endStopsType: state.endStopsType,
-		startCoordinates: state.startAreaCoordinates,
-		endCoordinates: state.endAreaCoordinates,
-		startBusStop: state.startSingleBusStop,
-		endBusStop: state.endSingleBusStop,
+		startCoordinates: state.startAreas,
+		endCoordinates: state.endAreas,
+		startBusStop: state.startBusStops,
+		endBusStop: state.endBusStops,
 		analysisType: state.analysisType,
 	};
-
 	if (state.analysisType === AnalysisType.oneWay) {
 		const dataOneWay = getDataForOneWay(data, filters);
 		return await sendData(dataOneWay, ONE_WAY_API);
@@ -42,13 +41,13 @@ function getDataForOneWay(data, filters) {
 	return {
 		departureSelector: getStops(
 			data.startStopsType,
-			data.startBusStops,
-			data.startAreas,
+			data.startBusStop,
+			data.startCoordinates,
 		),
 		arrivalSelector: getStops(
 			data.endStopsType,
-			data.endBusStops,
-			data.endAreas,
+			data.endBusStop,
+			data.endCoordinates,
 		),
 		departureFilter: {
 			startTime: getFormattedTime(filters.startTime),
@@ -65,13 +64,13 @@ function getDataForTwoWay(data, filters) {
 	return {
 		departureSelector: getStops(
 			data.startStopsType,
-			data.startBusStops,
-			data.startAreas,
+			data.startBusStop,
+			data.startCoordinates,
 		),
 		arrivalSelector: getStops(
 			data.endStopsType,
-			data.endBusStops,
-			data.endAreas,
+			data.endBusStop,
+			data.endCoordinates,
 		),
 		departureFilter: {
 			startTime: getFormattedTime(filters.startTime),
@@ -80,7 +79,8 @@ function getDataForTwoWay(data, filters) {
 			endDate: filters.endDate?.toString() ?? undefined,
 			weekdays: filters.weekDays,
 			ticketType: filters.ticketType,
-			//TODO interval
+			returnDelayMin: filters.intervalStartTime,
+			returnDelayMax: filters.intervalEndTime,
 		},
 	};
 }

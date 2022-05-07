@@ -93,7 +93,6 @@ class CustomMap extends Component {
 			busStopsData,
 		} = this.props.app;
 		let newBusStops = [];
-
 		if (isStartPointActive) {
 			if (startStopsType === StopsType.one) {
 				if (startBusStops.includes(info.object.id)) {
@@ -136,23 +135,23 @@ class CustomMap extends Component {
 		} = this.props.app;
 		let newAreas = [];
 		this.props.setInfo({
-			messages: ["Wybrano obszar: " + info.object.properties.NAZWA],
+			messages: ["Wybrano obszar: " + info.object.properties.name],
 		});
 		if (isStartPointActive) {
 			if (startStopsType === StopsType.area) {
-				if (startAreas.includes(info.object.id)) {
-					newAreas = startAreas.filter(val => val !== info.object.id);
+				if (startAreas.includes(info.object.properties.id)) {
+					newAreas = startAreas.filter(val => val !== info.object.properties.id);
 				} else {
-					newAreas = [...startAreas, info.object.id];
+					newAreas = [...startAreas, info.object.properties.id];
 				}
 				this.props.updateStartAreas(newAreas);
 			}
 		} else {
 			if (endStopsType === StopsType.area) {
-				if (endAreas.includes(info.object.id)) {
-					newAreas = endAreas.filter(val => val !== info.object.id);
+				if (endAreas.includes(info.object.properties.id)) {
+					newAreas = endAreas.filter(val => val !== info.object.properties.id);
 				} else {
-					newAreas = [...endAreas, info.object.id];
+					newAreas = [...endAreas, info.object.properties.id];
 				}
 				this.props.updateEndAreas(newAreas);
 			}
