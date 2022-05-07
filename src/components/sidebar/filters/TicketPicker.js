@@ -19,61 +19,84 @@ const CheckBox = props => {
 
 export default class TicketPicker extends Component {
 	state = {
-		normal: { id: 0, value: "Bilety normalne", isChecked: true },
-		reduced: { id: 1, value: "Bilety ulgowe", isChecked: true },
+		oneWay: { id: 0, value: "Bilety punktowe", isChecked: true, type: TicketsType.oneWay },
+		paper: { id: 1, value: "Bilety papierowe", isChecked: true,  type: TicketsType.paper },
+		season: { id: 2, value: "Bilety terminowe", isChecked: true, type: TicketsType.season },
 	};
 
 	setTicketInfo() {
-		const { normal, reduced } = this.state;
-		const ticketType =
-			normal.isChecked && reduced.isChecked
-				? TicketsType.all
-				: normal.isChecked
-				? TicketsType.normal
-				: TicketsType.reduced;
-		this.props.onTicketTypeChange(ticketType);
+		const { oneWay, paper, season } = this.state;
+		const allTypes = [oneWay, paper, season];
+		const selectedItems = allTypes.filter(item => item.isChecked);
+		const selectedTypes = selectedItems.map(item => item.type);
+		const finalTypes = selectedTypes.length === 3 ? [] : selectedTypes;
+		this.props.onTicketTypeChange(finalTypes);
 	}
 
 	handleCheckNormalElement = event => {
-		const { normal, reduced } = this.state;
-		if (event.target.value === normal.value) {
-			this.setState(
-				{
-					normal: {
-						...normal,
-						isChecked: !normal.isChecked || !reduced.isChecked,
+		const { oneWay, paper, season } = this.state;
+		switch (event.target.value) {
+			case oneWay.value: {
+				this.setState(
+					{
+						oneWay: {
+							...oneWay,
+							isChecked: !oneWay.isChecked,
+						},
 					},
-				},
-				this.setTicketInfo,
-			);
-		} else {
-			this.setState(
-				{
-					reduced: {
-						...reduced,
-						isChecked: !reduced.isChecked || !normal.isChecked,
+					this.setTicketInfo,
+				);
+				break;
+			}
+			case paper.value: {
+				this.setState(
+					{
+						paper: {
+							...paper,
+							isChecked: !paper.isChecked,
+						},
 					},
-				},
-				this.setTicketInfo,
-			);
+					this.setTicketInfo,
+				);
+				break;
+			}
+			case season.value: {
+				this.setState(
+					{
+						season: {
+							...season,
+							isChecked: !season.isChecked,
+						},
+					},
+					this.setTicketInfo,
+				);
+				break;
+			}
+			default:
+				break;
 		}
 	};
 
 	render() {
-		const { normal, reduced } = this.state;
+		const { oneWay, paper, season } = this.state;
 		return (
 			<div className="pickerContainer">
 				<CheckBox
-					key={normal.id}
+					key={oneWay.id}
 					handleCheckElement={this.handleCheckNormalElement}
-					value={normal.value}
-					isChecked={normal.isChecked}
+					value={oneWay.value}
+					isChecked={oneWay.isChecked}
 				/>
 				<CheckBox
-					key={reduced.id}
+					key={paper.id}
 					handleCheckElement={this.handleCheckNormalElement}
-					value={reduced.value}
-					isChecked={reduced.isChecked}
+					value={paper.value}
+					isChecked={paper.isChecked}
+				/><CheckBox
+					key={season.id}
+					handleCheckElement={this.handleCheckNormalElement}
+					value={season.value}
+					isChecked={season.isChecked}
 				/>
 			</div>
 		);

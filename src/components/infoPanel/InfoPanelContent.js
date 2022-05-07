@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { ScrollView } from "@cantonjs/react-scroll-view";
 import { connect } from "react-redux";
 import Collapsible from "react-collapsible";
-import { StopsType, TicketsType } from "../../redux/actionTypes";
+import { StopsType } from "../../redux/actionTypes";
 import { setHighlight } from "../../redux/actions";
 
 const WEEKDAYS = {
@@ -66,7 +66,7 @@ class InfoPanelContent extends Component {
 			!intervalStartTime &&
 			!intervalEndTime &&
 			weekDays.length === 7 &&
-			ticketType === TicketsType.all
+			ticketType === []
 		) {
 			return <div key="filter">Brak filtrów</div>;
 		}
@@ -85,7 +85,7 @@ class InfoPanelContent extends Component {
 				{weekDays.length !== 7 && (
 					<div>Dni tygodnia: {weekDays.map(day => WEEKDAYS[day])}</div>
 				)}
-				{ticketType !== TicketsType.all && (
+				{ticketType !== [] && (
 					<div>Rodzaj biletów: {ticketType}</div>
 				)}
 			</div>

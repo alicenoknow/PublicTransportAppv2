@@ -17,7 +17,7 @@ export default function getLineLayer(data) {
 					},
 				],
 			},
-			opacity: 0.5,
+			opacity: 0.4,
 			lineWidthMinPixels: 0.5,
 			lineWidthMaxPixels: 30,
 			getLineColor: [50, 10, 255],

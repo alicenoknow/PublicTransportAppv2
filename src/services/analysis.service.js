@@ -33,12 +33,7 @@ function getFormattedTime(time) {
 	const minutes = time?.getMinutes();
 
 	if (hours !== undefined && minutes !== undefined) {
-		return {
-			hour: time.getHours(),
-			minute: time.getMinutes(),
-			second: 0,
-			nano: 0,
-		};
+		return `${('00'+ hours).slice(-2)}:${('00'+ minutes).slice(-2)}`
 	}
 	return undefined;
 }
@@ -60,7 +55,8 @@ function getDataForOneWay(data, filters) {
 			endTime: getFormattedTime(filters.endTime),
 			startDate: filters.startDate?.toString() ?? undefined,
 			endDate: filters.endDate?.toString() ?? undefined,
-			weekdays: filters.weekdays,
+			weekdays: filters.weekDays,
+			ticketType: filters.ticketType,
 		},
 	};
 }
@@ -82,7 +78,8 @@ function getDataForTwoWay(data, filters) {
 			endTime: getFormattedTime(filters.endTime),
 			startDate: filters.startDate?.toString() ?? undefined,
 			endDate: filters.endDate?.toString() ?? undefined,
-			weekdays: filters.weekdays,
+			weekdays: filters.weekDays,
+			ticketType: filters.ticketType,
 			//TODO interval
 		},
 	};

@@ -42,9 +42,9 @@ export const StopsType = {
 };
 
 export const TicketsType = {
-	all: "Wszystkie",
-	normal: "Normalne",
-	reduced: "Ulgowe",
+	paper: "paper",
+	oneWay: "oneWay",
+	season: "seasonTicket",
 };
 
 export const AnalysisType = {

@@ -19,7 +19,7 @@ import InfoPanel from "./infoPanel/InfoPanel";
 
 class Home extends Component {
 	state = {
-		loginFailed: false
+		unauthorized: false
 	}
 
 	componentDidMount() {
@@ -42,7 +42,7 @@ class Home extends Component {
 				setLoadingState(false);
 			}
 		}  else {
-			this.setState({loginFailed: true})
+			this.setState({unauthorized: true})
 		}
 	}
 
@@ -60,14 +60,20 @@ class Home extends Component {
 				setLoadingState(false);
 			} 
 		}  else {
-			this.setState({loginFailed: true})
+			this.setState({ unauthorized: true })
 		}
+	}
+
+	componentWillUnmount() {
+		this.setState = () => {
+			return;
+		};
 	}
 
 	render() {
 		const { isLoading } = this.props.app;
 
-		if (this.state.loginFailed) {
+		if (this.state.unauthorized) {
 			return <Navigate to="/" replace={true} />
 		}
 		return (

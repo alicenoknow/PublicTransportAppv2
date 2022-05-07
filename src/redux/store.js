@@ -28,7 +28,6 @@ import {
 	UPDATE_AREAS,
 	SET_HIGHLIGHT,
 	StopsType,
-	TicketsType,
 	AnalysisType,
 } from "./actionTypes";
 
@@ -257,7 +256,7 @@ const initialState = {
 			intervalStartTime: undefined,
 			intervalEndTime: undefined,
 			weekDays: [0, 1, 2, 3, 4, 5, 6],
-			ticketType: TicketsType.all,
+			ticketType: [],
 		},
 		startStopsType: StopsType.all,
 		endStopsType: StopsType.all,

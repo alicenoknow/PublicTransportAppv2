@@ -346,10 +346,10 @@ class CustomMap extends Component {
 	render() {
 		const { isDrawModeActive } = this.props.app;
 		const layers = [
-			this.renderServerDrivenLayer(),
-			this.renderDrawAreaLayer(),
 			this.renderAreas(),
+			this.renderServerDrivenLayer(),
 			this.renderHighlight(),
+			this.renderDrawAreaLayer(),
 			this.renderBusStopsLayer(),
 			...this.renderPickedStops(),
 			this.renderPickedAreas(),
