@@ -14,6 +14,7 @@ export default class AreaTitleInput extends Component {
 						<Form.Control
 							type="text"
 							className="inputPadding"
+							size="sm"
 							placeholder="Nazwa obszaru"
 							value={this.state.value}
 							onChange={e => this.setState({ value: e.target.value })}
@@ -22,8 +23,16 @@ export default class AreaTitleInput extends Component {
 					<Button
 						variant="info"
 						type="button"
+						size="sm"
 						onClick={() => this.props.setAreaTitle(this.state.value)}>
 						Utwórz
+					</Button>
+					<Button
+						variant="danger"
+						size="sm"
+						type="button"
+						onClick={() => this.props.setDrawMode(false)}>
+						Anuluj
 					</Button>
 				</Form>
 			</div>

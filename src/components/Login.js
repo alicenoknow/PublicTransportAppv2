@@ -20,8 +20,10 @@ export default function Login() {
 
 	useEffect(() => {
 		if (loginStatus === 200) {
-			setAlert("");
-			setTimeout(() => navigate("/home"), 3000);
+			setTimeout(() => {
+				setAlert("");
+				navigate("/home");
+			}, 2000);
 		} else if (!loginStatus) {
 			setAlert("Logowanie nie powiodło się.");
 		}
@@ -63,7 +65,9 @@ export default function Login() {
 
 		if (result === 200) {
 			setReset(true);
-			setAlert("Zresetuj hasło z użyciem kodu wysłanego na podany adres e-mail.");
+			setAlert(
+				"Zresetuj hasło z użyciem kodu wysłanego na podany adres e-mail.",
+			);
 		} else {
 			setAlert("Nie udało się znaleźć konta z podanym adresem e-mail.");
 		}
@@ -82,14 +86,16 @@ export default function Login() {
 							onChange={e => setEmail(e.target.value ?? "")}
 						/>
 					</Form.Group>
-					{reset && <Form.Group size="lg" controlId="text">
-						<Form.Label>{"Kod"}</Form.Label>
-						<Form.Control
-							type="text"
-							value={magic}
-							onChange={e => setMagic(e.target.value ?? "")}
-						/>
-					</Form.Group>}
+					{reset && (
+						<Form.Group size="lg" controlId="text">
+							<Form.Label>{"Kod"}</Form.Label>
+							<Form.Control
+								type="text"
+								value={magic}
+								onChange={e => setMagic(e.target.value ?? "")}
+							/>
+						</Form.Group>
+					)}
 					<Form.Group size="lg" controlId="password">
 						<Form.Label>{reset ? "Nowe hasło" : "Hasło"}</Form.Label>
 						<Form.Control

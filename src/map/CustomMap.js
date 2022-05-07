@@ -141,7 +141,9 @@ class CustomMap extends Component {
 		if (isStartPointActive) {
 			if (startStopsType === StopsType.area) {
 				if (startAreas.includes(info.object.properties.id)) {
-					newAreas = startAreas.filter(val => val !== info.object.properties.id);
+					newAreas = startAreas.filter(
+						val => val !== info.object.properties.id,
+					);
 				} else {
 					newAreas = [...startAreas, info.object.properties.id];
 				}
@@ -359,7 +361,13 @@ class CustomMap extends Component {
 		return (
 			<Container fluid className="p-0 bg-light">
 				{isDrawModeActive && (
-					<AreaTitleInput setAreaTitle={title => this.onNewAreaSubmit(title)} />
+					<AreaTitleInput
+						setAreaTitle={title => this.onNewAreaSubmit(title)}
+						setDrawMode={() => {
+							this.setState({ areaData: [] });
+							this.props.setDrawMode(false);
+						}}
+					/>
 				)}
 				<DeckGL
 					initialViewState={this.state.viewport}
