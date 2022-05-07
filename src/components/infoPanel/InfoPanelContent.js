@@ -66,7 +66,7 @@ class InfoPanelContent extends Component {
 			!intervalStartTime &&
 			!intervalEndTime &&
 			weekDays.length === 7 &&
-			ticketType === []
+			ticketType.length === 0
 		) {
 			return <div key="filter">Brak filtrów</div>;
 		}
@@ -94,7 +94,10 @@ class InfoPanelContent extends Component {
 
 	renderServerInfoList = busId => {
 		const { serverQueryData, busStopsData } = this.props.app;
-		const filteredData = serverQueryData?.stats.filter(
+		if (!serverQueryData?.stats) {
+			return null;
+		}
+		const filteredData = serverQueryData.stats.filter(
 			item => item.beginStop === busId,
 		);
 		const sortedData = filteredData.sort(

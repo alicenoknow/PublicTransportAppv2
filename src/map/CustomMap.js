@@ -113,6 +113,7 @@ class CustomMap extends Component {
 				this.props.updateEndBusStop(newBusStops);
 			}
 		}
+		console.warn(serverQueryData)
 		if (serverQueryData) {
 			this.props.setInfo({
 				messages: [
