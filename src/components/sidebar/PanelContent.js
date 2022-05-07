@@ -134,9 +134,6 @@ class PanelContent extends Component {
 				<button onClick={this.processData} className="confirmButton">
 					Przetwarzaj dane
 				</button>
-				<button onClick={this.processData} className="saveButton">
-					Zapisz dane
-				</button>
 			</React.Fragment>
 		);
 	}

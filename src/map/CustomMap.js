@@ -11,9 +11,10 @@ import {
 	updateEndAreas,
 	setInfo,
 } from "../redux/actions";
-import ReactMapGL from "react-map-gl";
+import ReactMapGL, { LinearInterpolator } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import DeckGL from "@deck.gl/react";
+import { WebMercatorViewport } from "@deck.gl/core";
 import {
 	parsePointsToScatterPlotData,
 	getDataPointsFromIds,
@@ -49,16 +50,36 @@ class CustomMap extends Component {
 	componentDidUpdate(prevProps) {
 		const { highlightData: data } = this.props.app;
 		if (data !== prevProps.app.highlightData && data) {
-			this.setState({
-				viewport: {
-					...this.state.viewport,
-					zoom: 13,
-					latitude: (data[0][1] + data[1][1]) / 2,
-					longitude: (data[0][0] + data[1][0]) / 2,
-				},
-			});
+			this.fitCoordinates(data);
 		}
 	}
+
+	fitCoordinates = data => {
+		const { viewport } = this.state;
+		const viewportWebMercator = new WebMercatorViewport(viewport);
+		const latitudes = data.map(item => item[0]);
+		const longitudes = data.map(item => item[1]);
+
+		const { longitude, latitude, zoom } = viewportWebMercator.fitBounds(
+			[
+				[Math.min(...latitudes), Math.min(...longitudes)],
+				[Math.max(...latitudes), Math.max(...longitudes)],
+			],
+			{
+				padding: 200,
+			},
+		);
+		this.setState({
+			viewport: {
+				...viewport,
+				longitude,
+				latitude,
+				zoom,
+				transitionInterpolator: new LinearInterpolator(),
+				transitionDuration: 1000,
+			},
+		});
+	};
 
 	handleBusStopClick = info => {
 		const {
@@ -164,11 +185,12 @@ class CustomMap extends Component {
 		if (!data?.type || !data?.stats) {
 			return null;
 		}
-		if (data.type === "SELECTED") {
+		if (data.type === "ALL") {
 			const dataToDraw = parseArrayToHeatmap(data.stats, busStopsData);
 			return HeatMapLayer(dataToDraw);
 		}
-		return LineLayer(data, this.handleLineClick);
+		// const linesData = parseArrayToLines()
+		return LineLayer(data.stats, this.handleLineClick);
 	};
 
 	renderAreas = () => {
@@ -325,9 +347,9 @@ class CustomMap extends Component {
 		const { isDrawModeActive } = this.props.app;
 		const layers = [
 			this.renderServerDrivenLayer(),
-			this.renderHighlight(),
 			this.renderDrawAreaLayer(),
 			this.renderAreas(),
+			this.renderHighlight(),
 			this.renderBusStopsLayer(),
 			...this.renderPickedStops(),
 			this.renderPickedAreas(),

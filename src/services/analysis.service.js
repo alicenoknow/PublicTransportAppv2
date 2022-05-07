@@ -4,6 +4,8 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 const API = process.env.REACT_APP_API;
+const ONE_WAY_API = "/api/one-way";
+const TWO_WAY_API = "/api/two-way";
 
 export async function sendDataForAnalysis(state) {
 	const filters = state.filters;
@@ -19,9 +21,10 @@ export async function sendDataForAnalysis(state) {
 
 	if (state.analysisType === AnalysisType.oneWay) {
 		const dataOneWay = getDataForOneWay(data, filters);
-		return await sendDataForOneWay(dataOneWay);
+		return await sendData(dataOneWay, ONE_WAY_API);
 	} else {
-		sendDataForTwoWay(data, filters);
+		const dataTwoWay = getDataForTwoWay(data, filters);
+		return await sendData(dataTwoWay, TWO_WAY_API);
 	}
 }
 
@@ -62,12 +65,35 @@ function getDataForOneWay(data, filters) {
 	};
 }
 
-export const sendDataForOneWay = rawData => {
+function getDataForTwoWay(data, filters) {
+	return {
+		departureSelector: getStops(
+			data.startStopsType,
+			data.startBusStops,
+			data.startAreas,
+		),
+		arrivalSelector: getStops(
+			data.endStopsType,
+			data.endBusStops,
+			data.endAreas,
+		),
+		departureFilter: {
+			startTime: getFormattedTime(filters.startTime),
+			endTime: getFormattedTime(filters.endTime),
+			startDate: filters.startDate?.toString() ?? undefined,
+			endDate: filters.endDate?.toString() ?? undefined,
+			weekdays: filters.weekdays,
+			//TODO interval
+		},
+	};
+}
+
+export const sendData = (rawData, url) => {
 	const data = JSON.stringify(rawData);
 
 	const config = {
 		method: "post",
-		url: API + "/api/one-way",
+		url: API + url,
 		headers: {
 			"Content-Type": "application/json",
 		},
@@ -85,14 +111,9 @@ export const sendDataForOneWay = rawData => {
 		});
 };
 
-function sendDataForTwoWay(data, filters) {}
-
 function getStops(stopsType, selectedStops, selectedAreas) {
 	if (stopsType === StopsType.all) {
-		return {
-			type: "busStation",
-			ids: [],
-		};
+		return undefined
 	} else if (stopsType === StopsType.area) {
 		return {
 			type: "area",

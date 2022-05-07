@@ -105,7 +105,7 @@ class InfoPanelContent extends Component {
 			const destination = busStopsData[item.endStop];
 			return (
 				<button
-					key={destination.name}
+					key={item.endStop}
 					className="infoButton"
 					onClick={() =>
 						this.props.setHighlight([

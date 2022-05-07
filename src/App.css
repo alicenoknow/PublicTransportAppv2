@@ -253,18 +253,6 @@
 	align-content: left;
 }
 
-.saveButton {
-	margin-top: 20px;
-	width: 100%;
-	display: flex;
-	padding: 10px;
-	border-radius: 10px;
-	background-color: rgb(42, 35, 146, 0.8);
-	color: rgba(237, 246, 252, 0.829);
-	font-size: 130%;
-	cursor: pointer;
-}
-
 .login {
 	padding: 100px;
 	height: 100vh;
