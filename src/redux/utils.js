@@ -19,7 +19,7 @@ export function parseBusStopsToDict(data) {
 export function parseAreasToDict(data) {
 	if (data && data[0]) {
 		return Object.fromEntries(
-			new Map(data.map(item => [item.id, item])),
+			new Map(data.map(item => [item.properties.id, item])),
 		);
 	}
 	return {};

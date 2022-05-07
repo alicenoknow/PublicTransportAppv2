@@ -33,7 +33,25 @@ export function getDataPointsFromIds(ids, busStopsDict) {
 	}
 }
 
-export function parseArrayToGeoJsonLines(data) {}
+export function parseArrayToLines(data, dataDict) {
+	return {
+		type: "FeatureCollection",
+		features: data.map(item => {
+			const startStop = dataDict[item.beginStop];
+			const endStop = dataDict[item.endStop];
+			return {
+				type: "Feature",
+				properties: {
+					commuters: item.passengers,
+				},
+				geometry: {
+					type: "LineString",
+					coordinates: [startStop.coordinates, endStop.coordinates],
+				},
+			};
+		}),
+	};
+}
 
 export function parseArrayToHeatmap(data, dataDict) {
 	return data.map(item => {

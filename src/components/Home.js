@@ -8,7 +8,6 @@ import Loading from "./Loading";
 import SidePanel from "./sidebar/SidePanel";
 import NavPadding from "../styled/NavPadding";
 import { fetchBusStops, fetchAreas } from "../services/api.service";
-import { data as areas } from "../dzielnice.json";
 import {
 	setAreasData,
 	setBusStopsData,
@@ -32,13 +31,13 @@ class Home extends Component {
 	async requestStops() {
 		const {
 			setBusStopsData: setBusStopsState,
-			app: areasData,
 			setLoading: setLoadingState,
 		} = this.props;
 		const result = await fetchBusStops();
 		if (result) {
+			const areasData = this.props.app.areasData;
 			setBusStopsState(result);
-			if (areasData) {
+			if (areasData && areasData.length > 0) {
 				setLoadingState(false);
 			}
 		}  else {
@@ -49,14 +48,12 @@ class Home extends Component {
 	async requestAreas() {
 		const {
 			setAreasData: setAreasState,
-			app: { busStopsData },
 			setLoading: setLoadingState,
 		} = this.props;
 		const result = await fetchAreas();
 		if (result) {
-			// setAreasState(result?.features); TODO
-			setAreasState(areas?.features);
-			if (busStopsData) {
+			setAreasState(result?.features);
+			if (this.props.app.busStopsData) {
 				setLoadingState(false);
 			} 
 		}  else {

@@ -37,7 +37,7 @@ class InfoPanelContent extends Component {
 					<div key="areas">
 						<p>Wybrane obszary:</p>
 						{areas.map(item => (
-							<p key={areasData[item].id}>{areasData[item].properties.NAZWA}</p>
+							<p key={areasData[item].properties.id}>{areasData[item].properties.name}</p>
 						))}
 					</div>
 				);

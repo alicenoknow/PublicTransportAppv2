@@ -19,6 +19,7 @@ import {
 	parsePointsToScatterPlotData,
 	getDataPointsFromIds,
 	parseArrayToHeatmap,
+	parseArrayToLines,
 } from "./utils/parseGeoJSON";
 import AreaTitleInput from "../components/AreaTitleInput";
 import {
@@ -189,8 +190,8 @@ class CustomMap extends Component {
 			const dataToDraw = parseArrayToHeatmap(data.stats, busStopsData);
 			return HeatMapLayer(dataToDraw);
 		}
-		// const linesData = parseArrayToLines()
-		return LineLayer(data.stats, this.handleLineClick);
+		const linesData = parseArrayToLines(data.stats, busStopsData);
+		return LineLayer(linesData, this.handleLineClick);
 	};
 
 	renderAreas = () => {
@@ -279,9 +280,9 @@ class CustomMap extends Component {
 			const newID = await addArea(title, areaData[0].geometry.coordinates);
 			const newArea = {
 				...areaData[0],
-				id: newID ?? this.getRandomInt(1000, 10000),
 				properties: {
-					NAZWA: title,
+					name: title,
+					id: newID ?? this.getRandomInt(1000, 10000),
 				},
 			};
 			this.props.setDrawMode(false);
