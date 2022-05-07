@@ -18,7 +18,6 @@ const WEEKDAYS = {
 class InfoPanelContent extends Component {
 	renderPointInfo = (type, areas, stops) => {
 		const { busStopsData, areasData } = this.props.app;
-		console.warn(areas, areasData)
 		switch (type) {
 			case StopsType.all: {
 				return <p>Wybrano wszystkie przystanki</p>;
