@@ -21,7 +21,7 @@ export default function Login() {
 	useEffect(() => {
 		if (loginStatus === 200) {
 			setAlert("");
-			setTimeout(() => navigate("/home"), 1000);
+			setTimeout(() => navigate("/home"), 3000);
 		} else if (!loginStatus) {
 			setAlert("Logowanie nie powiodło się.");
 		}

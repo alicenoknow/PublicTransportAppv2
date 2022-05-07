@@ -8,7 +8,7 @@ const API = process.env.REACT_APP_API;
 export const deleteArea = (id) => {
 	const config = {
 		method: "delete",
-		url: API + `/api/areas?id=${id}`,
+		url: API + `/api/areas/${id}`,
 		headers: {
 			"Content-Type": "application/json",
 		},

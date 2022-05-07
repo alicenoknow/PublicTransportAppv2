@@ -10,7 +10,7 @@ export default class AreaTitleInput extends Component {
 		return (
 			<div className="areaTitleInput">
 				<Form className="formInput">
-					<Form.Group className="mb-3" controlId="formBasicEmail">
+					<Form.Group controlId="formBasicEmail">
 						<Form.Control
 							type="text"
 							className="inputPadding"
