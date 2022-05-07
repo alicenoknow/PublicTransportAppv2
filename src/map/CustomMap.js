@@ -44,6 +44,7 @@ class CustomMap extends Component {
 			latitude: 50.1021742,
 			longitude: 18.5462847,
 			zoom: 13,
+			transitionInterruption: () => {},
 		},
 		areaData: [],
 	};

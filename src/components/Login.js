@@ -51,6 +51,7 @@ export default function Login() {
 				setAlert("Hasło zostało zresetowane.");
 			}
 		} else {
+			setAlert("Logowanie...");
 			const result = await login(email, password);
 			setLoginStatus(result);
 		}

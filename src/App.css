@@ -343,10 +343,12 @@
 	padding-right: 25%;
 }
 
-
-
 .help a {
 	color: rgb(255, 95, 130);
+}
+
+.help .color {
+	color: rgb(122, 164, 255);
 }
 
 .loadingContainer {
