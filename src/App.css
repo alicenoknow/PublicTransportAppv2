@@ -414,6 +414,7 @@
 	background-color: rgb(157, 156, 218);
 	z-index: 1;
 }
+
 .loadingAlert {
 	position: absolute;
 	margin: 10px;
@@ -434,31 +435,25 @@
 	padding: 10px;
 }
 
-.infoButton {
-	width: 100%;
-	display: flex;
-	padding: 10px;
-	background-color: rgb(42, 35, 146, 0.8);
-	color: rgba(237, 246, 252, 0.829);
-	cursor: pointer;
-	outline: none;
-}
 
 .infoButton {
+	margin-bottom: 5px;
 	width: 100%;
 	display: flex;
 	padding: 10px;
 	background-color: rgb(42, 35, 146, 0.8);
-	color: rgba(237, 246, 252, 0.829);
+	color: rgba(247, 246, 252, 0.929);
 	cursor: pointer;
 	outline: none;
-	opacity: 0.3;
+	border: 0px;
+	opacity: 0.5;
 }
 
 .infoButton:hover {
 	opacity: 1;
 }
 
-.infoButton:active {
+.infoButton:focus {
 	opacity: 1;
+	background-color: rgb(187, 36, 68);
 }
