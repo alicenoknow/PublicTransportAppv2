@@ -18,7 +18,11 @@ class Upload extends Component {
 	};
 
 	onFileUpload = () => {
-		uploadFile(this.state.selectedFile);
+		const reader = new FileReader();
+		reader.onload = function (e) {
+			uploadFile(e.target.result);
+		};
+		reader.readAsText(this.state.selectedFile);
 	};
 
 	fileData = () => {
