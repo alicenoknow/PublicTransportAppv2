@@ -48,6 +48,7 @@ class Upload extends Component {
 								ref={this.myRef}
 								type="file"
 								className="d-none"
+								accept=".csv"
 								onChange={this.onFileChange}
 							/>
 							<Button

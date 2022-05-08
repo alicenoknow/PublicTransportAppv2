@@ -153,7 +153,9 @@ class Help extends Component {
 							tylko z jednego wielokąta. Po zakończeniu rysowania, należy wpisać
 							nazwę nowego obszaru w polu tekstowym na górze mapy oraz
 							zatwierdzić przyciskiem <em className="color">Utwórz</em>. Nowy
-							obszar zostanie dodany do listy w lewym panelu.
+							obszar zostanie dodany do listy w lewym panelu. Przycisk{" "}
+							<em className="color">Anuluj</em> służy do opuszczenia trybu
+							rysowania.
 						</p>
 						<h2 id="filtry">Filtry</h2>
 						<ul>
