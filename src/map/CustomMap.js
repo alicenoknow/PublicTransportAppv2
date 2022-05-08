@@ -114,7 +114,6 @@ class CustomMap extends Component {
 				this.props.updateEndBusStop(newBusStops);
 			}
 		}
-		console.warn(serverQueryData)
 		if (serverQueryData) {
 			this.props.setInfo({
 				messages: [
@@ -283,15 +282,18 @@ class CustomMap extends Component {
 			this.props.setLoading(true);
 			const newID = await addArea(title, areaData[0].geometry.coordinates);
 			this.props.setLoading(false);
-			const newArea = {
-				...areaData[0],
-				properties: {
-					name: title,
-					id: newID ?? this.getRandomInt(1000, 10000),
-				},
-			};
+
+			if (newID) {
+				const newArea = {
+					...areaData[0],
+					properties: {
+						name: title,
+						id: newID,
+					},
+				};
+				this.props.setAreasData([...Object.values(areasData), newArea]);
+			}
 			this.props.setDrawMode(false);
-			this.props.setAreasData([...Object.values(areasData), newArea]);
 			this.setState({ areaData: [] });
 			return null;
 		}
@@ -350,7 +352,7 @@ class CustomMap extends Component {
 	};
 
 	render() {
-		const { isDrawModeActive, isLoading } = this.props.app;
+		const { isDrawModeActive } = this.props.app;
 		const layers = [
 			this.renderAreas(),
 			this.renderServerDrivenLayer(),

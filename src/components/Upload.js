@@ -18,18 +18,8 @@ class Upload extends Component {
 	};
 
 	onFileUpload = () => {
-		// const reader = new FileReader();
-		// reader.onload = function (e) {
-		// 	
-		// };
-		console.warn(this.state.selectedFile)
-		// reader.readAsText(this.state.selectedFile);
 		const formData = new FormData();
 		formData.append("file", this.state.selectedFile);
-		for (const key of formData.entries()) {
-			console.log(key[0] + ', ' + key[1]);
-		}
-
 		uploadFile(formData);
 	};
 
