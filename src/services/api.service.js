@@ -20,9 +20,9 @@ export const fetchBusStops = () => {
 		})
 		.catch(function (error) {
 			console.log(error);
-			return;
+			return error?.response?.status;
 		});
-	};
+};
 
 export const fetchAreas = () => {
 	const config = {
@@ -40,6 +40,6 @@ export const fetchAreas = () => {
 		})
 		.catch(function (error) {
 			console.log(error);
-			return;
+			return error?.response?.status;
 		});
-	};
+};

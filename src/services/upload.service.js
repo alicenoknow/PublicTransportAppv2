@@ -18,6 +18,6 @@ export const uploadFile = data => {
 		})
 		.catch(function (error) {
 			console.log(error);
-			return;
+			return error?.response?.status;
 		});
 };

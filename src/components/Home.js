@@ -34,14 +34,16 @@ class Home extends Component {
 			setLoading: setLoadingState,
 		} = this.props;
 		const result = await fetchBusStops();
+
 		if (result?.data) {
-			const areasData = this.props.app.areasData;
 			setBusStopsState(result.data);
-			if (areasData && areasData.length > 0) {
-				setLoadingState(false);
-			}
-		}  else  {
+		}  else if (result === 401) {
 			this.setState({unauthorized: true})
+		}
+
+		const areasData = this.props.app.areasData;
+		if (areasData && areasData.length > 0) {
+			setLoadingState(false);
 		}
 	}
 
@@ -53,12 +55,13 @@ class Home extends Component {
 		const result = await fetchAreas();
 		if (result?.data) {
 			setAreasState(result.data?.features);
-			if (this.props.app.busStopsData) {
-				setLoadingState(false);
-			} 
-		}  else  {
+		}  else if (result === 401) {
 			this.setState({ unauthorized: true })
 		}
+
+		if (this.props.app.busStopsData) {
+			setLoadingState(false);
+		} 
 	}
 
 	componentWillUnmount() {
