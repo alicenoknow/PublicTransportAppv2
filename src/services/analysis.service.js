@@ -104,7 +104,7 @@ export const sendData = (rawData, url) => {
 		})
 		.catch(function (error) {
 			console.log(error);
-			return;
+			return error?.response?.status;
 		});
 };
 

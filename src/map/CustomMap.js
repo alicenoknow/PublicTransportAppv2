@@ -23,6 +23,7 @@ import {
 	parseArrayToLines,
 } from "./utils/parseGeoJSON";
 import AreaTitleInput from "../components/AreaTitleInput";
+import NoDataAlert from "../components/NoDataAlert";
 import {
 	LineLayer,
 	PointLayer,
@@ -362,7 +363,6 @@ class CustomMap extends Component {
 			...this.renderPickedStops(),
 			this.renderPickedAreas(),
 		];
-
 		return (
 			<Container fluid className="p-0 bg-light">
 				{isDrawModeActive && (
@@ -387,6 +387,7 @@ class CustomMap extends Component {
 						onViewportChange={viewport => this.setState({ viewport })}
 					/>
 				</DeckGL>
+				{this.props.app.dataNotFound && <NoDataAlert />}
 			</Container>
 		);
 	}

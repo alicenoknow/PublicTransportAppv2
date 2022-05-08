@@ -15,6 +15,9 @@ const WEEKDAYS = {
 	6: "niedziela ",
 };
 
+const triggerStyle = {width: "100%", flex: 1, display: "flex"};
+
+
 class InfoPanelContent extends Component {
 	renderPointInfo = (type, areas, stops) => {
 		const { busStopsData, areasData } = this.props.app;
@@ -152,16 +155,16 @@ class InfoPanelContent extends Component {
 		return (
 			<>
 				<ScrollView style={{ height: "100%" }}>
-					<Collapsible trigger="Informacje" open>
+					<Collapsible trigger="Informacje" open triggerStyle={triggerStyle}>
 						{this.renderCurrentInfo(currentInfo)}
 					</Collapsible>
-					<Collapsible trigger="Wybrany początek trasy" open>
+					<Collapsible trigger="Wybrany początek trasy" open triggerStyle={triggerStyle}>
 						{this.renderPointInfo(startStopsType, startAreas, startBusStops)}
 					</Collapsible>
-					<Collapsible trigger="Wybrany koniec trasy" open>
+					<Collapsible trigger="Wybrany koniec trasy" open triggerStyle={triggerStyle}>
 						{this.renderPointInfo(endStopsType, endAreas, endBusStops)}
 					</Collapsible>
-					<Collapsible trigger="Wybrane filtry" open>
+					<Collapsible trigger="Wybrane filtry" open triggerStyle={triggerStyle}>
 						{this.renderFiltersInfo(filters)}
 					</Collapsible>
 				</ScrollView>

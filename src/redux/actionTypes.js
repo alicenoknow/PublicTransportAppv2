@@ -34,6 +34,7 @@ export const UPDATE_AREAS = "UPDATE_AREAS";
 export const SET_HIGHLIGHT = "SET_HIGHLIGHT";
 
 export const SET_LOADING = "SET_LOADING";
+export const SET_DATA_NOT_FOUND = "SET_DATA_NOT_FOUND";
 
 export const StopsType = {
 	all: 0,

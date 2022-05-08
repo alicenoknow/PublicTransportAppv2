@@ -13,6 +13,7 @@ import {
 	setStartPoint,
 	setServerQueryData,
 	setLoading,
+	setDataNotFound,
 } from "../../redux/actions";
 import {
 	DateRange,
@@ -26,6 +27,8 @@ import {
 } from "./filters";
 import { sendDataForAnalysis } from "../../services/analysis.service";
 
+const triggerStyle = {width: "100%", flex: 1, display: "flex"};
+
 class PanelContent extends Component {
 	state = {
 		isStartPointActive: true,
@@ -35,12 +38,18 @@ class PanelContent extends Component {
 		this.props.setLoading(true);
 		const result = await sendDataForAnalysis(this.props.app);
 		this.props.setServerQueryData(result);
+		if (result?.stats.length === 0) {
+			this.props.setDataNotFound(true);
+		}
+		if (result === 401) {
+			this.props.setAuth(false);
+		}
 	}
 
 	getFiltersSelection = () => {
 		return (
-			<Collapsible trigger="Filtry">
-				<Collapsible className={"NestedCollapsible"} trigger="Wybierz godziny">
+			<Collapsible trigger="Filtry" triggerStyle={triggerStyle}>
+				<Collapsible className={"NestedCollapsible"} trigger="Wybierz godziny" triggerStyle={triggerStyle} >
 					<TimeRange
 						onStartTimeChange={this.props.setStartTime}
 						onEndTimeChange={this.props.setEndTime}
@@ -50,7 +59,7 @@ class PanelContent extends Component {
 				</Collapsible>
 				<Collapsible
 					className={"NestedCollapsible"}
-					trigger="Wybierz zakres dat">
+					trigger="Wybierz zakres dat" triggerStyle={triggerStyle}>
 					<DateRange
 						onStartDateChange={this.props.setStartDate}
 						onEndDateChange={this.props.setEndDate}
@@ -58,12 +67,12 @@ class PanelContent extends Component {
 				</Collapsible>
 				<Collapsible
 					className={"NestedCollapsible"}
-					trigger="Wybierz dzień tygodnia">
+					trigger="Wybierz dzień tygodnia" triggerStyle={triggerStyle}>
 					<WeekDayPicker onWeekDaysChange={this.props.setWeekdays} />
 				</Collapsible>
 				<Collapsible
 					className={"NestedCollapsible"}
-					trigger="Wybierz rodzaj biletów">
+					trigger="Wybierz rodzaj biletów" triggerStyle={triggerStyle}>
 					<TicketPicker onTicketTypeChange={this.props.setTicketsType} />
 				</Collapsible>
 			</Collapsible>
@@ -82,14 +91,14 @@ class PanelContent extends Component {
 	getVisualizationSelection = () => {
 		const { isStartPointActive } = this.state;
 		return (
-			<Collapsible trigger="Rodzaje wizualizacji">
+			<Collapsible trigger="Rodzaje wizualizacji" triggerStyle={triggerStyle}>
 				<Collapsible
 					className={"NestedCollapsibleStart"}
 					openedClassName={"OpenedStart"}
 					trigger="Wybierz początek trasy"
 					open={isStartPointActive}
 					onOpening={() => this.changeStartPointActive(true)}
-					onClosing={() => this.changeStartPointActive(false)}>
+					onClosing={() => this.changeStartPointActive(false)} triggerStyle={triggerStyle}>
 					<BusStopsPicker isStart={true} />
 				</Collapsible>
 				<Collapsible
@@ -98,12 +107,12 @@ class PanelContent extends Component {
 					trigger="Wybierz koniec trasy"
 					open={!isStartPointActive}
 					onOpening={() => this.changeStartPointActive(false)}
-					onClosing={() => this.changeStartPointActive(true)}>
+					onClosing={() => this.changeStartPointActive(true)} triggerStyle={triggerStyle}>
 					<BusStopsPicker />
 				</Collapsible>
 				<Collapsible
 					className={"NestedCollapsible"}
-					trigger="Wybierz rodzaj analizy">
+					trigger="Wybierz rodzaj analizy" triggerStyle={triggerStyle}>
 					<AnalysisPicker />
 				</Collapsible>
 			</Collapsible>
@@ -112,13 +121,13 @@ class PanelContent extends Component {
 
 	getAreasSelection = () => {
 		return (
-			<Collapsible trigger="Obszary i przystanki">
-				<Collapsible className={"NestedCollapsible"} trigger="Widok">
+			<Collapsible trigger="Obszary i przystanki" triggerStyle={triggerStyle}>
+				<Collapsible className={"NestedCollapsible"} trigger="Widok" triggerStyle={triggerStyle}>
 					<ViewPicker />
 				</Collapsible>
 				<Collapsible
 					className={"NestedCollapsible"}
-					trigger="Zarządzaj obszarami">
+					trigger="Zarządzaj obszarami" triggerStyle={triggerStyle}>
 					<AreasManager />
 				</Collapsible>
 			</Collapsible>
@@ -151,7 +160,8 @@ const dispatchToProps = {
 	setStartPoint,
 	setTicketsType,
 	setServerQueryData,
-	setLoading
+	setLoading,
+	setDataNotFound,
 };
 
 export default connect(mapStateToProps, dispatchToProps)(PanelContent);

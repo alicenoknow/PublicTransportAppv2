@@ -11,6 +11,7 @@ class SidePanel extends Component {
 
 	render() {
 		const { isOpen } = this.state;
+		const { setAuth } = this.props; 
 		const styleStatus = isOpen ? "-open" : "-closed";
 		return (
 			<div className={"sidePanel" + styleStatus}>
@@ -19,7 +20,7 @@ class SidePanel extends Component {
 				</button>
 				<ScrollView style={{ height: "100vh" }}>
 					<div className={"panelContent" + styleStatus}>
-						<PanelContent />
+						<PanelContent setAuth={setAuth} />
 					</div>
 				</ScrollView>
 			</div>

@@ -1,133 +1,152 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { Navigate } from "react-router-dom";
 import {
 	login,
 	requestPasswordReset,
 	resetPassword,
 } from "../services/auth.service";
 
-export default function Login() {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [loginStatus, setLoginStatus] = useState(1);
-	const [alert, setAlert] = useState("");
-	const [reset, setReset] = useState(false);
-	const [magic, setMagic] = useState("");
-	const navigate = useNavigate();
+export default class Login extends Component {
+	state = {
+		email: "",
+		password: "",
+		loginStatus: 1,
+		alert: "",
+		reset: false,
+		magic: "",
+	};
 
-	useEffect(() => {
-		if (loginStatus === 200) {
-			setTimeout(() => {
-				setAlert("");
-				navigate("/home");
-			}, 2000);
-		} else if (!loginStatus) {
-			setAlert("Logowanie nie powiodło się.");
-		}
-	}, [loginStatus, navigate]);
-
-	const validateEmail = () => {
+	validateEmail = () => {
+		const { email } = this.state;
 		return email.length > 0 && email.includes("@");
 	};
 
-	const validateForm = () => {
-		return validateEmail() && password.length > 0;
+	validateForm = () => {
+		const { password } = this.state;
+		return this.validateEmail() && password.length > 0;
 	};
 
-	const handleSubmit = event => {
+	handleSubmit = event => {
 		event.preventDefault();
-		handleLogin();
+		this.handleLogin();
 	};
 
-	const handleLogin = async () => {
+	handleLogin = async () => {
+		const { reset, email, password, magic } = this.state;
 		if (reset) {
-			setAlert("Resetowanie hasła...");
+			this.setState({ alert: "Resetowanie hasła..." });
 			const result = await resetPassword(email, password, magic);
-			setReset(false);
+			this.setState({ reset: false });
 
 			if (result !== 200) {
-				setAlert("Nie udało się zresetować hasła.");
+				this.setState({ alert: "Nie udało się zresetować hasła." });
 			} else {
-				setAlert("Hasło zostało zresetowane.");
+				this.setState({ alert: "Hasło zostało zresetowane." });
 			}
 		} else {
-			setAlert("Logowanie...");
+			this.setState({ alert: "Logowanie..." });
 			const result = await login(email, password);
-			setLoginStatus(result);
+
+			if (result === 200) {
+				setTimeout(() => {
+					this.setState({ loginStatus: result });
+				}, 1500);
+			} else {
+				this.setState({ alert: "Nie udało się zalogować." });
+			}
 		}
 	};
 
-	const handlePasswordReset = async () => {
-		setAlert("Sprawdzanie danych...");
+	componentWillUnmount() {
+		this.setState = () => {
+			return;
+		};
+	}
+
+	handlePasswordReset = async () => {
+		const { email } = this.state;
+		this.setState({ alert: "Sprawdzanie danych..." });
 		const result = await requestPasswordReset(email);
 
 		if (result === 200) {
-			setReset(true);
-			setAlert(
-				"Zresetuj hasło z użyciem kodu wysłanego na podany adres e-mail.",
-			);
+			this.setState({ reset: true });
+			this.setState({
+				alert:
+					"Zresetuj hasło z użyciem kodu wysłanego na podany adres e-mail.",
+			});
 		} else {
-			setAlert("Nie udało się znaleźć konta z podanym adresem e-mail.");
+			this.setState({
+				alert: "Nie udało się znaleźć konta z podanym adresem e-mail.",
+			});
 		}
 	};
 
-	return (
-		<Container fluid className="p-0 bg-dark">
-			<div className="login">
-				<Form onSubmit={handleSubmit}>
-					<Form.Group className="emailLogin" size="lg" controlId="email">
-						<Form.Label>Email</Form.Label>
-						<Form.Control
-							autoFocus
-							type="email"
-							value={email}
-							onChange={e => setEmail(e.target.value ?? "")}
-						/>
-					</Form.Group>
-					{reset && (
-						<Form.Group size="lg" controlId="text">
-							<Form.Label>{"Kod"}</Form.Label>
+	render() {
+		const { email, password, magic, reset, loginStatus } = this.state;
+		if (loginStatus === 200) {
+			return <Navigate to="/home" replace={true} />;
+		}
+		return (
+			<Container fluid className="p-0 bg-dark">
+				<div className="login">
+					<Form onSubmit={this.handleSubmit}>
+						<Form.Group className="emailLogin" size="lg" controlId="email">
+							<Form.Label>Email</Form.Label>
 							<Form.Control
-								type="text"
-								value={magic}
-								onChange={e => setMagic(e.target.value ?? "")}
+								autoFocus
+								type="email"
+								value={email}
+								onChange={e => this.setState({ email: e.target.value ?? "" })}
 							/>
 						</Form.Group>
-					)}
-					<Form.Group size="lg" controlId="password">
-						<Form.Label>{reset ? "Nowe hasło" : "Hasło"}</Form.Label>
-						<Form.Control
-							type="password"
-							value={password}
-							onChange={e => setPassword(e.target.value ?? "")}
-						/>
-						<Form.Text>{alert}</Form.Text>
-					</Form.Group>
-					<div className="loginButtons">
-						<Button
-							className="loginButton"
-							size="lg"
-							type="submit"
-							disabled={!validateForm()}
-							onClick={handleLogin}>
-							{reset ? "Resetuj hasło" : "Zaloguj"}
-						</Button>
-						{!reset && (
-							<button
-								className="btn btn-link"
-								size="lg"
-								type="button"
-								disabled={!validateEmail()}
-								onClick={handlePasswordReset}>
-								Resetuj hasło
-							</button>
+						{reset && (
+							<Form.Group size="lg" controlId="text">
+								<Form.Label>{"Kod"}</Form.Label>
+								<Form.Control
+									type="text"
+									value={magic}
+									onChange={e => this.setState({ magic: e.target.value ?? "" })}
+								/>
+							</Form.Group>
 						)}
-					</div>
-				</Form>
-			</div>
-		</Container>
-	);
+						<Form.Group size="lg" controlId="password">
+							<Form.Label>{reset ? "Nowe hasło" : "Hasło"}</Form.Label>
+							<Form.Control
+								type="password"
+								value={password}
+								onChange={e =>
+									this.setState({ password: e.target.value ?? "" })
+								}
+							/>
+							<Form.Text>{this.state.alert}</Form.Text>
+						</Form.Group>
+						<div className="loginButtons">
+							<Button
+								className="loginButton"
+								size="lg"
+								type="submit"
+								disabled={!this.validateForm()}
+								>
+								{reset ? "Resetuj hasło" : "Zaloguj"}
+							</Button>
+							{!reset && (
+								<button
+									className="btn btn-link"
+									size="lg"
+									type="button"
+									disabled={!this.validateEmail()}
+									onClick={this.handlePasswordReset}>
+									Resetuj hasło
+								</button>
+							)}
+						</div>
+					</Form>
+				</div>
+			</Container>
+		);
+	}
 }
+

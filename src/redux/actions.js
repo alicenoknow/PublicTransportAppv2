@@ -24,7 +24,8 @@ import {
 	SET_INFO,
 	SET_LOADING,
 	UPDATE_AREAS,
-	SET_HIGHLIGHT
+	SET_HIGHLIGHT,
+	SET_DATA_NOT_FOUND,
 } from "./actionTypes";
 
 export const setStartDate = content => ({
@@ -209,3 +210,11 @@ export const setHighlight = content => ({
 		content,
 	},
 });
+
+export const setDataNotFound = content => ({
+	type: SET_DATA_NOT_FOUND,
+	payload: {
+		content,
+	},
+});
+

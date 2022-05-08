@@ -415,6 +415,21 @@
 	z-index: 1;
 }
 
+.noDataAlert {
+	position: absolute;
+	left: 35vw;
+	width: 30vw;
+	margin-top: 10vh;
+	justify-content: space-between;
+}
+
+.alertRow {
+	display: flex; 
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
 .formInput {
 	display: flex;
 	flex-direction: row;

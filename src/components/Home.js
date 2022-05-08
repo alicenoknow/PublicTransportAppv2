@@ -18,7 +18,7 @@ import InfoPanel from "./infoPanel/InfoPanel";
 
 class Home extends Component {
 	state = {
-		unauthorized: false
+		authorized: true,
 	}
 
 	componentDidMount() {
@@ -38,7 +38,7 @@ class Home extends Component {
 		if (result?.data) {
 			setBusStopsState(result.data);
 		}  else if (result === 401) {
-			this.setState({unauthorized: true})
+			this.setState({ authorized: false });
 		}
 
 		const areasData = this.props.app.areasData;
@@ -56,7 +56,7 @@ class Home extends Component {
 		if (result?.data) {
 			setAreasState(result.data?.features);
 		}  else if (result === 401) {
-			this.setState({ unauthorized: true })
+			this.setState({ authorized: false });
 		}
 
 		if (this.props.app.busStopsData) {
@@ -73,13 +73,13 @@ class Home extends Component {
 	render() {
 		const { isLoading } = this.props.app;
 
-		if (this.state.unauthorized) {
+		if (!this.state.authorized) {
 			return <Navigate to="/" replace={true} />
 		}
 		return (
 			<Container fluid className="p-0 bg-dark">
 				<NavPadding />
-				<SidePanel />
+				<SidePanel  setAuth={(val) => this.setState({ authorized: val })} />
 				<InfoPanel />
 				<CustomMap />
 				{isLoading && <Loading />}

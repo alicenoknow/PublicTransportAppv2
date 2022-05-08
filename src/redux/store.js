@@ -27,6 +27,7 @@ import {
 	SET_LOADING,
 	UPDATE_AREAS,
 	SET_HIGHLIGHT,
+	SET_DATA_NOT_FOUND,
 	StopsType,
 	AnalysisType,
 } from "./actionTypes";
@@ -242,6 +243,13 @@ function appReducer(state = initialState, action) {
 				highlightData: content,
 			};
 		}
+		case SET_DATA_NOT_FOUND: {
+			const { content } = action.payload;
+			return {
+				...state,
+				dataNotFound: content,
+			};
+		}
 		default:
 			return state;
 	}
@@ -281,6 +289,7 @@ const initialState = {
 			messages: [],
 		},
 		isLoading: false,
+		dataNotFound: false,
 	},
 };
 

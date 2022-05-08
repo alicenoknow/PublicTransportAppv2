@@ -15,7 +15,7 @@ class Upload extends Component {
 		this.state = {
 			selectedFile: undefined,
 			info: "",
-			unauthorized: false,
+			authorized: true,
 		};
 	}
 
@@ -33,7 +33,7 @@ class Upload extends Component {
 		if (status === 200) {
 			this.setState({info: "Plik został przesłany."});
 		} else if (status === 401) {
-			this.setState({unauthorized: true});
+			this.setState({ authorized: false });
 		} else {
 			this.setState({info: "Nie udało się przesłać pliku."});
 		}
@@ -57,7 +57,7 @@ class Upload extends Component {
 	};
 
 	render() {
-		if (this.state.unauthorized) {
+		if (!this.state.authorized) {
 			return <Navigate to="/" replace={true} />
 		}
 		return (
