@@ -20,21 +20,20 @@ const CheckBox = props => {
 export default class TicketPicker extends Component {
 	state = {
 		oneWay: { id: 0, value: "Bilety punktowe", isChecked: true, type: TicketsType.oneWay },
-		paper: { id: 1, value: "Bilety papierowe", isChecked: true,  type: TicketsType.paper },
-		season: { id: 2, value: "Bilety terminowe", isChecked: true, type: TicketsType.season },
+		season: { id: 1, value: "Bilety terminowe", isChecked: true, type: TicketsType.season },
 	};
 
 	setTicketInfo() {
-		const { oneWay, paper, season } = this.state;
-		const allTypes = [oneWay, paper, season];
+		const { oneWay, season } = this.state;
+		const allTypes = [oneWay, season];
 		const selectedItems = allTypes.filter(item => item.isChecked);
 		const selectedTypes = selectedItems.map(item => item.type);
-		const finalTypes = selectedTypes.length === 3 ? [] : selectedTypes;
+		const finalTypes = selectedTypes.length === 2 ? [] : selectedTypes;
 		this.props.onTicketTypeChange(finalTypes);
 	}
 
 	handleCheckNormalElement = event => {
-		const { oneWay, paper, season } = this.state;
+		const { oneWay, season } = this.state;
 		switch (event.target.value) {
 			case oneWay.value: {
 				this.setState(
@@ -42,18 +41,6 @@ export default class TicketPicker extends Component {
 						oneWay: {
 							...oneWay,
 							isChecked: !oneWay.isChecked,
-						},
-					},
-					this.setTicketInfo,
-				);
-				break;
-			}
-			case paper.value: {
-				this.setState(
-					{
-						paper: {
-							...paper,
-							isChecked: !paper.isChecked,
 						},
 					},
 					this.setTicketInfo,
@@ -78,7 +65,7 @@ export default class TicketPicker extends Component {
 	};
 
 	render() {
-		const { oneWay, paper, season } = this.state;
+		const { oneWay, season } = this.state;
 		return (
 			<div className="pickerContainer">
 				<CheckBox
@@ -88,11 +75,6 @@ export default class TicketPicker extends Component {
 					isChecked={oneWay.isChecked}
 				/>
 				<CheckBox
-					key={paper.id}
-					handleCheckElement={this.handleCheckNormalElement}
-					value={paper.value}
-					isChecked={paper.isChecked}
-				/><CheckBox
 					key={season.id}
 					handleCheckElement={this.handleCheckNormalElement}
 					value={season.value}

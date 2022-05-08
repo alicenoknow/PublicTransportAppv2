@@ -43,7 +43,6 @@ export const StopsType = {
 };
 
 export const TicketsType = {
-	paper: "paper",
 	oneWay: "oneWay",
 	season: "seasonTicket",
 };
