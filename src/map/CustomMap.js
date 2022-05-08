@@ -10,6 +10,7 @@ import {
 	updateStartAreas,
 	updateEndAreas,
 	setInfo,
+	setLoading,
 } from "../redux/actions";
 import ReactMapGL, { LinearInterpolator } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -68,7 +69,7 @@ class CustomMap extends Component {
 				[Math.max(...latitudes), Math.max(...longitudes)],
 			],
 			{
-				padding: 200,
+				padding: 300,
 			},
 		);
 		this.setState({
@@ -279,7 +280,9 @@ class CustomMap extends Component {
 			app: { areasData },
 		} = this.props;
 		if (title && areaData) {
+			this.props.setLoading(true);
 			const newID = await addArea(title, areaData[0].geometry.coordinates);
+			this.props.setLoading(false);
 			const newArea = {
 				...areaData[0],
 				properties: {
@@ -347,7 +350,7 @@ class CustomMap extends Component {
 	};
 
 	render() {
-		const { isDrawModeActive } = this.props.app;
+		const { isDrawModeActive, isLoading } = this.props.app;
 		const layers = [
 			this.renderAreas(),
 			this.renderServerDrivenLayer(),
@@ -396,6 +399,7 @@ const dispatchToProps = {
 	updateStartAreas,
 	updateEndAreas,
 	setInfo,
+	setLoading,
 };
 
 export default connect(mapStateToProps, dispatchToProps)(CustomMap);

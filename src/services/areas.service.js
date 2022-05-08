@@ -1,6 +1,5 @@
 import axios from "axios";
 
-axios.defaults.headers.get["Content-Type"] = "application/json";
 axios.defaults.withCredentials = true;
 
 const API = process.env.REACT_APP_API;

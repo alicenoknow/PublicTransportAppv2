@@ -39,6 +39,7 @@ export default function Login() {
 
 	const handleSubmit = event => {
 		event.preventDefault();
+		handleLogin();
 	};
 
 	const handleLogin = async () => {
@@ -109,7 +110,7 @@ export default function Login() {
 						<Button
 							className="loginButton"
 							size="lg"
-							type="button"
+							type="submit"
 							disabled={!validateForm()}
 							onClick={handleLogin}>
 							{reset ? "Resetuj hasło" : "Zaloguj"}

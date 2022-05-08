@@ -4,17 +4,10 @@ axios.defaults.withCredentials = true;
 
 const API = process.env.REACT_APP_API;
 
-export const uploadFile = file => {
-	const data = JSON.stringify({
-		file: file,
-	});
-
+export const uploadFile = data => {
 	const config = {
 		method: "post",
 		url: API + "/api/upload-csv",
-		headers: {
-			"Content-Type": "application/json",
-		},
 		data: data,
 		withCredentials: true,
 	};

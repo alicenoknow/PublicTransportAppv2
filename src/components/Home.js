@@ -34,13 +34,13 @@ class Home extends Component {
 			setLoading: setLoadingState,
 		} = this.props;
 		const result = await fetchBusStops();
-		if (result) {
+		if (result?.data) {
 			const areasData = this.props.app.areasData;
-			setBusStopsState(result);
+			setBusStopsState(result.data);
 			if (areasData && areasData.length > 0) {
 				setLoadingState(false);
 			}
-		}  else {
+		}  else  {
 			this.setState({unauthorized: true})
 		}
 	}
@@ -51,12 +51,12 @@ class Home extends Component {
 			setLoading: setLoadingState,
 		} = this.props;
 		const result = await fetchAreas();
-		if (result) {
-			setAreasState(result?.features);
+		if (result?.data) {
+			setAreasState(result.data?.features);
 			if (this.props.app.busStopsData) {
 				setLoadingState(false);
 			} 
-		}  else {
+		}  else  {
 			this.setState({ unauthorized: true })
 		}
 	}

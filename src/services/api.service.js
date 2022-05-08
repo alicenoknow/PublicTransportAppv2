@@ -1,6 +1,5 @@
 import axios from "axios";
 
-axios.defaults.headers.get["Content-Type"] = "application/json";
 axios.defaults.withCredentials = true;
 
 const API = process.env.REACT_APP_API;
@@ -17,7 +16,7 @@ export const fetchBusStops = () => {
 
 	return axios(config)
 		.then(function (response) {
-			return response?.data;
+			return response;
 		})
 		.catch(function (error) {
 			console.log(error);
@@ -37,7 +36,7 @@ export const fetchAreas = () => {
 
 	return axios(config)
 		.then(function (response) {
-			return response?.data
+			return response;
 		})
 		.catch(function (error) {
 			console.log(error);

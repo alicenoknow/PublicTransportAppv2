@@ -8,9 +8,9 @@ class Help extends Component {
 	render() {
 		return (
 			<Container fluid className="p-0 bg-dark">
-				<div className="help">
-					<ScrollView
-						style={{ height: "98vh", paddingTop: "10%", paddingBottom: "10%" }}>
+				<ScrollView
+					style={{ height: "100vh", paddingTop: "5%", paddingBottom: "5%" }}>
+					<div className="help">
 						<h1 id="spis-tre-ci">Spis treści</h1>
 						<ol>
 							<li>
@@ -251,8 +251,8 @@ class Help extends Component {
 								pasażerów w tym połączeniu.
 							</li>
 						</ul>
-					</ScrollView>
-				</div>
+					</div>
+				</ScrollView>
 			</Container>
 		);
 	}

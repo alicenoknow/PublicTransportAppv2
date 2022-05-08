@@ -415,16 +415,6 @@
 	z-index: 1;
 }
 
-.loadingAlert {
-	position: absolute;
-	margin: 10px;
-	right: 40vw;
-	width: 25vw;
-	opacity: 0.9;
-	background-color: rgb(157, 156, 218);
-	z-index: 1;
-}
-
 .formInput {
 	display: flex;
 	flex-direction: row;
