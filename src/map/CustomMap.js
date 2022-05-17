@@ -357,11 +357,11 @@ class CustomMap extends Component {
 		const layers = [
 			this.renderAreas(),
 			this.renderServerDrivenLayer(),
-			this.renderHighlight(),
 			this.renderDrawAreaLayer(),
+			this.renderPickedAreas(),
+			this.renderHighlight(),
 			this.renderBusStopsLayer(),
 			...this.renderPickedStops(),
-			this.renderPickedAreas(),
 		];
 		return (
 			<Container fluid className="p-0 bg-light">

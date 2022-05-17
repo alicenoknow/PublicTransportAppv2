@@ -38,7 +38,7 @@ class PanelContent extends Component {
 		this.props.setLoading(true);
 		const result = await sendDataForAnalysis(this.props.app);
 		this.props.setServerQueryData(result);
-		if (result?.stats.length === 0) {
+		if (result?.stats && result?.stats.length === 0) {
 			this.props.setDataNotFound(true);
 		}
 		if (result === 401) {
