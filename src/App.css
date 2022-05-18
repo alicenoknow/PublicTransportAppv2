@@ -352,9 +352,6 @@
 	color: white;
 }
 
-::-webkit-scrollbar {
-	display: none;
-  }
 
 .help {
 	height: "100%";
