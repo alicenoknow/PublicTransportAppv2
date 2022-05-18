@@ -220,7 +220,7 @@ class Help extends Component {
 									biletów są brane pod uwagę.
 									<br />
 									<span className="color">Przykład:</span> wybrane rodzaje
-									bletów: bilety papierowe.
+									biletów: bilety papierowe.
 								</p>
 							</li>
 						</ul>

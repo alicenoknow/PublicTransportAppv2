@@ -39,9 +39,9 @@ class AnalysisPicker extends Component {
 						isChecked: oneWay.isChecked,
 					},
 				},
-				() => () =>
+				() =>  
 					this.props.setAnalysisType(
-						this.state.oneWay ? AnalysisType.oneWay : AnalysisType.twoWay,
+						this.state.oneWay.isChecked ? AnalysisType.oneWay : AnalysisType.twoWay,
 					),
 			);
 		} else {
@@ -56,10 +56,10 @@ class AnalysisPicker extends Component {
 						isChecked: !twoWay.isChecked,
 					},
 				},
-				() =>
+				() => 
 					this.props.setAnalysisType(
 						this.state.oneWay.isChecked ? AnalysisType.oneWay : AnalysisType.twoWay,
-					),
+					) 				
 			);
 		}
 	};
