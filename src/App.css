@@ -213,6 +213,26 @@
 	cursor: pointer;
 }
 
+.reverseButton {
+	width: 100%;
+	display: flex;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: rgb(42, 35, 146, 0.8);
+	font-size: 130%;
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.reverse {
+	width: 30px;
+	height: 30px;
+	align-self: center;
+}
+
 .datePicker {
 	padding-bottom: 10px;
 	align-content: center;

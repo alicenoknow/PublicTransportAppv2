@@ -14,6 +14,7 @@ import {
 	setServerQueryData,
 	setLoading,
 	setDataNotFound,
+	reverseStartEnd,
 } from "../../redux/actions";
 import {
 	DateRange,
@@ -25,6 +26,7 @@ import {
 	WeekDayPicker,
 	AnalysisPicker,
 } from "./filters";
+import {ReactComponent as Reverse} from './rev.svg';
 import { sendDataForAnalysis } from "../../services/analysis.service";
 
 const triggerStyle = {width: "100%", flex: 1, display: "flex"};
@@ -92,6 +94,9 @@ class PanelContent extends Component {
 		const { isStartPointActive } = this.state;
 		return (
 			<Collapsible trigger="Rodzaje wizualizacji" triggerStyle={triggerStyle}>
+				<button onClick={this.props.reverseStartEnd} className="reverseButton">
+					<Reverse className="reverse" />
+				</button>
 				<Collapsible
 					className={"NestedCollapsibleStart"}
 					openedClassName={"OpenedStart"}
@@ -162,6 +167,7 @@ const dispatchToProps = {
 	setServerQueryData,
 	setLoading,
 	setDataNotFound,
+	reverseStartEnd
 };
 
 export default connect(mapStateToProps, dispatchToProps)(PanelContent);

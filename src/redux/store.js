@@ -28,6 +28,7 @@ import {
 	UPDATE_AREAS,
 	SET_HIGHLIGHT,
 	SET_DATA_NOT_FOUND,
+	REVERSE_START_END,
 	StopsType,
 	AnalysisType,
 } from "./actionTypes";
@@ -248,6 +249,23 @@ function appReducer(state = initialState, action) {
 			return {
 				...state,
 				dataNotFound: content,
+			};
+		}
+		case REVERSE_START_END: {
+			const startType = state.startStopsType;
+			const endType = state.endStopsType;
+			const startAreas = state.startAreas;
+			const endAreas = state.endAreas;
+			const startBusStops = state.startBusStops;
+			const endBusStops = state.endBusStops;
+			return {
+				...state,
+				startStopsType: endType,
+				endStopsType: startType,
+				startAreas: endAreas,
+				endAreas: startAreas,
+				startBusStops: endBusStops,
+				endBusStops: startBusStops,
 			};
 		}
 		default:

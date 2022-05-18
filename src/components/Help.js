@@ -128,6 +128,9 @@ class Help extends Component {
 									<a href="#informacje">Informacje</a>
 								</p>
 							</li>
+							<p>
+							Na górze sekcji znajduje się przycisk, którego kliknięcie spowoduje zamianę obszaru końcowego i początkowego.
+						</p>
 						</ul>
 						<h2 id="obszary-i-przystanki">Obszary i przystanki</h2>
 						<h4 id="widok">Widok</h4>

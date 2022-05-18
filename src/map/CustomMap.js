@@ -359,6 +359,7 @@ class CustomMap extends Component {
 			this.renderServerDrivenLayer(),
 			this.renderDrawAreaLayer(),
 			this.renderPickedAreas(),
+			this.renderServerDrivenLayer(),
 			this.renderHighlight(),
 			this.renderBusStopsLayer(),
 			...this.renderPickedStops(),

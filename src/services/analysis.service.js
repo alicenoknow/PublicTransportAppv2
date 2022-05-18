@@ -60,6 +60,10 @@ function getDataForOneWay(data, filters) {
 	};
 }
 
+function getFormattedInterval(interval) {
+	return interval !== undefined ?  `${('00'+ interval).slice(-2)}:00` : undefined;
+}
+
 function getDataForTwoWay(data, filters) {
 	return {
 		departureSelector: getStops(
@@ -79,8 +83,8 @@ function getDataForTwoWay(data, filters) {
 			endDate: filters.endDate?.toString() ?? undefined,
 			weekdays: filters.weekDays,
 			ticketType: filters.ticketType,
-			returnDelayMin: filters.intervalStartTime,
-			returnDelayMax: filters.intervalEndTime,
+			returnDelayMin: getFormattedInterval(filters.intervalStartTime),
+			returnDelayMax: getFormattedInterval(filters.intervalEndTime),
 		},
 	};
 }
