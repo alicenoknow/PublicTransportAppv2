@@ -142,7 +142,7 @@ class PanelContent extends Component {
 					Przetwarzaj dane
 				</button>
 				<button onClick={this.props.resetFilters} className="minorButton">
-					Resetuj filtry
+					Wyczyść
 				</button>
 				<button onClick={this.downloadCSV} className="minorButton">
 					Pobierz CSV

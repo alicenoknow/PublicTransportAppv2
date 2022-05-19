@@ -162,19 +162,6 @@ class CustomMap extends Component {
 		}
 	};
 
-	handleLineClick = info => {
-		this.props.setInfo({
-			messages: [
-				"Trasa z przystanku " +
-					info.object.geometry.coordinates[0] +
-					" do przystanku " +
-					info.object.geometry.coordinates[1] +
-					".",
-				"Liczba pasażerów: " + info.object.properties.commuters,
-			],
-		});
-	};
-
 	renderBusStopsLayer = () => {
 		const { busStopsData: data, showBusStops } = this.props.app;
 		if (data && showBusStops) {
@@ -194,7 +181,7 @@ class CustomMap extends Component {
 			return HeatMapLayer(dataToDraw);
 		}
 		const linesData = parseArrayToLines(data.stats, busStopsData);
-		return LineLayer(linesData, this.handleLineClick);
+		return LineLayer(linesData);
 	};
 
 	renderAreas = () => {
@@ -278,11 +265,14 @@ class CustomMap extends Component {
 		const { areaData } = this.state;
 		const {
 			app: { areasData },
+			setLoading,
+			setAreasData,
+			setDrawMode
 		} = this.props;
 		if (title && areaData) {
-			this.props.setLoading(true);
+			setLoading(true);
 			const newID = await addArea(title, areaData[0].geometry.coordinates);
-			this.props.setLoading(false);
+			setLoading(false);
 
 			if (newID) {
 				const newArea = {
@@ -292,9 +282,9 @@ class CustomMap extends Component {
 						id: newID,
 					},
 				};
-				this.props.setAreasData([...Object.values(areasData), newArea]);
+				setAreasData([...Object.values(areasData), newArea]);
 			}
-			this.props.setDrawMode(false);
+			setDrawMode(false);
 			this.setState({ areaData: [] });
 			return null;
 		}
@@ -337,10 +327,8 @@ class CustomMap extends Component {
 
 	renderHighlight = () => {
 		const data = this.props.app.highlightData;
-		if (data) {
-			return HighlightLayer(data);
-		}
-		return null;
+		return HighlightLayer(data);
+
 	};
 
 	getCustomTooltip = object => {
@@ -353,14 +341,13 @@ class CustomMap extends Component {
 	};
 
 	render() {
-		const { isDrawModeActive } = this.props.app;
+		const { isDrawModeActive, dataNotFound } = this.props.app;
 		const layers = [
 			this.renderAreas(),
-			this.renderServerDrivenLayer(),
-			this.renderDrawAreaLayer(),
 			this.renderPickedAreas(),
 			this.renderServerDrivenLayer(),
 			this.renderHighlight(),
+			this.renderDrawAreaLayer(),
 			this.renderBusStopsLayer(),
 			...this.renderPickedStops(),
 		];
@@ -388,7 +375,7 @@ class CustomMap extends Component {
 						onViewportChange={viewport => this.setState({ viewport })}
 					/>
 				</DeckGL>
-				{this.props.app.dataNotFound && <NoDataAlert />}
+				{dataNotFound && <NoDataAlert />}
 			</Container>
 		);
 	}

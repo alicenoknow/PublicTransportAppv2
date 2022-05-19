@@ -304,8 +304,8 @@ function appReducer(state = initialState, action) {
 					{ id: 0, value: "Analiza jednokierunkowa", isChecked: true, type: AnalysisType.oneWay },
 					{ id: 1, value: "Analiza wahadłowa", isChecked: false, type: AnalysisType.twoWay },
 				],
-				// serverQueryData: undefined,
-				// highlightData: undefined,
+				serverQueryData: undefined,
+				highlightData: undefined,
 			};
 		}
 		default:

@@ -1,6 +1,6 @@
 import { GeoJsonLayer } from "@deck.gl/layers";
 
-export default function getLineLayer(data, onClick) {
+export default function getLineLayer(data) {
 	if (data && data.features && data.features[0]) {
 		const maxCommuters = Math.max.apply(
 			Math,
@@ -20,7 +20,6 @@ export default function getLineLayer(data, onClick) {
 			stroked: false,
 			filled: true,
 			pickable: true,
-			onClick: onClick,
 		});
 	}
 	return null;
