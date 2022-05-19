@@ -7,6 +7,11 @@ const API = process.env.REACT_APP_API;
 const ONE_WAY_API = "/api/one-way";
 const TWO_WAY_API = "/api/two-way";
 
+function isOneWay(analysisTypes) {
+	const twoWay = analysisTypes.find(item => item.type === AnalysisType.oneWay);
+	return twoWay.isChecked;
+}
+
 export async function sendDataForAnalysis(state) {
 	const filters = state.filters;
 	const data = {
@@ -18,7 +23,7 @@ export async function sendDataForAnalysis(state) {
 		endBusStop: state.endBusStops,
 		analysisType: state.analysisType,
 	};
-	if (state.analysisType === AnalysisType.oneWay) {
+	if (isOneWay(state.analysisType)) {
 		const dataOneWay = getDataForOneWay(data, filters);
 		return await sendData(dataOneWay, ONE_WAY_API);
 	} else {
@@ -52,10 +57,10 @@ function getDataForOneWay(data, filters) {
 		departureFilter: {
 			startTime: getFormattedTime(filters.startTime),
 			endTime: getFormattedTime(filters.endTime),
-			startDate: filters.startDate?.toString() ?? undefined,
-			endDate: filters.endDate?.toString() ?? undefined,
-			weekdays: filters.weekDays,
-			ticketType: filters.ticketType,
+			startDate: filters.startDate ? new Date(filters.startDate).toISOString().split("T")[0] : undefined,
+			endDate: filters.endDate ? new Date(filters.endDate)?.toISOString().split("T")[0] : undefined,
+			weekdays: filters.weekDays.filter(day => day.isChecked).map(day => day.id),
+			ticketType: filters.ticketType.filter(ticket => ticket.isChecked).map(ticket => ticket.type),
 		},
 	};
 }
@@ -81,8 +86,8 @@ function getDataForTwoWay(data, filters) {
 			endTime: getFormattedTime(filters.endTime),
 			startDate: filters.startDate?.toString() ?? undefined,
 			endDate: filters.endDate?.toString() ?? undefined,
-			weekdays: filters.weekDays,
-			ticketType: filters.ticketType,
+			weekdays:  filters.weekDays.filter(day => day.isChecked).map(day => day.id),
+			ticketType: filters.ticketType.filter(ticket => ticket.isChecked).map(ticket => ticket.type),
 			returnDelayMin: getFormattedInterval(filters.intervalStartTime),
 			returnDelayMax: getFormattedInterval(filters.intervalEndTime),
 		},

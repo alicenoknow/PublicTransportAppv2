@@ -15,6 +15,7 @@ import {
 	setLoading,
 	setDataNotFound,
 	reverseStartEnd,
+	resetFilters,
 } from "../../redux/actions";
 import {
 	DateRange,
@@ -26,7 +27,7 @@ import {
 	WeekDayPicker,
 	AnalysisPicker,
 } from "./filters";
-import {ReactComponent as Reverse} from './rev.svg';
+import { ReactComponent as Reverse } from './rev.svg';
 import { sendDataForAnalysis } from "../../services/analysis.service";
 
 const triggerStyle = {width: "100%", flex: 1, display: "flex"};
@@ -52,30 +53,22 @@ class PanelContent extends Component {
 		return (
 			<Collapsible trigger="Filtry" triggerStyle={triggerStyle}>
 				<Collapsible className={"NestedCollapsible"} trigger="Wybierz godziny" triggerStyle={triggerStyle} >
-					<TimeRange
-						onStartTimeChange={this.props.setStartTime}
-						onEndTimeChange={this.props.setEndTime}
-						onIntervalStartTimeChange={this.props.setIntervalStart}
-						onIntervalEndTimeChange={this.props.setIntervalEnd}
-					/>
+					<TimeRange />
 				</Collapsible>
 				<Collapsible
 					className={"NestedCollapsible"}
 					trigger="Wybierz zakres dat" triggerStyle={triggerStyle}>
-					<DateRange
-						onStartDateChange={this.props.setStartDate}
-						onEndDateChange={this.props.setEndDate}
-					/>
+					<DateRange/>
 				</Collapsible>
 				<Collapsible
 					className={"NestedCollapsible"}
 					trigger="Wybierz dzień tygodnia" triggerStyle={triggerStyle}>
-					<WeekDayPicker onWeekDaysChange={this.props.setWeekdays} />
+					<WeekDayPicker />
 				</Collapsible>
 				<Collapsible
 					className={"NestedCollapsible"}
 					trigger="Wybierz rodzaj biletów" triggerStyle={triggerStyle}>
-					<TicketPicker onTicketTypeChange={this.props.setTicketsType} />
+					<TicketPicker  />
 				</Collapsible>
 			</Collapsible>
 		);
@@ -148,6 +141,12 @@ class PanelContent extends Component {
 				<button onClick={this.processData} className="confirmButton">
 					Przetwarzaj dane
 				</button>
+				<button onClick={this.props.resetFilters} className="minorButton">
+					Resetuj filtry
+				</button>
+				<button onClick={this.downloadCSV} className="minorButton">
+					Pobierz CSV
+				</button>
 			</React.Fragment>
 		);
 	}
@@ -167,7 +166,8 @@ const dispatchToProps = {
 	setServerQueryData,
 	setLoading,
 	setDataNotFound,
-	reverseStartEnd
+	reverseStartEnd,
+	resetFilters
 };
 
 export default connect(mapStateToProps, dispatchToProps)(PanelContent);

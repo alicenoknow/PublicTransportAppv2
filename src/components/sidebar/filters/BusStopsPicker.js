@@ -16,63 +16,40 @@ const Checkbox = ({ label, value, onChange }) => {
 };
 
 class BusStopsCheckBoxes extends Component {
-	state = {
-		pickOneValue: false,
-		pickAreaValue: false,
-		pickAllValue: true,
-	};
-
-	handleChange = () => {
-		const { pickOneValue, pickAreaValue } = this.state;
+	handleChangeOne = () => {
 		const { isStart, updateStartStopsType, updateEndStopsType } = this.props;
-		const stopsType = pickOneValue
-			? StopsType.one
-			: pickAreaValue
-			? StopsType.area
-			: StopsType.all;
-
 		if (isStart) {
-			updateStartStopsType(stopsType);
+			updateStartStopsType(StopsType.one);
 		} else {
-			updateEndStopsType(stopsType);
+			updateEndStopsType(StopsType.one);
 		}
 	};
 
-	handleChangeOne = () => {
-		this.setState(
-			{
-				pickOneValue: true,
-				pickAllValue: false,
-				pickAreaValue: false,
-			},
-			this.handleChange,
-		);
-	};
-
 	handleChangeArea = () => {
-		this.setState(
-			{
-				pickOneValue: false,
-				pickAllValue: false,
-				pickAreaValue: true,
-			},
-			this.handleChange,
-		);
+		const { isStart, updateStartStopsType, updateEndStopsType } = this.props;
+		if (isStart) {
+			updateStartStopsType(StopsType.area);
+		} else {
+			updateEndStopsType(StopsType.area);
+		}
 	};
 
 	handleChangeAll = () => {
-		this.setState(
-			{
-				pickOneValue: false,
-				pickAllValue: true,
-				pickAreaValue: false,
-			},
-			this.handleChange,
-		);
+		const { isStart, updateStartStopsType, updateEndStopsType } = this.props;
+		if (isStart) {
+			updateStartStopsType(StopsType.all);
+		} else {
+			updateEndStopsType(StopsType.all);
+		}
 	};
 
 	render() {
-		const { pickOneValue, pickAreaValue, pickAllValue } = this.state;
+		const { isStart } = this.props;
+		const stopType = isStart ? this.props.app.startStopsType : this.props.app.endStopsType;
+		const pickOneValue = stopType === StopsType.one;
+		const pickAreaValue = stopType === StopsType.area;
+		const pickAllValue = stopType === StopsType.all;
+
 		return (
 			<React.Fragment>
 				<div className="checkBoxContainer">

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { AnalysisType } from "../../../redux/actionTypes";
 import { setAnalysisType } from "../../../redux/actions";
 
 const CheckBox = props => {
@@ -20,66 +19,40 @@ const CheckBox = props => {
 };
 
 class AnalysisPicker extends Component {
-	state = {
-		oneWay: { id: 0, value: "Analiza jednokierunkowa", isChecked: true },
-		twoWay: { id: 1, value: "Analiza wahadłowa", isChecked: false },
+	handleCheckNormalElement = event => {
+		let tickets = this.props.app.filters.ticketType;
+		tickets.forEach(ticket => {
+			if (ticket.value === event.target.value)
+				ticket.isChecked = event.target.checked;
+		});
+		this.props.setTicketsType(tickets);
 	};
 
-	handleCheck = event => {
-		const { oneWay, twoWay } = this.state;
-		if (event.target.value === oneWay.value) {
-			this.setState(
-				{
-					oneWay: {
-						...oneWay,
-						isChecked: !oneWay.isChecked,
-					},
-					twoWay: {
-						...twoWay,
-						isChecked: oneWay.isChecked,
-					},
-				},
-				() =>  
-					this.props.setAnalysisType(
-						this.state.oneWay.isChecked ? AnalysisType.oneWay : AnalysisType.twoWay,
-					),
-			);
-		} else {
-			this.setState(
-				{
-					oneWay: {
-						...oneWay,
-						isChecked: twoWay.isChecked,
-					},
-					twoWay: {
-						...twoWay,
-						isChecked: !twoWay.isChecked,
-					},
-				},
-				() => 
-					this.props.setAnalysisType(
-						this.state.oneWay.isChecked ? AnalysisType.oneWay : AnalysisType.twoWay,
-					) 				
-			);
-		}
+	handleCheckElement = event => {
+		let analysisTypes = this.props.app.analysisType;
+		analysisTypes.forEach(analysis => {
+			if (analysis.value === event.target.value) {
+				analysis.isChecked = event.target.checked;
+			} else {
+				analysis.isChecked = !event.target.checked;
+			}
+		});
+
+		this.props.setAnalysisType(analysisTypes);
 	};
 
 	render() {
-		const { oneWay, twoWay } = this.state;
 		return (
 			<div className="pickerContainer">
-				<CheckBox
-					key={oneWay.id}
-					handleCheckElement={this.handleCheck}
-					value={oneWay.value}
-					isChecked={oneWay.isChecked}
-				/>
-				<CheckBox
-					key={twoWay.id}
-					handleCheckElement={this.handleCheck}
-					value={twoWay.value}
-					isChecked={twoWay.isChecked}
-				/>
+				{this.props.app.analysisType.map(type => {
+					return (
+						<CheckBox
+							key={type.id}
+							handleCheckElement={this.handleCheckElement}
+							{...type}
+						/>
+					);
+				})}
 			</div>
 		);
 	}

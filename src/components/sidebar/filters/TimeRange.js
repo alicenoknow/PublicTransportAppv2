@@ -4,93 +4,92 @@ import NumberPicker from "react-widgets/NumberPicker";
 import TimeInput from "react-widgets/TimeInput";
 import { connect } from "react-redux";
 import "react-widgets/styles.css";
+import {
+	setStartTime,
+	setEndTime,
+	setIntervalEnd,
+	setIntervalStart,
+} from "../../../redux/actions";
 import { AnalysisType } from "../../../redux/actionTypes";
 
 class TimelineRange extends Component {
-	state = {
-		to: undefined,
-		from: undefined,
-		intervalTo: undefined,
-		intervalFrom: undefined,
-	};
 
 	onChangeFromCallback = fromTime => {
-		const { onStartTimeChange } = this.props;
-		onStartTimeChange(fromTime);
-		this.setState({ from: fromTime });
+		this.props.setStartTime(fromTime);
 	};
 
 	onChangeToCallback = toTime => {
-		const { onEndTimeChange } = this.props;
-		onEndTimeChange(toTime);
-		this.setState({ to: toTime });
+		this.props.setEndTime(toTime);
 	};
 
 	onChangeIntervalFromCallback = fromTime => {
-		const { onIntervalStartTimeChange } = this.props;
-		onIntervalStartTimeChange(fromTime);
-		this.setState({ intervalFrom: fromTime });
+		this.props.setIntervalStart(fromTime);
 	};
 
 	onChangeIntervalToCallback = toTime => {
-		const { onIntervalEndTimeChange } = this.props;
-		onIntervalEndTimeChange(toTime);
-		this.setState({ intervalTo: toTime });
+		this.props.setIntervalEnd(toTime);
+
 	};
 
 	getIntervalUpperBound = isUpper => {
-		const { from, intervalTo } = this.state;
-		if (from !== undefined) {
-			if (intervalTo !== undefined && !isUpper) {
-				return Math.min(24 - moment(from).hours(), intervalTo);
+		const { startTime, intervalEndTime } = this.props.app.filters;
+		if (startTime !== undefined) {
+			if (intervalEndTime !== undefined && !isUpper) {
+				return Math.min(24 - moment(startTime).hours(), intervalEndTime);
 			}
-			return 24 - moment(from).hours();
+			return 24 - moment(startTime).hours();
 		}
 		return 24;
 	};
 
 	getIntervalLowerBound = isUpper => {
-		const { intervalFrom } = this.state;
-		if (isUpper && intervalFrom !== undefined) {
-			return Math.max(0, intervalFrom);
+		const { intervalStartTime } = this.props.app.filters;
+		if (isUpper && intervalStartTime !== undefined) {
+			return Math.max(0, intervalStartTime);
 		}
 		return 0;
 	};
 
+	isTwoWay = () => {
+		const analysis = this.props.app.analysisType;
+		const twoWay = analysis.find(item => item.type === AnalysisType.twoWay);
+		return twoWay.isChecked;
+	}
+
 	render() {
-		const { from, to, intervalFrom, intervalTo } = this.state;
+		const { startTime, endTime, intervalStartTime, intervalEndTime } = this.props.app.filters;
 		return (
 			<div className="timers">
 				<p>
 					{`${
-						from !== undefined && to !== undefined
-							? `Odjazd między ${moment(from).format("HH:mm")} - ${moment(
-									to,
+						startTime !== undefined && endTime !== undefined
+							? `Odjazd między ${moment(startTime).format("HH:mm")} - ${moment(
+								endTime,
 							  ).format("HH:mm")}`
 							: ""
 					}`}
 				</p>
 				<p>
 					{`${
-						intervalFrom !== undefined && intervalTo !== undefined
-							? `Powrót po ${intervalFrom} - ${intervalTo} godzinach`
+						intervalStartTime !== undefined && intervalEndTime !== undefined
+							? `Powrót po ${intervalStartTime} - ${intervalEndTime} godzinach`
 							: ""
 					}`}
 				</p>
 				<div className="timeRow">
 					<p>Wybierz godzinę początkową: </p>
-					<TimeInput onChange={this.onChangeFromCallback} defaultValue={from} />
+					<TimeInput onChange={this.onChangeFromCallback} value={startTime} />
 				</div>
 				<div className="timeRow">
 					<p>Wybierz godzinę końcową: </p>
-					<TimeInput onChange={this.onChangeToCallback} defaultValue={to} />
+					<TimeInput onChange={this.onChangeToCallback} value={endTime} />
 				</div>
-				{this.props.app.analysisType === AnalysisType.twoWay && (
+				{this.isTwoWay() && (
 					<>
 						<div className="timeRow">
 							<p>Wybierz początek interwału: </p>
 							<NumberPicker
-								defaultValue={intervalFrom}
+								value={intervalStartTime}
 								step={0.5}
 								onChange={this.onChangeIntervalFromCallback}
 								min={this.getIntervalLowerBound()}
@@ -100,7 +99,7 @@ class TimelineRange extends Component {
 						<div className="timeRow">
 							<p>Wybierz koniec interwału: </p>
 							<NumberPicker
-								defaultValue={intervalTo}
+								value={intervalEndTime}
 								step={0.5}
 								onChange={this.onChangeIntervalToCallback}
 								min={this.getIntervalLowerBound(true)}
@@ -115,6 +114,11 @@ class TimelineRange extends Component {
 }
 
 const mapStateToProps = state => state;
-const dispatchToProps = {};
+const dispatchToProps = {
+	setStartTime,
+	setEndTime,
+	setIntervalEnd,
+	setIntervalStart,
+};
 
 export default connect(mapStateToProps, dispatchToProps)(TimelineRange);

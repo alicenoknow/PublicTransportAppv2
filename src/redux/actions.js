@@ -26,7 +26,8 @@ import {
 	UPDATE_AREAS,
 	SET_HIGHLIGHT,
 	SET_DATA_NOT_FOUND,
-	REVERSE_START_END
+	REVERSE_START_END,
+	RESET_FILTERS
 } from "./actionTypes";
 
 export const setStartDate = content => ({
@@ -222,6 +223,14 @@ export const setDataNotFound = content => ({
 
 export const reverseStartEnd = content => ({
 	type: REVERSE_START_END,
+	payload: {
+		content,
+	},
+});
+
+
+export const resetFilters = content => ({
+	type: RESET_FILTERS,
 	payload: {
 		content,
 	},

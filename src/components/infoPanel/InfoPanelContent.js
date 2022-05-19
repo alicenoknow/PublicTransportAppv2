@@ -2,18 +2,8 @@ import React, { Component } from "react";
 import { ScrollView } from "@cantonjs/react-scroll-view";
 import { connect } from "react-redux";
 import Collapsible from "react-collapsible";
-import { StopsType, TicketsType } from "../../redux/actionTypes";
+import { StopsType } from "../../redux/actionTypes";
 import { setHighlight } from "../../redux/actions";
-
-const WEEKDAYS = {
-	0: "poniedziałek ",
-	1: "wtorek ",
-	2: "środa ",
-	3: "czwartek ",
-	4: "piątek ",
-	5: "sobota ",
-	6: "niedziela ",
-};
 
 const triggerStyle = { width: "100%", flex: 1, display: "flex" };
 
@@ -64,6 +54,8 @@ class InfoPanelContent extends Component {
 			weekDays,
 			ticketType,
 		} = filters;
+		const selectedWeekdays = weekDays.filter(day => day.isChecked)
+		const selectedTickets = ticketType.filter(ticket => ticket.isChecked)
 		if (
 			!startDate &&
 			!endDate &&
@@ -71,15 +63,15 @@ class InfoPanelContent extends Component {
 			!endTime &&
 			!intervalStartTime &&
 			!intervalEndTime &&
-			weekDays.length === 7 &&
-			ticketType.length === 0
+			selectedWeekdays.length === 7 &&
+			selectedTickets.length === 2
 		) {
 			return <div key="filter">Brak filtrów</div>;
 		}
 		return (
 			<div key="filter">
-				{startDate && <div>Data początkowa: {startDate.toString()}</div>}
-				{endDate && <div>Data końcowa: {endDate.toString()}</div>}
+				{startDate && <div>Data początkowa: {new Date(startDate).toISOString().split("T")[0]}</div>}
+				{endDate && <div>Data końcowa: {new Date(endDate).toISOString().split("T")[0]}</div>}
 				{startTime && (
 					<div>Godzina początkowa: {startTime.toLocaleTimeString()}</div>
 				)}
@@ -88,21 +80,13 @@ class InfoPanelContent extends Component {
 					<div>Początek interwału: {intervalStartTime}</div>
 				)}
 				{intervalEndTime && <div>Koniec interwału: {intervalEndTime}</div>}
-				{weekDays.length !== 7 && (
-					<div>Dni tygodnia: {weekDays.map(day => WEEKDAYS[day])}</div>
+				{selectedWeekdays.length !== 7 && (
+					<div>Dni tygodnia: {selectedWeekdays.map(day => day.value + " ")}</div>
 				)}
-				{ticketType.length !== 0 && (
+				{selectedTickets.length !== 2 && (
 					<div>
 						Rodzaj biletów:{" "}
-						{ticketType.map(item => {
-							if (item === TicketsType.oneWay) {
-								return "punktowe ";
-							} 
-							if (item === TicketsType.season) {
-								return "terminowe ";
-							}
-							return "";
-						})}
+						{selectedTickets.map(item => item.value)}
 					</div>
 				)}
 			</div>

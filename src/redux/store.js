@@ -29,8 +29,10 @@ import {
 	SET_HIGHLIGHT,
 	SET_DATA_NOT_FOUND,
 	REVERSE_START_END,
+	RESET_FILTERS,
 	StopsType,
 	AnalysisType,
+	TicketsType,
 } from "./actionTypes";
 
 function appReducer(state = initialState, action) {
@@ -268,6 +270,44 @@ function appReducer(state = initialState, action) {
 				endBusStops: startBusStops,
 			};
 		}
+		case RESET_FILTERS: {
+			return {
+				...state,
+				filters: {
+					startDate: undefined,
+					endDate: undefined,
+					startTime: undefined,
+					endTime: undefined,
+					intervalStartTime: undefined,
+					intervalEndTime: undefined,
+					weekDays: [
+						{ id: 0, value: "poniedziałek", isChecked: true },
+						{ id: 1, value: "wtorek", isChecked: true },
+						{ id: 2, value: "środa", isChecked: true },
+						{ id: 3, value: "czwartek", isChecked: true },
+						{ id: 4, value: "piątek", isChecked: true },
+						{ id: 5, value: "sobota", isChecked: true },
+						{ id: 6, value: "niedziela", isChecked: true },
+					],
+					ticketType: [
+						{ id: 0, value: "Bilety punktowe", isChecked: true, type: TicketsType.oneWay },
+						{ id: 1, value: "Bilety terminowe", isChecked: true, type: TicketsType.season },
+					],
+				},
+				startStopsType: StopsType.all,
+				endStopsType: StopsType.all,
+				startAreas: [],
+				endAreas: [],
+				startBusStops: [],
+				endBusStops: [],
+				analysisType:[
+					{ id: 0, value: "Analiza jednokierunkowa", isChecked: true, type: AnalysisType.oneWay },
+					{ id: 1, value: "Analiza wahadłowa", isChecked: false, type: AnalysisType.twoWay },
+				],
+				// serverQueryData: undefined,
+				// highlightData: undefined,
+			};
+		}
 		default:
 			return state;
 	}
@@ -281,8 +321,19 @@ const initialState = {
 			endTime: undefined,
 			intervalStartTime: undefined,
 			intervalEndTime: undefined,
-			weekDays: [0, 1, 2, 3, 4, 5, 6],
-			ticketType: [],
+			weekDays: [
+				{ id: 0, value: "poniedziałek", isChecked: true },
+				{ id: 1, value: "wtorek", isChecked: true },
+				{ id: 2, value: "środa", isChecked: true },
+				{ id: 3, value: "czwartek", isChecked: true },
+				{ id: 4, value: "piątek", isChecked: true },
+				{ id: 5, value: "sobota", isChecked: true },
+				{ id: 6, value: "niedziela", isChecked: true },
+			],
+			ticketType: [
+				{ id: 0, value: "Bilety punktowe", isChecked: true, type: TicketsType.oneWay },
+				{ id: 1, value: "Bilety terminowe", isChecked: true, type: TicketsType.season },
+			],
 		},
 		startStopsType: StopsType.all,
 		endStopsType: StopsType.all,
@@ -294,7 +345,10 @@ const initialState = {
 		showBusStops: true,
 		showAreas: true,
 		isDrawModeActive: false,
-		analysisType: AnalysisType.oneWay,
+		analysisType: [
+			{ id: 0, value: "Analiza jednokierunkowa", isChecked: true, type: AnalysisType.oneWay },
+			{ id: 1, value: "Analiza wahadłowa", isChecked: false, type: AnalysisType.twoWay },
+		],
 
 		busStopsData: undefined,
 		areasData: [],

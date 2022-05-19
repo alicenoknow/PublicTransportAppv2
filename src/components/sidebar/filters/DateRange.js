@@ -1,30 +1,19 @@
 import React, { Component } from "react";
 import DatePicker from "react-datepicker";
+import { connect } from "react-redux";
 import "react-datepicker/dist/react-datepicker.css";
+import {
+	setStartDate,
+	setEndDate,
+} from "../../../redux/actions";
 
 class DateRange extends Component {
-	state = {
-		startDate: undefined,
-		endDate: undefined,
+	onStartDate = date => {
+		this.props.setStartDate(date);
 	};
 
-	setStartDate = date => {
-		this.setState({ startDate: date });
-		const d = new Date(date);
-		const yourDate = d.toISOString().split("T")[0];
-		// const month = (d.getUTCMonth() === 10 || d.getUTCMonth() === 11) ? (d.getUTCMonth() + 1) : "0" + (d.getUTCMonth() + 1);
-		// const outDate = d.getUTCFullYear() + "-" + month + "-" + d.getUTCDate() + 1;
-		this.props.onStartDateChange(yourDate);
-	};
-
-	setEndDate = date => {
-		this.setState({ endDate: date });
-		const d = new Date(date);
-		const yourDate = d.toISOString().split("T")[0];
-
-		// const month = (d.getUTCMonth() === 10 || d.getUTCMonth() === 11) ? (d.getUTCMonth() + 1) : "0" + (d.getUTCMonth() + 1);
-		// const outDate = d.getUTCFullYear() + "-" + month + "-" + d.getUTCDate() + 1;
-		this.props.onEndDateChange(yourDate);
+	onEndDate = date => {
+		this.props.setEndDate(date);
 	};
 
 	renderDatePicker = (value, handler, title) => {
@@ -37,17 +26,17 @@ class DateRange extends Component {
 	};
 
 	render() {
-		const { startDate, endDate } = this.state;
+		const { startDate, endDate } = this.props.app.filters;
 		return (
 			<React.Fragment>
 				{this.renderDatePicker(
 					startDate,
-					this.setStartDate,
+					this.onStartDate,
 					"Wybierz datę początkową:",
 				)}
 				{this.renderDatePicker(
 					endDate,
-					this.setEndDate,
+					this.onEndDate,
 					"Wybierz datę końcową:",
 				)}
 			</React.Fragment>
@@ -55,4 +44,10 @@ class DateRange extends Component {
 	}
 }
 
-export default DateRange;
+const mapStateToProps = state => state;
+const dispatchToProps = {
+	setStartDate,
+	setEndDate,
+};
+
+export default connect(mapStateToProps, dispatchToProps)(DateRange);

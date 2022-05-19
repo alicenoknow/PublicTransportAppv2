@@ -414,6 +414,19 @@
 	z-index: 1;
 }
 
+.minorButton {
+	width: 100%;
+	display: flex;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: rgba(42, 35, 146, 0.8);
+	color: rgba(237, 246, 252, 0.829);
+	font-size: 130%;
+	cursor: pointer;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 .inputPadding {
 	display: flex;
 	flex-direction: row;

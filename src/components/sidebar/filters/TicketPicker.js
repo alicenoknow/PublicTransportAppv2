@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { TicketsType } from "../../../redux/actionTypes";
+import { connect } from "react-redux";
+import { setTicketsType } from "../../../redux/actions";
 
 const CheckBox = props => {
 	return (
@@ -17,70 +18,34 @@ const CheckBox = props => {
 	);
 };
 
-export default class TicketPicker extends Component {
-	state = {
-		oneWay: { id: 0, value: "Bilety punktowe", isChecked: true, type: TicketsType.oneWay },
-		season: { id: 1, value: "Bilety terminowe", isChecked: true, type: TicketsType.season },
-	};
-
-	setTicketInfo() {
-		const { oneWay, season } = this.state;
-		const allTypes = [oneWay, season];
-		const selectedItems = allTypes.filter(item => item.isChecked);
-		const selectedTypes = selectedItems.map(item => item.type);
-		const finalTypes = selectedTypes.length === 2 ? [] : selectedTypes;
-		this.props.onTicketTypeChange(finalTypes);
-	}
-
+class TicketPicker extends Component {
 	handleCheckNormalElement = event => {
-		const { oneWay, season } = this.state;
-		switch (event.target.value) {
-			case oneWay.value: {
-				this.setState(
-					{
-						oneWay: {
-							...oneWay,
-							isChecked: !oneWay.isChecked,
-						},
-					},
-					this.setTicketInfo,
-				);
-				break;
-			}
-			case season.value: {
-				this.setState(
-					{
-						season: {
-							...season,
-							isChecked: !season.isChecked,
-						},
-					},
-					this.setTicketInfo,
-				);
-				break;
-			}
-			default:
-				break;
-		}
+		let tickets = this.props.app.filters.ticketType;
+		tickets.forEach(ticket => {
+			if (ticket.value === event.target.value)
+				ticket.isChecked = event.target.checked;
+		});
+		this.props.setTicketsType(tickets);
 	};
 
 	render() {
-		const { oneWay, season } = this.state;
 		return (
 			<div className="pickerContainer">
-				<CheckBox
-					key={oneWay.id}
-					handleCheckElement={this.handleCheckNormalElement}
-					value={oneWay.value}
-					isChecked={oneWay.isChecked}
-				/>
-				<CheckBox
-					key={season.id}
-					handleCheckElement={this.handleCheckNormalElement}
-					value={season.value}
-					isChecked={season.isChecked}
-				/>
+				{this.props.app.filters.ticketType.map(ticket => {
+					return (
+						<CheckBox
+							key={ticket.id}
+							handleCheckElement={this.handleCheckNormalElement}
+							{...ticket}
+						/>
+					);
+				})}
 			</div>
 		);
 	}
 }
+
+const mapStateToProps = state => state;
+const dispatchToProps = { setTicketsType };
+
+export default connect(mapStateToProps, dispatchToProps)(TicketPicker);
